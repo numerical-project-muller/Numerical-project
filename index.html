@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muller's Method - Numerical Root Finding</title>
+    <title>Muller's Method - Numerical Analysis Project</title>
     <!-- MathJax for rendering mathematical formulas -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/dist/es5/tex-mml-chtml.js"></script>
@@ -108,6 +108,13 @@
         h3 {
             color: var(--secondary-color);
             margin-top: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        h4 {
+            color: var(--primary-color);
+            margin-top: 1.2rem;
         }
 
         ul, ol {
@@ -124,6 +131,14 @@
             border-collapse: collapse;
             margin: 1.5rem 0;
             font-size: 0.95rem;
+        }
+
+        caption {
+            font-style: italic;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            color: #64748b;
         }
 
         th, td {
@@ -153,6 +168,8 @@
 
         .input-group {
             margin-bottom: 1rem;
+            display: inline-block;
+            margin-right: 1.5rem;
         }
 
         .input-group label {
@@ -163,22 +180,25 @@
 
         .input-group input, .input-group select {
             width: 100%;
-            max-width: 300px;
+            min-width: 200px;
             padding: 0.5rem;
             border: 1px solid var(--border-color);
             border-radius: 4px;
             font-size: 1rem;
+            background: #ffffff;
         }
 
         button {
             background-color: var(--secondary-color);
             color: white;
             border: none;
-            padding: 0.6rem 1.2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 4px;
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.2s;
+            display: block;
+            margin-top: 1rem;
         }
 
         button:hover {
@@ -188,12 +208,14 @@
         .results {
             margin-top: 1.5rem;
             background: white;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 4px;
             border: 1px solid var(--border-color);
-            max-height: 300px;
+            max-height: 400px;
             overflow-y: auto;
-            font-family: monospace;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
         }
 
         /* Responsive Video Container */
@@ -235,10 +257,11 @@
             <div>
                 <a href="#background">Background</a>
                 <a href="#concepts">Key Concepts</a>
-                <a href="#implementation">Implementation</a>
+                <a href="#implementation">Step-by-Step</a>
                 <a href="#examples">Examples</a>
                 <a href="#application">Application</a>
-                <a href="#demo">Demo Video</a>
+                <a href="#calculator">Interactive Demo</a>
+                <a href="#demo">Excel Demo</a>
             </div>
         </div>
     </nav>
@@ -313,6 +336,7 @@
 
             <h3>Comparison of Methods for Real Roots</h3>
             <table>
+                <caption>Table 1: Comparative Analysis of Numerical Root-Finding Methods</caption>
                 <thead>
                     <tr>
                         <th>Method</th>
@@ -393,12 +417,14 @@
         <section id="examples">
             <h2>4. Three Mathematical Examples</h2>
 
+            <!-- Example 1 -->
             <h3>Example 1 (Real Roots): $f(x) = x^3 - x - 1 = 0$</h3>
             <p><strong>Exact Root:</strong> $x \approx 1.324718$ (The Plastic Ratio)</p>
             <p>Comparing <strong>Newton's Method</strong> (initial guess $x_0 = 1.5$) vs <strong>Muller's Method</strong> (guesses $x_0 = 1.0, x_1 = 1.1, x_2 = 1.2$):</p>
             
             <h4>Newton's Method Iterations:</h4>
             <table>
+                <caption>Table 2: Newton's Method Convergence Data for Example 1</caption>
                 <thead>
                     <tr>
                         <th>Iteration</th>
@@ -416,6 +442,7 @@
 
             <h4>Muller's Method Iterations:</h4>
             <table>
+                <caption>Table 3: Muller's Method Convergence Data for Example 1</caption>
                 <thead>
                     <tr>
                         <th>Iteration</th>
@@ -432,102 +459,312 @@
             </table>
             <p><em>Comparison:</em> Both methods converge extremely fast, but Muller's method achieves higher accuracy within 3 iterations despite using only function evaluations without derivatives.</p>
 
-            <h3>Example 2 (Complex Roots): $f(x) = x^2 + 2x + 5 = 0$</h3>
-            <p><strong>Exact Roots:</strong> $-1 + 2i$ and $-1 - 2i$</p>
-            <p>Solved using Muller's method with real initial guesses $x_0 = 0, x_1 = 1, x_2 = 2$:</p>
+            <!-- Example 2 -->
+            <h3>Example 2 (Real Root Focus): $f(x) = x^3 - 6x^2 + 11x - 6 = 0$</h3>
+            <p>
+                In this case, we analyze a cubic equation with three distinct real roots: $x = 1, 2,$ and $3$. We demonstrate the step-by-step convergence to the real root $x = 1$ using Muller's method.
+            </p>
+            <h4>Step-by-Step Iteration Calculations:</h4>
+            <p>
+                Let's select initial guesses close to 1: $x_0 = 0.5$, $x_1 = 0.7$, $x_2 = 0.8$.
+                $$f(x_0) = -1.875, \quad f(x_1) = -0.897, \quad f(x_2) = -0.528$$
+            </p>
+            <ul>
+                <li>
+                    <strong>Iteration 1:</strong>
+                    <p>
+                        $$h_0 = x_1 - x_0 = 0.2, \quad h_1 = x_2 - x_1 = 0.1$$
+                        $$\delta_0 = \frac{f(x_1) - f(x_0)}{h_0} = \frac{-0.897 - (-1.875)}{0.2} = 4.89$$
+                        $$\delta_1 = \frac{f(x_2) - f(x_1)}{h_1} = \frac{-0.528 - (-0.897)}{0.1} = 3.69$$
+                        $$a = \frac{\delta_1 - \delta_0}{h_1 + h_0} = \frac{3.69 - 4.89}{0.3} = -4.000000$$
+                        $$b = a \cdot h_1 + \delta_1 = -4(0.1) + 3.69 = 3.290000$$
+                        $$c = f(x_2) = -0.528000$$
+                        $$D = b^2 - 4ac = (3.29)^2 - 4(-4)(-0.528) = 2.376100 \implies \sqrt{D} \approx 1.541460$$
+                        Since $b > 0$, we use the positive sign: $\text{Denom} = 3.29 + 1.541460 = 4.831460$.
+                        $$x_3 = x_2 - \frac{2c}{\text{Denom}} = 0.8 - \frac{2(-0.528)}{4.831460} \approx 1.018567$$
+                    </p>
+                </li>
+                <li>
+                    <strong>Iteration 2:</strong>
+                    <p>
+                        We update the points: $x_0 = 0.7$, $x_1 = 0.8$, $x_2 = 1.018567$. The updated function value is $f(1.018567) \approx 0.036087$.
+                        Repeating the algorithm yields:
+                        $$a \approx -3.481812, \quad b \approx 1.819800, \quad c \approx 0.036087$$
+                        The denominator is maximized to $3.772820$, giving:
+                        $$x_3 \approx 0.999441$$
+                    </p>
+                </li>
+                <li>
+                    <strong>Iteration 3:</strong>
+                    <p>
+                        We update the points: $x_0 = 0.8$, $x_1 = 1.018567$, $x_2 = 0.999441$. The updated function value is $f(0.999441) \approx -0.001119$.
+                        Executing the third iteration yields:
+                        $$a \approx -3.188260, \quad b \approx 2.005920, \quad c \approx -0.001119$$
+                        $$x_3 \approx 0.999999$$
+                    </p>
+                </li>
+            </ul>
+
+            <h4>Muller's Method Convergence & Error Analysis:</h4>
             <table>
+                <caption>Table 4: Muller's Method Iteration Data and Error Analysis for Example 2</caption>
                 <thead>
                     <tr>
-                        <th>Iteration</th>
-                        <th>$x_3$ (Approximation)</th>
-                        <th>$f(x_3)$</th>
+                        <th>Iteration ($i$)</th>
+                        <th>Coefficient $a$</th>
+                        <th>Coefficient $b$</th>
+                        <th>Coefficient $c$</th>
+                        <th>Approximated Root $x_3$</th>
+                        <th>Absolute Error ($E_t$)</th>
+                        <th>Approx. Rel. Error ($\epsilon_a$)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>$-1.000000 + 1.732051i$</td><td>$1.000000$</td></tr>
-                    <tr><td>2</td><td>$-1.000000 + 2.000000i$</td><td>$0.000000$</td></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>-4.000000</td>
+                        <td>3.290000</td>
+                        <td>-0.528000</td>
+                        <td>1.018567</td>
+                        <td>0.018567</td>
+                        <td>21.46%</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>-3.481812</td>
+                        <td>1.819800</td>
+                        <td>0.036087</td>
+                        <td>0.999441</td>
+                        <td>0.000559</td>
+                        <td>1.91%</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>-3.188260</td>
+                        <td>2.005920</td>
+                        <td>-0.001119</td>
+                        <td>0.999999</td>
+                        <td>0.000001</td>
+                        <td>0.06%</td>
+                    </tr>
                 </tbody>
             </table>
 
-            <h3>Example 3 (Mixed Roots Polynomial): $f(x) = x^3 - 3x^2 + 4x - 2 = 0$</h3>
-            <p><strong>Exact Roots:</strong> $1$ (Real), and $1 + i, 1 - i$ (Complex Conjugates)</p>
-            <p>Using Muller's method with guesses $x_0 = 1.5, x_1 = 2.0, x_2 = 2.5$ yields convergence to the complex root:</p>
+            <h4>Academic Discussion:</h4>
+            <p>
+                As observed in <em>Table 4</em>, Muller's method exhibits spectacular convergence characteristics. Although the first approximation error was relatively high ($21.46\%$) due to the distant initial guesses, the subsequent steps showed superlinear convergence (approaching quadratic convergence). By Iteration 3, the absolute error dropped to $10^{-6}$. Muller's method excels here because fitting a parabola accommodates local changes in curvature much better than straight-line interpolation techniques (like the Secant method).
+            </p>
+
+            <!-- Example 3 -->
+            <h3>Example 3 (Complex Roots - Core Feature): $f(x) = x^2 + x + 1 = 0$</h3>
+            <p>
+                <strong>Exact Roots:</strong> $x = -0.5 \pm \frac{\sqrt{3}}{2}i \approx -0.5 \pm 0.866025i$
+            </p>
+
+            <h4>Why Traditional Methods Fail:</h4>
+            <p>
+                Bracketing methods (like <strong>Bisection</strong> and <strong>False Position</strong>) require a sign change across an interval $[a, b]$ such that $f(a) \cdot f(b) < 0$. However, since $f(x) = (x + 0.5)^2 + 0.75 > 0$ for all real values of $x$, the function graph never crosses the horizontal axis, making real brackets mathematically impossible to form.
+            </p>
+            <p>
+                Open methods like <strong>Newton-Raphson</strong> and <strong>Secant</strong> operate entirely within the real domain if initiated with real inputs. Since all derivatives, slopes, and update calculations involve only real numbers, the sequence of updates remains strictly bound to the real line, never entering the complex plane.
+            </p>
+
+            <h4>How Muller's Method Spontaneously Resolves Complex Roots:</h4>
+            <p>
+                Muller's formula determines the root of the interpolating parabola using:
+                $$x_3 = x_2 - \frac{2c}{b \pm \sqrt{b^2 - 4ac}}$$
+                When the discriminant $D = b^2 - 4ac < 0$, taking the square root <strong>automatically introduces the imaginary unit $i$</strong>. This critical mechanism enables the method to naturally break out of the real domain and jump into the complex plane, even when started with purely real initial guesses.
+            </p>
+
+            <h4>One-Step Exact Solution Calculation:</h4>
+            <p>
+                Let's use the real initial guesses: $x_0 = -1$, $x_1 = 0$, $x_2 = 1$. The corresponding function values are:
+                $$f(-1) = 1, \quad f(0) = 1, \quad f(1) = 3$$
+                This yields:
+                $$h_0 = 1, \quad h_1 = 1, \quad \delta_0 = 0, \quad \delta_1 = 2$$
+                $$a = \frac{\delta_1 - \delta_0}{2} = 1, \quad b = a \cdot h_1 + \delta_1 = 3, \quad c = f(x_2) = 3$$
+                Now we evaluate the discriminant:
+                $$D = b^2 - 4ac = 3^2 - 4(1)(3) = -3$$
+                Since $D < 0$, we get the complex term: $\sqrt{D} = \sqrt{3}i \approx 1.732051i$. To maximize the denominator, we choose the positive sign:
+                $$\text{Denom} = 3 + \sqrt{3}i$$
+                $$x_3 = 1 - \frac{6}{3 + \sqrt{3}i} = 1 - \frac{6(3 - \sqrt{3}i)}{(3 + \sqrt{3}i)(3 - \sqrt{3}i)} = 1 - \frac{18 - 6\sqrt{3}i}{12} = -0.5 + 0.866025i$$
+            </p>
+
+            <h4>Convergence Path for Complex Root:</h4>
             <table>
+                <caption>Table 5: Complex Root Iterative Track of Muller's Method</caption>
                 <thead>
                     <tr>
-                        <th>Iteration</th>
-                        <th>$x_3$</th>
-                        <th>Relative Error ($\%$)</th>
+                        <th>Iteration ($i$)</th>
+                        <th>Coefficient $a$</th>
+                        <th>Coefficient $b$</th>
+                        <th>Coefficient $c$</th>
+                        <th>Approximated Root $x_3$</th>
+                        <th>Approx. Rel. Error ($\epsilon_a$)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>$0.956522 + 0.826087i$</td><td>18.4%</td></tr>
-                    <tr><td>2</td><td>$1.012354 + 0.985412i$</td><td>1.75%</td></tr>
-                    <tr><td>3</td><td>$1.000000 + 1.000000i$</td><td>0.00%</td></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1.000000</td>
+                        <td>3.000000</td>
+                        <td>3.000000</td>
+                        <td>-0.500000 + 0.866025i</td>
+                        <td>0.00% (Exact Convergence)</td>
+                    </tr>
                 </tbody>
             </table>
+
+            <h4>Academic Discussion:</h4>
+            <p>
+                As highlighted in <em>Table 5</em>, Muller's method converged to the exact complex root in <strong>exactly one iteration</strong>. This is because the target function $f(x) = x^2 + x + 1$ is a quadratic polynomial. Since Muller's method interpolates three points with a unique quadratic parabola, the interpolating polynomial $P(x)$ matches the function $f(x)$ perfectly. Thus, finding the roots of $P(x)$ yields the exact roots of $f(x)$ instantly. This showcases the unique algebraic power of the method when dealing with low-degree systems.
+            </p>
         </section>
 
         <!-- Application Section -->
         <section id="application">
-            <h2>5. Real-world Application (No Exact Solution Needed)</h2>
-            <h3>Chemical Engineering: Van der Waals Equation of State</h3>
+            <h2>5. Real-World Application: Structural Vibration Analysis</h2>
+            
+            <h4>Engineering Scenario & Mathematical Modeling:</h4>
             <p>
-                The non-ideal behavior of gases is modeled by the Van der Waals equation:
-                $$\left( P + \frac{a}{v^2} \right) (v - b) = R T$$
-                When rearranged as a function of specific volume $v$, it becomes a cubic polynomial:
-                $$f(v) = v^3 - \left(b + \frac{RT}{P}\right)v^2 + \frac{a}{P}v - \frac{ab}{P} = 0$$
+                In structural engineering, analyzing the dynamic behavior of multi-story buildings subjected to wind or earthquake forces is essential. 
+                Consider a three-story shear building model. To safeguard against resonant vibration during earthquakes, engineers must find the fundamental natural frequencies of the structure by solving the characteristic equation:
+                $$\det(\mathbf{K} - \omega^2 \mathbf{M}) = 0$$
+                where $\mathbf{M}$ is the mass matrix, $\mathbf{K}$ is the stiffness matrix, and $\omega$ is the natural frequency (rad/s). For a specific lightweight steel structure, substituting physical properties and letting $\lambda = \omega^2$ yields the characteristic cubic polynomial:
+                $$P(\lambda) = \lambda^3 - 250\lambda^2 + 15000\lambda - 200000 = 0$$
+                We must solve for the fundamental eigenvalue (the smallest positive real root $\lambda_1$) using Muller's method, and then find the lowest natural frequency $\omega_1 = \sqrt{\lambda_1}$.
             </p>
+
+            <h4>Step-by-Step Calculation:</h4>
             <p>
-                Given parameters for Carbon Dioxide ($CO_2$):
-                <ul>
-                    <li>$a = 3.592 \text{ L}^2\cdot\text{atm/mol}^2$</li>
-                    <li>$b = 0.04267 \text{ L/mol}$</li>
-                    <li>$R = 0.08206 \text{ L}\cdot\text{atm/(mol}\cdot\text{K)}$</li>
-                    <li>At temperature $T = 300\text{ K}$ and Pressure $P = 40\text{ atm}$</li>
-                </ul>
-                Plugging in the constants, we get the equation to solve:
-                $$f(v) = v^3 - 0.65812v^2 + 0.08980v - 0.00383 = 0$$
+                Based on physical estimates, the root lies in $[10, 20]$. Let's choose:
+                $$\lambda_0 = 10, \quad \lambda_1 = 15, \quad \lambda_2 = 20$$
+                $$P(10) = -74000, \quad P(15) = -27875, \quad P(20) = 8000$$
             </p>
-            <p><strong>Numerical solution using Muller's Method:</strong></p>
-            <p>Initial guesses: $v_0 = 0.1, v_1 = 0.5, v_2 = 1.0$</p>
             <ul>
-                <li><strong>Iteration 1:</strong> $v_3 = 0.50912$</li>
-                <li><strong>Iteration 2:</strong> $v_3 = 0.49321$</li>
-                <li><strong>Iteration 3:</strong> $v_3 = 0.49124$</li>
+                <li>
+                    <strong>Iteration 1:</strong>
+                    <p>
+                        $$h_0 = 5, \quad h_1 = 5, \quad \delta_0 = 9225, \quad \delta_1 = 7175$$
+                        $$a = \frac{7175 - 9225}{10} = -205.000000$$
+                        $$b = a \cdot h_1 + \delta_1 = -205(5) + 7175 = 6150.000000$$
+                        $$c = P(\lambda_2) = 8000.000000$$
+                        $$D = b^2 - 4ac = 44382500 \implies \sqrt{D} \approx 6661.996728$$
+                        Using positive sign: $\text{Denom} = 12811.996728$.
+                        $$\lambda_3 = 20 - \frac{16000}{12811.996728} \approx 18.751167$$
+                        Evaluating the new point: $P(18.751167) \approx -47.753800$.
+                    </p>
+                </li>
+                <li>
+                    <strong>Iteration 2:</strong>
+                    <p>
+                        Updating points: $\lambda_0 = 15$, $\lambda_1 = 20$, $\lambda_2 = 18.751167$.
+                        Applying the second round of quadratic interpolation:
+                        $$h_0 = 5, \quad h_1 = -1.248833$$
+                        $$\delta_0 = 7175.000000, \quad \delta_1 \approx 6444.233000$$
+                        $$a \approx -194.811000, \quad b \approx 6687.521000, \quad c \approx -47.753800$$
+                        $$\lambda_3 \approx 18.758312$$
+                        At this point, $P(18.758312) \approx -0.130000$, showing extreme proximity to the root.
+                    </p>
+                </li>
             </ul>
-            <p>The physical volume occupied by the $CO_2$ gas is approximately <strong>$0.49124 \text{ L/mol}$</strong>.</p>
+
+            <h4>Numerical Solution Trace:</h4>
+            <table>
+                <caption>Table 6: Iterative Steps of Muller's Method for Structural Characteristic Root</caption>
+                <thead>
+                    <tr>
+                        <th>Iteration ($i$)</th>
+                        <th>Coefficient $a$</th>
+                        <th>Coefficient $b$</th>
+                        <th>Coefficient $c$</th>
+                        <th>Approximated Eigenvalue $\lambda_3$</th>
+                        <th>Approx. Rel. Error ($\epsilon_a$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>-205.000000</td>
+                        <td>6150.000000</td>
+                        <td>8000.000000</td>
+                        <td>18.751167</td>
+                        <td>6.66%</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>-194.811000</td>
+                        <td>6687.521000</td>
+                        <td>-47.753800</td>
+                        <td>18.758312</td>
+                        <td>0.038%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Engineering Interpretation of the Numerical Results:</h4>
+            <p>
+                Using Muller's method, we resolved the lowest eigenvalue $\lambda_1 \approx 18.7583 \text{ rad}^2/\text{s}^2$. 
+                This translates directly to the <strong>fundamental natural frequency</strong> of the structure:
+                $$\omega_1 = \sqrt{\lambda_1} = \sqrt{18.7583} \approx 4.331 \text{ rad/s}$$
+                Converting this to standard cyclic frequency in Hertz (Hz):
+                $$f_1 = \frac{\omega_1}{2\pi} \approx 0.689 \text{ Hz}$$
+            </p>
+            <p>
+                <strong>Critical Engineering Takeaways:</strong>
+            </p>
+            <ul>
+                <li>
+                    <strong>Resonance Analysis:</strong> Most destructive earthquakes have significant wave energy focused in the $0.5 \text{ Hz}$ to $5.0 \text{ Hz}$ frequency band. Because our building's fundamental frequency $f_1 \approx 0.689 \text{ Hz}$ lies squarely in this range, the building is at high risk of resonance, which would cause severe structural deformations and potential collapse.
+                </li>
+                <li>
+                    <strong>Structural Retrofitting Strategies:</strong> 
+                    To protect the structure, engineers must shift this frequency away from the danger zone. They can either <strong>stiffen</strong> the frame (adding shear walls or diagonal steel bracing) to push $f_1$ above $1.5 \text{ Hz}$, or <strong>isolate</strong> the structure (using rubber base isolation bearings) to lower $f_1$ to around $0.2 \text{ Hz}$, completely decoupling the building from seismic ground motions.
+                </li>
+            </ul>
         </section>
 
         <!-- Interactive Calculator (Extra Bonus for Project Showcase) -->
         <section id="calculator">
-            <h2>Interactive Muller's Method Demo</h2>
-            <p>Explore how Muller's method solves the polynomial equation $f(x) = x^3 - x - 1$ interactively!</p>
+            <h2>5. Interactive Muller's Method Solver</h2>
+            <p>Select an equation from the examples above or enter custom initial guesses to see Muller's method compute the real or complex roots dynamically!</p>
+            
             <div class="interactive-box">
                 <div class="input-group">
-                    <label>Initial Guess $x_0$:</label>
-                    <input type="number" id="x0" value="1.0" step="0.1">
+                    <label>Select Target Equation:</label>
+                    <select id="equationSelect" onchange="loadPreset()">
+                        <option value="eq1">Example 1: x^3 - x - 1 = 0 (Real Root)</option>
+                        <option value="eq2">Example 2: x^3 - 6x^2 + 11x - 6 = 0 (Real Root)</option>
+                        <option value="eq3">Example 3: x^2 + x + 1 = 0 (Complex Roots)</option>
+                        <option value="eq4">Application: x^3 - 250x^2 + 15000x - 200000 = 0</option>
+                    </select>
                 </div>
-                <div class="input-group">
-                    <label>Initial Guess $x_1$:</label>
-                    <input type="number" id="x1" value="1.1" step="0.1">
+                <div style="margin-top: 10px;">
+                    <div class="input-group">
+                        <label>Initial Guess $x_0$:</label>
+                        <input type="number" id="x0" value="1.0" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Initial Guess $x_1$:</label>
+                        <input type="number" id="x1" value="1.1" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Initial Guess $x_2$:</label>
+                        <input type="number" id="x2" value="1.2" step="0.1">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label>Initial Guess $x_2$:</label>
-                    <input type="number" id="x2" value="1.2" step="0.1">
-                </div>
-                <button onclick="runMuller()">Calculate Roots</button>
+                <button onclick="runComplexMuller()">Run Muller's Algorithm</button>
 
-                <div class="results" id="output">Click "Calculate Roots" to run the algorithm.</div>
+                <div class="results" id="output">Click "Run Muller's Algorithm" to display steps here...</div>
             </div>
         </section>
 
         <!-- Demonstration Video Section -->
         <section id="demo">
-            <h2>6. Demonstration Video</h2>
-            <p>This video demonstrates how to implement and execute Muller's Method inside Microsoft Excel without complex coding.</p>
+            <h2>6. Microsoft Excel Demonstration</h2>
+            <p>Watch this video guide showing how to implement Muller's Method step-by-step inside Microsoft Excel without using complex VBA code.</p>
             <div class="video-container">
-                <!-- Replace with your actual YouTube video embed link if you upload one -->
+                <!-- Placeholder iframe - replace with your actual YouTube URL or uploaded file -->
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
             </div>
         </section>
@@ -556,53 +793,128 @@
 
     <!-- Interactive JS logic -->
     <script>
-        function runMuller() {
-            // Evaluates f(x) = x^3 - x - 1
+        // Simple Complex Arithmetic Helper Class
+        class Complex {
+            constructor(re, im = 0) {
+                this.re = re;
+                this.im = im;
+            }
+            add(other) { return new Complex(this.re + other.re, this.im + other.im); }
+            sub(other) { return new Complex(this.re - other.re, this.im - other.im); }
+            mul(other) { return new Complex(this.re * other.re - this.im * other.im, this.re * other.im + this.im * other.re); }
+            div(other) {
+                let denom = other.re * other.re + other.im * other.im;
+                return new Complex((this.re * other.re + this.im * other.im) / denom, (this.im * other.re - this.re * other.im) / denom);
+            }
+            sqrt() {
+                let r = Math.sqrt(this.re * this.re + this.im * this.im);
+                let re = Math.sqrt((r + this.re) / 2);
+                let im = Math.sqrt((r - this.re) / 2) * (this.im < 0 ? -1 : 1);
+                return new Complex(re, im);
+            }
+            abs() { return Math.sqrt(this.re * this.re + this.im * this.im); }
+            toString(precision = 6) {
+                if (Math.abs(this.im) < 1e-9) return this.re.toFixed(precision);
+                let sign = this.im >= 0 ? "+" : "-";
+                return `${this.re.toFixed(precision)} ${sign} ${Math.abs(this.im).toFixed(precision)}i`;
+            }
+        }
+
+        const presets = {
+            eq1: { x0: 1.0, x1: 1.1, x2: 1.2 },
+            eq2: { x0: 0.5, x1: 0.7, x2: 0.8 },
+            eq3: { x0: -1.0, x1: 0.0, x2: 1.0 },
+            eq4: { x0: 10.0, x1: 15.0, x2: 20.0 }
+        };
+
+        function loadPreset() {
+            let eq = document.getElementById('equationSelect').value;
+            if (presets[eq]) {
+                document.getElementById('x0').value = presets[eq].x0;
+                document.getElementById('x1').value = presets[eq].x1;
+                document.getElementById('x2').value = presets[eq].x2;
+            }
+        }
+
+        function runComplexMuller() {
+            let eq = document.getElementById('equationSelect').value;
+
+            // Define the equations using Complex arithmetic
             function f(x) {
-                return x*x*x - x - 1;
+                if (eq === 'eq1') {
+                    // x^3 - x - 1
+                    return x.mul(x).mul(x).sub(x).sub(new Complex(1, 0));
+                } else if (eq === 'eq2') {
+                    // x^3 - 6x^2 + 11x - 6
+                    let x3 = x.mul(x).mul(x);
+                    let x2 = x.mul(x).mul(new Complex(6));
+                    let x1 = x.mul(new Complex(11));
+                    return x3.sub(x2).add(x1).sub(new Complex(6));
+                } else if (eq === 'eq3') {
+                    // x^2 + x + 1
+                    return x.mul(x).add(x).add(new Complex(1, 0));
+                } else if (eq === 'eq4') {
+                    // x^3 - 250x^2 + 15000x - 200000
+                    let x3 = x.mul(x).mul(x);
+                    let x2 = x.mul(x).mul(new Complex(250));
+                    let x1 = x.mul(new Complex(15000));
+                    return x3.sub(x2).add(x1).sub(new Complex(200000));
+                }
             }
 
-            let x0 = parseFloat(document.getElementById('x0').value);
-            let x1 = parseFloat(document.getElementById('x1').value);
-            let x2 = parseFloat(document.getElementById('x2').value);
+            let x0 = new Complex(parseFloat(document.getElementById('x0').value));
+            let x1 = new Complex(parseFloat(document.getElementById('x1').value));
+            let x2 = new Complex(parseFloat(document.getElementById('x2').value));
 
-            let output = "<strong>Starting iterations...</strong><br><br>";
+            let output = "==================================================\n";
+            output += "          MULLER'S METHOD RUN DETAILS\n";
+            output += "==================================================\n\n";
+
             let maxIter = 10;
             let tolerance = 1e-6;
 
             for (let i = 1; i <= maxIter; i++) {
-                let h0 = x1 - x0;
-                let h1 = x2 - x1;
-                let d0 = (f(x1) - f(x0)) / h0;
-                let d1 = (f(x2) - f(x1)) / h1;
+                let h0 = x1.sub(x0);
+                let h1 = x2.sub(x1);
+                let d0 = f(x1).sub(f(x0)).div(h0);
+                let d1 = f(x2).sub(f(x1)).div(h1);
 
-                let a = (d1 - d0) / (h1 + h0);
-                let b = a * h1 + d1;
+                let a = d1.sub(d0).div(h1.add(h0));
+                let b = a.mul(h1).add(d1);
                 let c = f(x2);
 
-                let discriminant = Math.sqrt(b*b - 4*a*c);
-                if (isNaN(discriminant)) {
-                    // Fallback to absolute value logic if complex roots are hit (simplified for real JS calculations)
-                    discriminant = 0; 
-                }
+                // b^2 - 4ac
+                let disc = b.mul(b).sub(new Complex(4).mul(a).mul(c));
+                let sqrtDisc = disc.sqrt();
 
-                // Choose larger denominator
-                let denom1 = b + discriminant;
-                let denom2 = b - discriminant;
-                let denom = (Math.abs(denom1) > Math.abs(denom2)) ? denom1 : denom2;
+                // Denominator maximization
+                let denom1 = b.add(sqrtDisc);
+                let denom2 = b.sub(sqrtDisc);
+                let denom = (denom1.abs() > denom2.abs()) ? denom1 : denom2;
 
-                if (denom === 0) {
-                    output += "Division by zero error.<br>";
+                if (denom.abs() < 1e-15) {
+                    output += "Division by zero occurred.\n";
                     break;
                 }
 
-                let dx = -2 * c / denom;
-                let x3 = x2 + dx;
+                // x3 = x2 - 2c / denom
+                let dx = new Complex(-2).mul(c).div(denom);
+                let x3 = x2.add(dx);
 
-                output += `Iteration ${i}: x = ${x3.toFixed(6)}, f(x) = ${f(x3).toFixed(6)}<br>`;
+                output += `Iteration ${i}:\n`;
+                output += `  a     = ${a.toString()}\n`;
+                output += `  b     = ${b.toString()}\n`;
+                output += `  c     = ${c.toString()}\n`;
+                output += `  x3    = ${x3.toString()}\n`;
+                output += `  f(x3) = ${f(x3).toString()}\n`;
+                output += `  Error = ${dx.abs().toFixed(8)}\n\n`;
 
-                if (Math.abs(dx) < tolerance) {
-                    output += `<br><span style="color:var(--accent-color)"><strong>Converged to root: ${x3.toFixed(6)} in ${i} iterations!</strong></span>`;
+                if (dx.abs() < tolerance) {
+                    output += `--------------------------------------------------\n`;
+                    output += `SUCCESS: Converged to Root:\n`;
+                    output += `  Root = ${x3.toString()}\n`;
+                    output += `  Completed in ${i} iteration(s).\n`;
+                    output += `--------------------------------------------------\n`;
                     break;
                 }
 
@@ -611,7 +923,12 @@
                 x2 = x3;
             }
 
-            document.getElementById('output').innerHTML = output;
+            document.getElementById('output').textContent = output;
+        }
+
+        // Initialize presets on load
+        window.onload = function() {
+            loadPreset();
         }
     </script>
 </body>

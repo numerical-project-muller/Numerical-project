@@ -6,9 +6,20 @@
     <title>Muller's Method - Advanced Numerical Analysis Dashboard</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- IMPORTANT: MathJax Configuration to enable single dollar sign ($) parsing -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
     <!-- MathJax CDN for rendering LaTeX formulas -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/dist/es5/tex-mml-chtml.js"></script>
+    
     <!-- Chart.js CDN for Live Plotting -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -332,7 +343,7 @@
                         Newton's method commenced with a substantial true relative error of $25.000\%$ at the initial guess $x_0 = 5.0$. Iterating through linear tangent updates, the true relative error dropped to $5.645\%$ in Iteration 1, and required 4 full iterations to completely eliminate the approximation error down to $0.000\%$.
                     </p>
                     <p>
-                        In contrast, Muller's method displayed a significantly more aggressive convergence trajectory. Starting from three moving initial approximations ($x_0 = 3.0, x_1 = 3.5, x_2 = 4.5$), its very first iteration successfully slashed the true relative error down to an astonishing $0.177\%$ ($x_3 = 3.992892$). By Iteration 3, Muller's method achieved perfect convergence to $4.000000$ with a true relative error of $0.000\%$, effectively outpacing Newton's method by one full iteration.
+                        In contrast, Muller's method displayed a significantly more aggressive convergence trajectory. Starting from three moving initial approximations ($x_0 = 3.0, x_1 = 3.5, x_2 = 4.5$), its very first iteration successfully slashed the true relative error down to an astonishing $0.177\%$ ($x_3 = 3.992892$). By Iteration 3, Muller's method achieved perfect convergence to $4.000000$ with a true relative error of $0.000\%$, effectively outpaced Newton's method by one full iteration.
                     </p>
                     <p>
                         <strong>4.2 Mathematical Interpretation of Algorithm Mechanisms:</strong>

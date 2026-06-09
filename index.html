@@ -112,7 +112,7 @@
                         </div>
                         <div class="p-4 bg-white border-t border-slate-200">
                             <h3 class="font-extrabold text-slate-900 text-base">Loh Eng Tom</h3>
-                            <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
+                            <p class="text-xs font-semibold text-indigo-600 mt-1">Matric Number</p>
                             <p class="text-sm font-mono text-slate-500 font-bold">300084</p>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                         </div>
                         <div class="p-4 bg-white border-t border-slate-200">
                             <h3 class="font-extrabold text-slate-900 text-base">SingJie Srisoi</h3>
-                            <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
+                            <p class="text-xs font-semibold text-indigo-600 mt-1">Matric Number</p>
                             <p class="text-sm font-mono text-slate-500 font-bold">299908</p>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                         </div>
                         <div class="p-4 bg-white border-t border-slate-200">
                             <h3 class="font-extrabold text-slate-900 text-base">Wong Kah Mun</h3>
-                            <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
+                            <p class="text-xs font-semibold text-indigo-600 mt-1">Matric Number</p>
                             <p class="text-sm font-mono text-slate-500 font-bold">297862</p>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                         </div>
                         <div class="p-4 bg-white border-t border-slate-200">
                             <h3 class="font-extrabold text-slate-900 text-base">Lim Wei Hen</h3>
-                            <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
+                            <p class="text-xs font-semibold text-indigo-600 mt-1">Matric Number</p>
                             <p class="text-sm font-mono text-slate-500 font-bold">300443</p>
                         </div>
                     </div>
@@ -1111,6 +1111,49 @@
 
             document.getElementById('output').textContent = output;
             plotFunction(eq, convergedRootReal);
+        }
+
+        // Complex Number Utility
+        class Complex {
+            constructor(re, im = 0) {
+                this.re = re;
+                this.im = im;
+            }
+            add(other) { return new Complex(this.re + other.re, this.im + other.im); }
+            sub(other) { return new Complex(this.re - other.re, this.im - other.im); }
+            mul(other) { return new Complex(this.re * other.re - this.im * other.im, this.re * other.im + this.im * other.re); }
+            div(other) {
+                let denom = other.re * other.re + other.im * other.im;
+                return new Complex((this.re * other.re + this.im * other.im) / denom, (this.im * other.re - this.re * other.im) / denom);
+            }
+            sqrt() {
+                let r = Math.sqrt(this.re * this.re + this.im * this.im);
+                let re = Math.sqrt((r + this.re) / 2);
+                let im = Math.sqrt((r - this.re) / 2) * (this.im < 0 ? -1 : 1);
+                return new Complex(re, im);
+            }
+            abs() { return Math.sqrt(this.re * this.re + this.im * this.im); }
+            toString(precision = 6) {
+                if (Math.abs(this.im) < 1e-9) return this.re.toFixed(precision);
+                let sign = this.im >= 0 ? "+" : "-";
+                return `${this.re.toFixed(precision)} ${sign} ${Math.abs(this.im).toFixed(precision)}i`;
+            }
+        }
+
+        const presets = {
+            eq1: { x0: 3.0, x1: 3.5, x2: 4.5 },
+            eq2: { x0: 0.5, x1: 0.7, x2: 0.8 },
+            eq3: { x0: -1.0, x1: 0.0, x2: 1.0 },
+            eq4: { x0: 10.0, x1: 15.0, x2: 20.0 }
+        };
+
+        function loadPreset() {
+            let eq = document.getElementById('equationSelect').value;
+            if (presets[eq]) {
+                document.getElementById('x0').value = presets[eq].x0;
+                document.getElementById('x1').value = presets[eq].x1;
+                document.getElementById('x2').value = presets[eq].x2;
+            }
         }
 
         // Initialize state on first page load

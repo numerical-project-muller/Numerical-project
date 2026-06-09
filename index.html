@@ -147,14 +147,10 @@
 
                     <!-- Member 4: Lim Wei Hen -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200 text-center">
-                        <div class="h-64 bg-slate-100 flex flex-col items-center justify-center text-slate-400 p-4 border-b border-slate-200">
-                            <!-- Placeholder Icon -->
-                            <svg class="w-20 h-20 text-slate-300 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                            <span class="text-xs font-medium text-slate-500">Lim's portrait will be uploaded soon</span>
+                        <div class="h-64 bg-slate-200 overflow-hidden flex items-center justify-center">
+                            <img src="WeiHen.jpg" alt="Lim Wei Hen" class="w-full h-full object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200'">
                         </div>
-                        <div class="p-4 bg-white">
+                        <div class="p-4 bg-white border-t border-slate-200">
                             <h3 class="font-extrabold text-slate-900 text-base">Lim Wei Hen</h3>
                             <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
                             <p class="text-sm font-mono text-slate-500 font-bold">300443</p>
@@ -171,11 +167,11 @@
                 </div>
                 
                 <h3 class="text-lg font-bold text-indigo-600 mb-3">What is the root-finding problem?</h3>
-                <p class="text-slate-600 mb-4 text-justify">
+                <div class="text-slate-600 mb-4 text-justify">
                     The root-finding problem is a fundamental mathematical and algorithmic challenge in numerical analysis. Given a continuous function <span class="math-inline"><i>f</i>(<i>x</i>)</span>, the goal is to determine a value <span class="math-inline"><i>x</i> = <i>c</i></span>, called the root or zero of the function such that:
                     <div class="math-display"><i>f</i>(<i>c</i>) = 0</div>
                     Geometrically, finding a root corresponds to identifying the exact point where the curve of the function intersects or touches the <span class="math-inline"><i>x</i></span>-axis.
-                </p>
+                </div>
 
                 <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">Categorization of Roots</h3>
                 <ol class="list-decimal pl-5 space-y-2 text-slate-600 text-justify">
@@ -376,7 +372,7 @@
                             <tr><td class="p-3 font-mono font-bold">x₃</td><td class="p-3">New approximation of the root</td></tr>
                             <tr><td class="p-3 font-mono font-bold">h₀, h₁</td><td class="p-3">Distances between successive approximations</td></tr>
                             <tr><td class="p-3 font-mono font-bold">&delta;₀, &delta;₁</td><td class="p-3">First divided differences (slopes)</td></tr>
-                            <tr><td class="p-3 font-mono font-bold">a, b, c</td><td class="p-3">Coefficients of the interpolating parabola</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">a, b, c</td><td class="p-3">Coefficients of the interpolating quadratic polynomial</td></tr>
                             <tr><td class="p-3 font-mono font-bold">D</td><td class="p-3">Discriminant of the quadratic equation</td></tr>
                             <tr><td class="p-3 font-mono font-bold">E</td><td class="p-3">Chosen optimized denominator</td></tr>
                             <tr><td class="p-3 font-mono font-bold">h</td><td class="p-3">Correction term / displacement increment</td></tr>
@@ -385,20 +381,20 @@
                     </table>
                 </div>
 
-                <h3 class="text-lg font-bold text-slate-900 mb-4">Detailed Algorithmic Steps</h3>
+                <h3 class="text-lg font-bold text-slate-900 mb-4 font-sans">Detailed Algorithmic Steps</h3>
                 <div class="space-y-4">
-                    <div class="p-4 bg-slate-50 rounded-xl border">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 1: Choose Initial Points</strong>
-                        <p class="text-xs text-slate-600">Select three starting values near the expected root: <span class="math-inline"><i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub></span> and compute their corresponding function values: <span class="math-inline"><i>f</i>(<i>x</i><sub>0</sub>), <i>f</i>(<i>x</i><sub>1</sub>), <i>f</i>(<i>x</i><sub>2</sub>)</span>.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 1: Choose Three Initial Approximations</strong>
+                        <p class="text-xs text-slate-600">Select three starting values near the expected root: <span class="math-inline"><i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub></span> and compute their corresponding function values: <span class="math-inline"><i>f</i>(<i>x</i><sub>0</sub>), <i>f</i>(<i>x</i><sub>1</sub>), <i>f</i>(<i>x</i><sub>2</sub>)</span>. Three points are required because a unique quadratic polynomial can be constructed through exactly three points.</p>
                     </div>
-                    <div class="p-4 bg-slate-50 rounded-xl border">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 2: Compute Spacings</strong>
-                        <p class="text-xs text-slate-600">Calculate the interval widths:</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 2: Compute the Interval Lengths</strong>
+                        <p class="text-xs text-slate-600">Calculate the horizontal spacings. These quantities measure the distances between successive approximations:</p>
                         <div class="math-display"><i>h</i><sub>0</sub> = <i>x</i><sub>1</sub> - <i>x</i><sub>0</sub>, &nbsp;&nbsp;&nbsp;&nbsp; <i>h</i><sub>1</sub> = <i>x</i><sub>2</sub> - <i>x</i><sub>1</sub></div>
                     </div>
-                    <div class="p-4 bg-slate-50 rounded-xl border">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 3: Compute First Slopes</strong>
-                        <p class="text-xs text-slate-600">Calculate divided differences:</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 3: Compute the First Divided Difference</strong>
+                        <p class="text-xs text-slate-600">Calculate the slopes of the secant lines. These describe how rapidly the function changes between the selected points:</p>
                         <div class="math-display">
                             &delta;<sub>0</sub> = 
                             <span class="math-fraction">
@@ -413,9 +409,9 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-4 bg-slate-50 rounded-xl border">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 4: Interpolate Parabolic Coefficients</strong>
-                        <p class="text-xs text-slate-600">Solve for the quadratic polynomial coefficients:</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 4: Construct the Quadratic Interpolating Polynomial</strong>
+                        <p class="text-xs text-slate-600">The fitted parabola serves as a local approximation and is written as <span class="math-inline"><i>P</i>(<i>x</i>) = <i>a</i>(<i>x</i> - <i>x</i><sub>2</sub>)<sup>2</sup> + <i>b</i>(<i>x</i> - <i>x</i><sub>2</sub>) + <i>c</i></span>, with coefficients solved as:</p>
                         <div class="math-display">
                             <i>a</i> = 
                             <span class="math-fraction">
@@ -427,14 +423,14 @@
                             <i>c</i> = <i>f</i>(<i>x</i><sub>2</sub>)
                         </div>
                     </div>
-                    <div class="p-4 bg-slate-50 rounded-xl border">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 5: Evaluate the Discriminant</strong>
-                        <p class="text-xs text-slate-600">Compute the square root of the discriminant:</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 5: Compute the Discriminant</strong>
+                        <p class="text-xs text-slate-600">Compute the discriminant, which determines the roots of the approximating parabola. If <span class="math-inline"><i>b</i><sup>2</sup> - 4<i>ac</i> &lt; 0</span>, <span class="math-inline"><i>D</i></span> turns complex, allowing the algorithm to naturally locate complex conjugate solutions:</p>
                         <div class="math-display"><i>D</i> = &radic;<span class="math-sqrt"><i>b</i><sup>2</sup> - 4<i>ac</i></span></div>
                     </div>
-                    <div class="p-4 bg-slate-50 rounded-xl border">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 6: Choose Maximized Denominator</strong>
-                        <p class="text-xs text-slate-600">Select the denominator parameter <span class="math-inline"><i>E</i></span> with the larger absolute value to prevent computational underflow:</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 6: Choose the Larger Denominator</strong>
+                        <p class="text-xs text-slate-600">The denominator parameter <span class="math-inline"><i>E</i></span> is selected with the larger magnitude. This is one of the most critical steps in Muller's method, specifically formulated to prevent subtractive cancellation and enhance numerical stability:</p>
                         <div class="math-display">
                             <i>E</i> = 
                             <span class="text-xs align-middle inline-block">
@@ -446,9 +442,9 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-4 bg-slate-50 rounded-xl border">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 7 & 8: Compute Correction and Update Root</strong>
-                        <p class="text-xs text-slate-600">Find the correction step <span class="math-inline"><i>h</i></span> and update to get <span class="math-inline"><i>x</i><sub>3</sub></span>:</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 7 & 8: Compute the Correction and New Approximation</strong>
+                        <p class="text-xs text-slate-600">Determine the increment correction <span class="math-inline"><i>h</i></span>, which indicates how far the next estimate should shift from <span class="math-inline"><i>x</i><sub>2</sub></span>, and update the approximation:</p>
                         <div class="math-display">
                             <i>h</i> = -
                             <span class="math-fraction">
@@ -504,7 +500,7 @@
                     <!-- Newton Profile Table -->
                     <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
                         <table class="w-full text-xs text-left">
-                            <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 3: Newton's Method Convergence Profiles for Example 1</caption>
+                            <caption class="p-3 text-slate-500 bg-slate-50 border-b font-sans">Table 3: Newton's Method Convergence Profiles for Example 1</caption>
                             <thead class="bg-slate-100 text-slate-700">
                                 <tr>
                                     <th class="p-2.5">Iteration (n)</th>
@@ -526,7 +522,7 @@
                     <!-- Muller Profile Table -->
                     <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
                         <table class="w-full text-xs text-left">
-                            <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 4: Muller's Method Convergence Profiles for Example 1</caption>
+                            <caption class="p-3 text-slate-500 bg-slate-50 border-b font-sans">Table 4: Muller's Method Convergence Profiles for Example 1</caption>
                             <thead class="bg-slate-100 text-slate-700">
                                 <tr>
                                     <th class="p-2.5">Iteration (i)</th>
@@ -565,7 +561,7 @@
 
                     <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
                         <table class="w-full text-xs text-left">
-                            <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 5: Muller's Method Convergence Profiles for Example 2</caption>
+                            <caption class="p-3 text-slate-500 bg-slate-50 border-b font-sans">Table 5: Muller's Method Convergence Profiles for Example 2</caption>
                             <thead class="bg-slate-100 text-slate-700">
                                 <tr>
                                     <th class="p-2.5">Iteration (i)</th>
@@ -606,7 +602,7 @@
 
                     <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
                         <table class="w-full text-xs text-left">
-                            <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 6: Muller's Method Complex Convergence Profiles for Example 3</caption>
+                            <caption class="p-3 text-slate-500 bg-slate-50 border-b font-sans">Table 6: Muller's Method Complex Convergence Profiles for Example 3</caption>
                             <thead class="bg-slate-100 text-slate-700">
                                 <tr>
                                     <th class="p-2.5">Iteration (i)</th>
@@ -648,23 +644,23 @@
                 <div class="bg-slate-50 p-6 rounded-xl border border-indigo-100 mb-6">
                     <span class="px-2 py-0.5 text-[10px] font-bold bg-indigo-100 text-indigo-800 rounded uppercase tracking-wider">Drone Delivery Obstacle Avoidance</span>
                     <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">Calculating UAV Minimum Safety Clearance</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed text-justify">
+                    <div class="text-sm text-slate-600 leading-relaxed text-justify">
                         In modern logistics, autonomous delivery drones (UAVs) must navigate safely through dense urban corridors. To prevent crash incidents, the flight control computer must compute the safe clearance distance from high-rise buildings in real time.
                         Suppose a drone encounters a dynamic boundary obstacle. The critical clearance distance <span class="math-inline"><i>x</i></span> (in meters) between the drone and the structure is mathematically modeled by the cubic relation:
                         <div class="math-display"><i>P</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 250<i>x</i><sup>2</sup> + 15,000<i>x</i> - 200,000 = 0</div>
                         The smallest positive real root (<span class="math-inline"><i>x</i><sub>1</sub></span>) represents the critical minimum safety boundary. Finding this root enables the flight system to adjust its vector trajectory smoothly without slowing down.
-                    </p>
+                    </div>
                 </div>
 
                 <h4 class="font-bold text-slate-900 text-sm mb-3">Step-by-Step Numerical Calculations</h4>
-                <p class="text-xs text-slate-600 mb-4">
+                <div class="text-xs text-slate-600 mb-4">
                     Based on dynamic radar telemetry, the root is known to reside between 10 and 20 meters. We select the following starting values:
                     <div class="math-display"><i>x</i><sub>0</sub> = 10.0, &nbsp;&nbsp; <i>x</i><sub>1</sub> = 15.0, &nbsp;&nbsp; <i>x</i><sub>2</sub> = 20.0</div>
                     Evaluating function outputs:
                     <div class="math-display"><i>P</i>(10.0) = (10.0)<sup>3</sup> - 250(10.0)<sup>2</sup> + 15,000(10.0) - 200,000 = -74,000.00</div>
                     <div class="math-display"><i>P</i>(15.0) = (15.0)<sup>3</sup> - 250(15.0)<sup>2</sup> + 15,000(15.0) - 200,000 = -27,875.00</div>
                     <div class="math-display"><i>P</i>(20.0) = (20.0)<sup>3</sup> - 250(20.0)<sup>2</sup> + 15,000(20.0) - 200,000 = 8,000.00</div>
-                </p>
+                </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl border text-xs text-slate-600 space-y-2 mb-6">
                     <strong class="text-slate-900 block mb-1">Iteration 1 Calculations:</strong>
@@ -677,7 +673,7 @@
 
                 <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
                     <table class="w-full text-sm text-left">
-                        <caption class="p-3 text-xs text-slate-500 bg-slate-50 border-b">Table 7: Muller's Method Steps for UAV Safety Clearance</caption>
+                        <caption class="p-3 text-xs text-slate-500 bg-slate-50 border-b font-sans">Table 7: Muller's Method Steps for UAV Safety Clearance</caption>
                         <thead class="text-xs uppercase bg-slate-100 text-slate-700 border-b">
                             <tr>
                                 <th class="p-3">Iteration (i)</th>

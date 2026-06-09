@@ -136,7 +136,7 @@
                             <svg class="w-20 h-20 text-slate-300 mb-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                             </svg>
-                            <span class="text-xs font-medium text-slate-500">Wong's portrait will be uploaded soon</span>
+                            <span class="text-xs font-medium text-slate-500 text-center">Wong's portrait will be uploaded soon</span>
                         </div>
                         <div class="p-4 bg-white">
                             <h3 class="font-extrabold text-slate-900 text-base">Wong Kah Mun</h3>
@@ -167,52 +167,52 @@
                 </div>
                 
                 <h3 class="text-lg font-bold text-indigo-600 mb-3">What is the root-finding problem?</h3>
-                <div class="text-slate-600 mb-4 text-justify">
+                <div class="text-slate-600 mb-4 text-justify text-sm leading-relaxed">
                     The root-finding problem is a fundamental mathematical and algorithmic challenge in numerical analysis. Given a continuous function <span class="math-inline"><i>f</i>(<i>x</i>)</span>, the goal is to determine a value <span class="math-inline"><i>x</i> = <i>c</i></span>, called the root or zero of the function such that:
                     <div class="math-display"><i>f</i>(<i>c</i>) = 0</div>
                     Geometrically, finding a root corresponds to identifying the exact point where the curve of the function intersects or touches the <span class="math-inline"><i>x</i></span>-axis.
                 </div>
 
                 <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">Categorization of Roots</h3>
-                <ol class="list-decimal pl-5 space-y-2 text-slate-600 text-justify">
+                <ol class="list-decimal pl-5 space-y-2 text-slate-600 text-justify text-sm leading-relaxed">
                     <li><strong>Real Roots:</strong> The values of <span class="math-inline"><i>x</i></span> where the function crosses the real number line <span class="math-inline"><i>x</i></span>-axis.</li>
                     <li><strong>Complex Roots:</strong> The values involving imaginary numbers where the function does not intersect the real <span class="math-inline"><i>x</i></span>-axis, but possesses solutions in the complex plane.</li>
                 </ol>
 
                 <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">Analytical vs. Numerical Approaches</h3>
-                <ul class="list-disc pl-5 space-y-3 text-slate-600 text-justify">
+                <ul class="list-disc pl-5 space-y-3 text-slate-600 text-justify text-sm leading-relaxed">
                     <li><strong>Analytical Solutions:</strong> Simple algebraic functions can be solved exactly using traditional algebraic formulas.</li>
                     <li><strong>Numerical Solutions:</strong> Higher-degree polynomials (degree more than and equal to 5) and transcendental functions cannot be solved using exact algebraic formulas. Therefore, we must rely on iterative numerical methods to approximate the roots within a specific margin of error.</li>
                 </ul>
 
                 <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">History of Root-Finding Problem</h3>
-                <p class="text-slate-600 mb-4 text-justify">
+                <p class="text-slate-600 mb-4 text-justify text-sm leading-relaxed">
                     The evolution of root-finding spans millennia, tracking a major structural shift from exact geometric formulas to advanced computational approximations.
                 </p>
-                <div class="relative border-l-2 border-indigo-100 pl-4 space-y-4 text-sm text-slate-600 text-justify">
+                <div class="relative border-l-2 border-indigo-100 pl-4 space-y-4 text-xs text-slate-600 text-justify leading-relaxed">
                     <div>
-                        <strong class="text-slate-900 block">Ancient and Medieval Foundations (c. 1800 BCE - 1500 CE)</strong>
-                        The Babylonians developed some of the earliest recorded numerical workflows, using primitive arithmetic to iteratively compute square roots. Early Asian and Mediterranean mathematics utilized basic linear interpolation techniques, such as the Method of False Position (Regula Falsi).
+                        <strong class="text-slate-900 block text-sm">Ancient and Medieval Foundations (c. 1800 BCE - 1500 CE)</strong>
+                        The Babylonians developed some of the earliest recorded numerical workflows, using primitive arithmetic to iteratively compute square roots for agricultural planning and land surveying. Early Asian and Mediterranean mathematics utilized basic linear interpolation techniques, such as the Method of False Position (Regula Falsi) to approximate solutions to simple practical linear equations.
                     </div>
                     <div>
-                        <strong class="text-slate-900 block">The Algebraic Barrier (16th - 19th Century)</strong>
-                        During the Italian Renaissance, mathematicians achieved breakthroughs with algebraic formulas to solve cubic and quartic equations. However, Niels Henrik Abel and Évariste Galois rigorously proved via the Abel-Ruffini Theorem (1824) that it is logically impossible to solve polynomials of degree 5 or higher using standard radicals. This historic barrier permanently shifted mathematics toward constructing iterative numerical approximations.
+                        <strong class="text-slate-900 block text-sm">The Algebraic Barrier (16th - 19th Century)</strong>
+                        During the Italian Renaissance, Scipione del Ferro, Gerolamo Cardano, and Lodovico Ferrari achieved massive breakthroughs by discovering general algebraic formulas to solve cubic and quartic equations. However, Niels Henrik Abel and Évariste Galois rigorously proved via the Abel-Ruffini Theorem (1824) that it is logically impossible to solve polynomials of degree 5 or higher using standard radicals. This historic barrier permanently shifted mathematics toward constructing iterative numerical approximations.
                     </div>
                     <div>
-                        <strong class="text-slate-900 block">The Calculus and Modern Computing Era</strong>
-                        Sir Isaac Newton and Joseph Raphson integrated differential calculus, creating the Newton-Raphson Method using tangent lines to converge rapidly on a root. The Secant Method arose as a derivative-free alternative, drawing straight lines through two initial data points.
+                        <strong class="text-slate-900 block text-sm">The Calculus and Modern Computing Era</strong>
+                        Sir Isaac Newton and Joseph Raphson integrated differential calculus, creating the Newton-Raphson Method using first-order tangent lines to converge rapidly on a root. The Secant Method arose as a derivative-free alternative, drawing straight lines through two distinct initial data points.
                     </div>
                     <div>
-                        <strong class="text-slate-900 block">David Muller and the Birth of Muller's Method (1956)</strong>
-                        In 1956, American mathematician David E. Muller published a major breakthrough. Instead of drawing a straight line through two points like the Secant Method, Muller's Method fits a quadratic parabola through three points. It established two major mathematical advantages: superlinear convergence (rate of approx. 1.84) and automated discovery of complex roots via negative discriminants.
+                        <strong class="text-slate-900 block text-sm">David Muller and the Birth of Muller's Method (1956)</strong>
+                        With the advent of programmable electronic computers in the mid-20th century, scientists needed robust, automated algorithms capable of locating complex roots without requiring a derivative function. In 1956, American mathematician and computer scientist David E. Muller published a major breakthrough. Instead of drawing a straight line through two points like the Secant Method, Muller's Method fits a quadratic parabola through three points. By applying a modified version of the quadratic formula to find where this interpolating parabola crosses the axis, Muller's method established two major mathematical advantages: superlinear convergence (rate of approx. 1.84) and automated discovery of complex roots via negative discriminants.
                     </div>
                 </div>
 
                 <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">Real-World Application of Root-Finding</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600 mt-2">
                     <div class="bg-slate-50 p-4 border rounded-xl">
-                        <strong class="text-slate-900 block text-sm mb-1">1. Finance (Internal Rate of Return)</strong>
-                        To determine the Internal Rate of Return (IRR), financial analysts must find the exact discount rate <span class="math-inline"><i>r</i></span> that forces the Net Present Value (NPV) to equal zero:
+                        <strong class="text-slate-900 block text-sm mb-1">1. Finance and Economics (Internal Rate of Return)</strong>
+                        To determine the Internal Rate of Return (IRR) of a multi-year corporate investment, financial analysts must find the exact discount rate <span class="math-inline"><i>r</i></span> that forces the Net Present Value (NPV) of future fluctuating cash flows to equal exactly zero.
                         <div class="math-display">
                             NPV = 
                             <span class="math-inline">&sum;</span><sub><i>t</i>=0</sub><sup><i>n</i></sup> 
@@ -225,7 +225,7 @@
                     </div>
                     <div class="bg-slate-50 p-4 border rounded-xl">
                         <strong class="text-slate-900 block text-sm mb-1">2. Fluid Dynamics (Colebrook Equation)</strong>
-                        Determining the turbulent fluid friction factor <span class="math-inline"><i>f</i></span> requires solving the implicit transcendental Colebrook Equation:
+                        In civil and chemical pipeline design, determining the turbulent fluid friction factor <span class="math-inline"><i>f</i></span> requires solving the implicit transcendental Colebrook Equation:
                         <div class="math-display">
                             <span class="math-fraction"><span class="math-numerator">1</span><span class="math-denominator">&radic;<i>f</i></span></span> 
                             = -2.0 &middot; log<sub>10</sub> ( 
@@ -234,6 +234,14 @@
                             <span class="math-fraction"><span class="math-numerator">2.51</span><span class="math-denominator">Re &middot; &radic;<i>f</i></span></span> 
                             )
                         </div>
+                    </div>
+                    <div class="bg-slate-50 p-4 border rounded-xl">
+                        <strong class="text-slate-900 block text-sm mb-1">3. Advanced Statistics & Data Science</strong>
+                        Fitting a probability distribution to empirical datasets requires maximizing a specialized likelihood function. Statisticians calculate the first derivative of the log-likelihood function (the score function) and utilize root-finding subroutines to pinpoint the parameters where the gradient reaches zero.
+                    </div>
+                    <div class="bg-slate-50 p-4 border rounded-xl">
+                        <strong class="text-slate-900 block text-sm mb-1">4. Actuarial Science & Demographics</strong>
+                        Actuaries rely heavily on non-linear survival equations and population decay curves to assess life expectancy risks and price corporate insurance premiums effectively. Calculating risk thresholds or matching samples to theoretical distributions relies directly on root-finding algorithms.
                     </div>
                 </div>
             </section>
@@ -246,26 +254,28 @@
                 </div>
                 
                 <h3 class="text-lg font-bold text-indigo-600 mb-3">Real and Complex Roots</h3>
-                <p class="text-slate-600 mb-4 text-justify">
+                <p class="text-slate-600 mb-4 text-justify text-sm leading-relaxed">
                     A root-finding problem means finding the value of <span class="math-inline"><i>x</i></span> that makes a function equal to zero: <span class="math-inline"><i>f</i>(<i>x</i>) = 0</span>. The value of <span class="math-inline"><i>x</i></span> is called the root of the equation.
                 </p>
-                <div class="bg-slate-50 p-4 border rounded-xl mb-6">
-                    <strong class="text-slate-900 block mb-1">Real Root Example:</strong>
+                <div class="bg-slate-50 p-4 border rounded-xl mb-6 text-sm">
+                    <strong class="text-slate-900 block mb-1">1. Real Root:</strong>
+                    A real root is a solution that can be shown on the number line. For example:
                     <div class="math-display"><i>x</i><sup>2</sup> - 4 = 0 &rArr; (<i>x</i> - 2)(<i>x</i> + 2) = 0 &rArr; <i>x</i> = 2, &nbsp;&nbsp; <i>x</i> = -2</div>
-                    <strong class="text-slate-900 block mt-4 mb-1">Complex Root Example (using Imaginary Unit <span class="math-inline"><i>i</i><sup>2</sup> = -1</span>):</strong>
+                    <strong class="text-slate-900 block mt-4 mb-1">2. Complex Root:</strong>
+                    A complex root contains an imaginary number, usually involving <span class="math-inline"><i>i</i></span>, where <span class="math-inline"><i>i</i><sup>2</sup> = -1</span>. For example:
                     <div class="math-display"><i>x</i><sup>2</sup> + 4 = 0 &rArr; <i>x</i> = &plusmn;2<i>i</i></div>
                 </div>
 
-                <h3 class="text-lg font-bold text-indigo-600 mb-3">Analytical vs. Numerical Guesses</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600 mb-6">
+                <h3 class="text-lg font-bold text-indigo-600 mb-3">Analytical vs. Numerical Approaches</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600 mb-6 leading-relaxed">
                     <div class="bg-indigo-50/50 p-4 border border-indigo-100 rounded-xl">
-                        <strong class="text-slate-950 block mb-1">Example of Analytical Quadratic Solution:</strong>
+                        <strong class="text-slate-950 block text-sm mb-1">Example of Quadratic Equation with Real Roots:</strong>
                         <div class="math-display"><i>x</i><sup>2</sup> - 5<i>x</i> + 6 = 0</div>
                         <div class="math-display">(<i>x</i> - 2)(<i>x</i> - 3) = 0 &rArr; <i>x</i> = 2, &nbsp;&nbsp; <i>x</i> = 3</div>
-                        <span class="text-xs text-indigo-600">The roots of this simple equation are found exactly.</span>
+                        <span>This equation has real roots. We solve analytically when the equation is simple and can be solved exactly using algebra, factorization, or formulas.</span>
                     </div>
                     <div class="bg-emerald-50/50 p-4 border border-emerald-100 rounded-xl">
-                        <strong class="text-slate-950 block mb-1">Example of Complex Quadratic Solution:</strong>
+                        <strong class="text-slate-950 block text-sm mb-1">Example of Quadratic Equation with Complex Roots:</strong>
                         <div class="math-display"><i>x</i><sup>2</sup> + 2<i>x</i> + 5 = 0</div>
                         <div class="math-display">
                             <i>x</i> = 
@@ -280,18 +290,22 @@
                             </span>
                             = -1 &plusmn; 2<i>i</i>
                         </div>
+                        <span>Using the quadratic formula, we easily find that this equation has complex roots.</span>
                     </div>
                 </div>
 
-                <h3 class="text-lg font-bold text-indigo-600 mb-3">Why Muller's Method?</h3>
-                <p class="text-slate-600 mb-4 text-justify">
-                    Standard methods (Bisection, Fixed-Point, Newton's, Secant, False Position) can only solve for real roots. When a complex root is acquired, we need to use <strong>Muller's Method</strong>. However, Muller's method can also solve real roots efficiently. Unlike Newton's, it does not require computing derivatives, making it easier to apply to complex functions.
+                <h3 class="text-lg font-bold text-indigo-600 mb-3">Analytical vs. Numerical: When to Use Which?</h3>
+                <p class="text-slate-600 mb-4 text-justify text-sm leading-relaxed">
+                    We solve analytically when the equation is simple and can be solved exactly. We solve numerically when the equation is complicated, cannot be factorized easily, or has no simple exact solution. For example, <span class="math-inline"><i>x</i><sup>3</sup> - <i>x</i> - 1 = 0</span> is more suitable to be solved using numerical methods such as Newton’s Method, Secant Method, or Muller’s Method.
+                </p>
+                <p class="text-slate-600 mb-4 text-justify text-sm leading-relaxed">
+                    While Bisection, Fixed-Point, Newton's, Secant, and False Position can only solve for real roots, <strong>Muller's Method</strong> fits a quadratic curve through three points and does not require a derivative. It is highly useful when the root of an equation is difficult to find using simple algebra and can naturally solve for both real and complex roots.
                 </p>
 
                 <!-- Comparison Table -->
                 <div class="overflow-x-auto rounded-xl border border-slate-200 mt-6">
                     <table class="w-full text-xs text-left">
-                        <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 1: Comparisons of Root-Finding Methods</caption>
+                        <caption class="p-3 text-slate-500 bg-slate-50 border-b font-sans">Table 1: Comparisons of Root-Finding Methods</caption>
                         <thead class="bg-slate-100 text-slate-700 font-bold border-b">
                             <tr>
                                 <th class="p-3">Method</th>
@@ -314,31 +328,49 @@
                                 <td class="p-3">Simple and reliable</td>
                             </tr>
                             <tr>
-                                <td class="p-3 font-semibold text-slate-900">Newton's</td>
+                                <td class="p-3 font-semibold text-slate-900">Fixed-Point</td>
                                 <td class="p-3">Open</td>
-                                <td class="p-3">Quadratic</td>
-                                <td class="p-3 text-rose-500">Sensitive</td>
+                                <td class="p-3">Linear</td>
+                                <td class="p-3 text-rose-500">Depends on function</td>
                                 <td class="p-3 text-emerald-600 font-bold">Yes</td>
                                 <td class="p-3">Usually no</td>
-                                <td class="p-3">Very fast when close to root</td>
+                                <td class="p-3">Easy to understand</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-900">Newton’s</td>
+                                <td class="p-3">Open</td>
+                                <td class="p-3">Quadratic</td>
+                                <td class="p-3 text-rose-500">Sensitive to guess</td>
+                                <td class="p-3 text-emerald-600 font-bold">Yes</td>
+                                <td class="p-3">Usually no</td>
+                                <td class="p-3">Very efficient if guess is good</td>
                             </tr>
                             <tr>
                                 <td class="p-3 font-semibold text-slate-900">Secant</td>
                                 <td class="p-3">Open</td>
                                 <td class="p-3">Superlinear</td>
-                                <td class="p-3">Less stable</td>
+                                <td class="p-3 text-rose-500">Less stable than Newton</td>
                                 <td class="p-3 text-emerald-600 font-bold">Yes</td>
                                 <td class="p-3">Usually no</td>
-                                <td class="p-3">No derivative needed</td>
+                                <td class="p-3">Does not need derivative</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-900">False Position</td>
+                                <td class="p-3">Bracketing</td>
+                                <td class="p-3">Linear</td>
+                                <td class="p-3">Stable</td>
+                                <td class="p-3 text-emerald-600 font-bold">Yes</td>
+                                <td class="p-3 text-rose-500">No</td>
+                                <td class="p-3">More accurate than bisection</td>
                             </tr>
                             <tr class="bg-indigo-50/10">
                                 <td class="p-3 font-bold text-indigo-900">Muller's</td>
                                 <td class="p-3 font-semibold">Open</td>
                                 <td class="p-3 font-semibold">Nearly quadratic</td>
-                                <td class="p-3">Stable/flexible</td>
+                                <td class="p-3">Stable and flexible</td>
                                 <td class="p-3 text-emerald-600 font-bold">Yes</td>
                                 <td class="p-3 text-emerald-600 font-bold">Yes</td>
-                                <td class="p-3 font-semibold">Finds real and complex roots</td>
+                                <td class="p-3 font-semibold">Can find real and complex roots</td>
                             </tr>
                         </tbody>
                     </table>
@@ -352,14 +384,14 @@
                     <p class="text-slate-500 text-xs mt-1">Research and Extraction by Lim Wei Hen (Henry)</p>
                 </div>
 
-                <p class="text-slate-600 mb-4 text-justify">
-                    Muller's method approximates a root by fitting a quadratic polynomial (parabola) through three points and calculating where it crosses the horizontal line.
+                <p class="text-slate-600 mb-4 text-justify text-sm leading-relaxed">
+                    Given a nonlinear equation <span class="math-inline"><i>f</i>(<i>x</i>) = 0</span>, Muller's Method approximates a root by fitting a quadratic polynomial (parabola) through three known points and then determining where the parabola intersects the <span class="math-inline"><i>x</i></span>-axis. Unlike Newton's Method, Muller's Method does not require the derivative <span class="math-inline"><i>f</i> '(<i>x</i>)</span> and it can converge to both real and complex roots.
                 </p>
 
                 <!-- Symbols Table -->
                 <div class="overflow-x-auto rounded-xl border border-slate-200 mb-8">
                     <table class="w-full text-xs text-left">
-                        <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 2: Algorithmic Symbols and Definitions</caption>
+                        <caption class="p-3 text-slate-500 bg-slate-50 border-b font-sans">Table 2: Algorithmic Symbols and Definitions</caption>
                         <thead class="bg-slate-100 text-slate-700 font-bold border-b">
                             <tr>
                                 <th class="p-3">Symbol</th>
@@ -367,15 +399,17 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-200">
-                            <tr><td class="p-3 font-mono font-bold">f(x)</td><td class="p-3">Nonlinear function whose root is sought</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">f(x)</td><td class="p-3">Function whose root is sought</td></tr>
                             <tr><td class="p-3 font-mono font-bold">x₀, x₁, x₂</td><td class="p-3">Three initial approximations (starting values)</td></tr>
                             <tr><td class="p-3 font-mono font-bold">x₃</td><td class="p-3">New approximation of the root</td></tr>
-                            <tr><td class="p-3 font-mono font-bold">h₀, h₁</td><td class="p-3">Distances between successive approximations</td></tr>
-                            <tr><td class="p-3 font-mono font-bold">&delta;₀, &delta;₁</td><td class="p-3">First divided differences (slopes)</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">h₀</td><td class="p-3">Distance between x₀ and x₁</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">h₁</td><td class="p-3">Distance between x₁ and x₂</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">&delta;₀</td><td class="p-3">Slope between x₀ and x₁</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">&delta;₁</td><td class="p-3">Slope between x₁ and x₂</td></tr>
                             <tr><td class="p-3 font-mono font-bold">a, b, c</td><td class="p-3">Coefficients of the interpolating quadratic polynomial</td></tr>
                             <tr><td class="p-3 font-mono font-bold">D</td><td class="p-3">Discriminant of the quadratic equation</td></tr>
-                            <tr><td class="p-3 font-mono font-bold">E</td><td class="p-3">Chosen optimized denominator</td></tr>
-                            <tr><td class="p-3 font-mono font-bold">h</td><td class="p-3">Correction term / displacement increment</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">E</td><td class="p-3">Chosen denominator</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">h</td><td class="p-3">Correction term / increment</td></tr>
                             <tr><td class="p-3 font-mono font-bold">&epsilon;</td><td class="p-3">Desired tolerance (error limit)</td></tr>
                         </tbody>
                     </table>
@@ -384,17 +418,18 @@
                 <h3 class="text-lg font-bold text-slate-900 mb-4 font-sans">Detailed Algorithmic Steps</h3>
                 <div class="space-y-4">
                     <div class="p-4 bg-slate-50 rounded-xl border text-justify">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 1: Choose Three Initial Approximations</strong>
-                        <p class="text-xs text-slate-600">Select three starting values near the expected root: <span class="math-inline"><i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub></span> and compute their corresponding function values: <span class="math-inline"><i>f</i>(<i>x</i><sub>0</sub>), <i>f</i>(<i>x</i><sub>1</sub>), <i>f</i>(<i>x</i><sub>2</sub>)</span>. Three points are required because a unique quadratic polynomial can be constructed through exactly three points.</p>
+                        <strong class="text-brand-700 block text-sm mb-1">Step 1: Choose three initial approximation</strong>
+                        <p class="text-xs text-slate-600 leading-relaxed">Choose three starting values near the expected root: <span class="math-inline"><i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub></span> and evaluate the function at these points: <span class="math-inline"><i>f</i>(<i>x</i><sub>0</sub>), <i>f</i>(<i>x</i><sub>1</sub>), <i>f</i>(<i>x</i><sub>2</sub>)</span>. Three points are required because a unique quadratic polynomial can be constructed through exactly three points.</p>
                     </div>
                     <div class="p-4 bg-slate-50 rounded-xl border text-justify">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 2: Compute the Interval Lengths</strong>
-                        <p class="text-xs text-slate-600">Calculate the horizontal spacings. These quantities measure the distances between successive approximations:</p>
+                        <strong class="text-brand-700 block text-sm mb-1">Step 2: Compute the interval length</strong>
+                        <p class="text-xs text-slate-600 leading-relaxed">Calculate the horizontal spacings, which measure the distances between successive approximations:</p>
                         <div class="math-display"><i>h</i><sub>0</sub> = <i>x</i><sub>1</sub> - <i>x</i><sub>0</sub>, &nbsp;&nbsp;&nbsp;&nbsp; <i>h</i><sub>1</sub> = <i>x</i><sub>2</sub> - <i>x</i><sub>1</sub></div>
+                        <p class="text-[10px] text-slate-500 mt-2">Where: <span class="math-inline"><i>h</i><sub>0</sub></span> is spacing between first and second points, and <span class="math-inline"><i>h</i><sub>1</sub></span> is spacing between second and third points.</p>
                     </div>
                     <div class="p-4 bg-slate-50 rounded-xl border text-justify">
                         <strong class="text-brand-700 block text-sm mb-1">Step 3: Compute the First Divided Difference</strong>
-                        <p class="text-xs text-slate-600">Calculate the slopes of the secant lines. These describe how rapidly the function changes between the selected points:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">Calculate the slopes of the secant lines, describing how rapidly the function changes between the selected points:</p>
                         <div class="math-display">
                             &delta;<sub>0</sub> = 
                             <span class="math-fraction">
@@ -408,10 +443,13 @@
                                 <span class="math-denominator"><i>h</i><sub>1</sub></span>
                             </span>
                         </div>
+                        <p class="text-[10px] text-slate-500 mt-2">Where: <span class="math-inline">&delta;<sub>0</sub></span> is the slope of the secant line through <span class="math-inline">(<i>x</i><sub>0</sub>, <i>f</i>(<i>x</i><sub>0</sub>))</span> and <span class="math-inline">(<i>x</i><sub>1</sub>, <i>f</i>(<i>x</i><sub>1</sub>))</span>, and <span class="math-inline">&delta;<sub>1</sub></span> is the slope of the secant line through <span class="math-inline">(<i>x</i><sub>1</sub>, <i>f</i>(<i>x</i><sub>1</sub>))</span> and <span class="math-inline">(<i>x</i><sub>2</sub>, <i>f</i>(<i>x</i><sub>2</sub>))</span>.</p>
                     </div>
                     <div class="p-4 bg-slate-50 rounded-xl border text-justify">
                         <strong class="text-brand-700 block text-sm mb-1">Step 4: Construct the Quadratic Interpolating Polynomial</strong>
-                        <p class="text-xs text-slate-600">The fitted parabola serves as a local approximation and is written as <span class="math-inline"><i>P</i>(<i>x</i>) = <i>a</i>(<i>x</i> - <i>x</i><sub>2</sub>)<sup>2</sup> + <i>b</i>(<i>x</i> - <i>x</i><sub>2</sub>) + <i>c</i></span>, with coefficients solved as:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">The fitted parabola serves as a local approximation and is written as:</p>
+                        <div class="math-display"><i>P</i>(<i>x</i>) = <i>a</i>(<i>x</i> - <i>x</i><sub>2</sub>)<sup>2</sup> + <i>b</i>(<i>x</i> - <i>x</i><sub>2</sub>) + <i>c</i></div>
+                        <p class="text-xs text-slate-600 mt-2">Where: </p>
                         <div class="math-display">
                             <i>a</i> = 
                             <span class="math-fraction">
@@ -422,15 +460,16 @@
                             <i>b</i> = <i>a</i><i>h</i><sub>1</sub> + &delta;<sub>1</sub>, &nbsp;&nbsp;&nbsp;&nbsp;
                             <i>c</i> = <i>f</i>(<i>x</i><sub>2</sub>)
                         </div>
+                        <p class="text-[10px] text-slate-500 mt-1">These coefficients define the parabola passing through the three points, serving as a local approximation of the original function.</p>
                     </div>
                     <div class="p-4 bg-slate-50 rounded-xl border text-justify">
                         <strong class="text-brand-700 block text-sm mb-1">Step 5: Compute the Discriminant</strong>
-                        <p class="text-xs text-slate-600">Compute the discriminant, which determines the roots of the approximating parabola. If <span class="math-inline"><i>b</i><sup>2</sup> - 4<i>ac</i> &lt; 0</span>, <span class="math-inline"><i>D</i></span> turns complex, allowing the algorithm to naturally locate complex conjugate solutions:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">Compute the discriminant of the quadratic equation. The discriminant determines the roots of the approximating parabola. If <span class="math-inline"><i>b</i><sup>2</sup> - 4<i>ac</i> &lt; 0</span>, then <span class="math-inline"><i>D</i></span> becomes complex, allowing Muller's Method to naturally locate the complex roots:</p>
                         <div class="math-display"><i>D</i> = &radic;<span class="math-sqrt"><i>b</i><sup>2</sup> - 4<i>ac</i></span></div>
                     </div>
                     <div class="p-4 bg-slate-50 rounded-xl border text-justify">
                         <strong class="text-brand-700 block text-sm mb-1">Step 6: Choose the Larger Denominator</strong>
-                        <p class="text-xs text-slate-600">The denominator parameter <span class="math-inline"><i>E</i></span> is selected with the larger magnitude. This is one of the most critical steps in Muller's method, specifically formulated to prevent subtractive cancellation and enhance numerical stability:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">Calculate the denominator parameter <span class="math-inline"><i>E</i></span>. The larger denominator is chosen to avoid subtractive cancellation and improve numerical stability. This is one of the most important steps in Muller's Method:</p>
                         <div class="math-display">
                             <i>E</i> = 
                             <span class="text-xs align-middle inline-block">
@@ -443,8 +482,8 @@
                         </div>
                     </div>
                     <div class="p-4 bg-slate-50 rounded-xl border text-justify">
-                        <strong class="text-brand-700 block text-sm mb-1">Step 7 & 8: Compute the Correction and New Approximation</strong>
-                        <p class="text-xs text-slate-600">Determine the increment correction <span class="math-inline"><i>h</i></span>, which indicates how far the next estimate should shift from <span class="math-inline"><i>x</i><sub>2</sub></span>, and update the approximation:</p>
+                        <strong class="text-brand-700 block text-sm mb-1">Step 7 & 8: Compute the correction and the new approximation</strong>
+                        <p class="text-xs text-slate-600 leading-relaxed">Calculate the correction term <span class="math-inline"><i>h</i></span> (which shows how far the next estimate should move from <span class="math-inline"><i>x</i><sub>2</sub></span>) and find the new root estimate:</p>
                         <div class="math-display">
                             <i>h</i> = -
                             <span class="math-fraction">
@@ -452,8 +491,19 @@
                                 <span class="math-denominator"><i>E</i></span>
                             </span>
                             , &nbsp;&nbsp;&nbsp;&nbsp;
-                            <i>x</i><sub>3</sub> = <i>x</i><sub>2</sub> + <i>h</i>
+                            <i>x</i><sub>3</sub> = <i>x</i><sub>2</sub> + <i>h</i> &nbsp;&nbsp; (or generally &nbsp; <i>x</i><sub><i>n</i>+1</sub> = <i>x</i><sub><i>n</i></sub> + <i>h</i>)
                         </div>
+                        <p class="text-[10px] text-slate-500 mt-1">Because this is obtained from the root of the parabola rather than a straight secant line, it provides faster convergence.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 9: Check for stopping criterion</strong>
+                        <p class="text-xs text-slate-600 leading-relaxed">Check whether sufficient accuracy has been achieved:</p>
+                        <div class="math-display">|<i>h</i>| &lt; &epsilon; &nbsp;&nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp;&nbsp; |<i>f</i>(<i>x</i><sub>3</sub>)| &lt; &epsilon;</div>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border text-justify">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 10: Update the approximation of points</strong>
+                        <p class="text-xs text-slate-600 leading-relaxed">If convergence has not been reached, shift the points and repeat Steps 2-9. The newest approximation becomes part of the next quadratic interpolation:</p>
+                        <div class="math-display"><i>x</i><sub>0</sub> &larr; <i>x</i><sub>1</sub>, &nbsp;&nbsp;&nbsp;&nbsp; <i>x</i><sub>1</sub> &larr; <i>x</i><sub>2</sub>, &nbsp;&nbsp;&nbsp;&nbsp; <i>x</i><sub>2</sub> &larr; <i>x</i><sub>3</sub></div>
                     </div>
                 </div>
             </section>
@@ -543,7 +593,10 @@
                     </div>
 
                     <div class="bg-slate-50 p-4 border rounded-xl text-xs text-slate-600 leading-relaxed text-justify">
-                        <strong>Discussions and Interpretations:</strong> Newton's method started with <span class="math-inline">&epsilon;<sub><i>t</i></sub> = 25.0%</span> and required 4 full iterations to eliminate error [2]. Muller's method started with three points and slashed error to <span class="math-inline">0.177%</span> in step 1, achieving perfect convergence in 3 iterations. Muller's parabolic interpolation fits the target cubic curve much tighter than a straight linear tangent line, showing superlinear convergence (<span class="math-inline"><i>r</i> &approx; 1.84</span>) without needing derivative evaluation [4].
+                        <strong>Discussions and Interpretations for Example 1:</strong>
+                        <p class="mb-2"><strong>4.1 Convergence Rate and Error-Decay Efficiency:</strong> Both Newton's method and Muller's method successfully converged to the exact analytical root <span class="math-inline"><i>x</i> = 4.000000</span>. Newton's method commenced with a substantial true relative error of <span class="math-inline">25.000%</span> at the initial guess <span class="math-inline"><i>x</i><sub>0</sub> = 5.0</span>, dropping to <span class="math-inline">5.645%</span> in Iteration 1, and requiring 4 full iterations to completely eliminate the approximation error down to <span class="math-inline">0.000%</span>.</p>
+                        <p class="mb-2">In contrast, Muller's method displayed a significantly more aggressive convergence trajectory. Starting from three moving initial approximations (<span class="math-inline"><i>x</i><sub>0</sub> = 3.0, <i>x</i><sub>1</sub> = 3.5, <i>x</i><sub>2</sub> = 4.5</span>), its very first iteration successfully slashed the true relative error down to an astonishing <span class="math-inline">0.177%</span> (<span class="math-inline"><i>x</i><sub>3</sub> = 3.992892</span>). By Iteration 3, Muller's method achieved perfect convergence to <span class="math-inline">4.000000</span> with a true relative error of <span class="math-inline">0.000%</span>, effectively outpacing Newton's method by one full iteration.</p>
+                        <p><strong>4.2 Mathematical Interpretation of Algorithm Mechanisms:</strong> The structural reason behind Muller's superior error-clearing capacity lies in the geometric interpolation alignment: Newton's Method relies on first-order tangent lines, whereas Muller's Method utilizes three sequential points to construct a moving quadratic polynomial <span class="math-inline"><i>P</i>(<i>x</i>) = <i>a</i>(<i>x</i> - <i>x</i><sub>2</sub>)<sup>2</sup> + <i>b</i>(<i>x</i> - <i>x</i><sub>2</sub>) + <i>c</i></span>. Because the target function is a cubic polynomial, curved parabolic interpolation naturally accommodates and mirrors the local curvature significantly tighter than a straight linear tangent line, allowing Muller's superlinear convergence rate (<span class="math-inline"><i>r</i> &approx; 1.84</span>) to match or exceed Newton's completely derivative-free.</p>
                     </div>
                 </div>
 
@@ -553,7 +606,7 @@
                     <p class="text-xs text-slate-500 mb-4">Analytical Roots: <span class="math-inline"><i>x</i> = 1.0, 2.0, 3.0</span>. Converging to <span class="math-inline"><i>x</i> = 1.0</span> using guesses: <span class="math-inline"><i>x</i><sub>0</sub> = 0.5, <i>x</i><sub>1</sub> = 0.7, <i>x</i><sub>2</sub> = 0.8</span>.</p>
 
                     <div class="bg-slate-50 p-4 rounded-xl border text-xs text-slate-600 mb-4 space-y-2">
-                        <strong class="text-slate-900 block mb-1">Iteration 1 Hand Calculation Summary:</strong>
+                        <strong class="text-slate-900 block mb-1">Iteration 1 Calculations:</strong>
                         <p>Evaluate points: <span class="math-inline"><i>f</i>(0.5) = -1.875, <i>f</i>(0.7) = -0.897, <i>f</i>(0.8) = -0.528</span>.</p>
                         <p>Slopes: <span class="math-inline">&delta;<sub>0</sub> = 4.89, &delta;<sub>1</sub> = 3.69</span> &rArr; Coefficients: <span class="math-inline"><i>a</i> = -4.00, <i>b</i> = 3.29, <i>c</i> = -0.528</span>.</p>
                         <p>Discriminant: <span class="math-inline"><i>D</i> = &radic;2.3761 = 1.541460</span>. Denominator <span class="math-inline"><i>E</i> = 4.831460</span> &rArr; <span class="math-inline"><i>x</i><sub>3</sub> = 1.018567</span>.</p>
@@ -581,8 +634,11 @@
                         </table>
                     </div>
 
-                    <div class="bg-slate-50 p-4 border rounded-xl text-xs text-slate-600 leading-relaxed text-justify">
-                        <strong>Discussions and Interpretations:</strong> The algorithm converged to <span class="math-inline">1.000000</span> within just 3 steps. Muller's quadratic interpolation maps natural changes in the slope extremely smoothly, making it stable and practical even when multiple real roots are located closely together [5].
+                    <div class="bg-slate-50 p-4 border rounded-xl text-xs text-slate-600 leading-relaxed text-justify space-y-3">
+                        <strong>Discussions and Interpretations for Example 2:</strong>
+                        <p><strong>I. Rapidity of Convergence:</strong> Operating entirely with initial guesses located outside the immediate unit boundary, the algorithm managed to shrink the true relative error from an implicit entry deviation down to 1.857% in just a single step. By Iteration 3, the absolute error reached exactly 0.000000 (<span class="math-inline">&epsilon;<sub><i>a</i></sub> = 0.000%</span>), proving that Muller's method maintains an exceptional superlinear rate of convergence (<span class="math-inline"><i>r</i> &approx; 1.84</span>).</p>
+                        <p><strong>II. Parabolic Matching Power:</strong> Muller's method acts by creating a localized quadratic mirror P(x) over three dynamic points. Since the target expression <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 6<i>x</i><sup>2</sup> + 11<i>x</i> - 6 = 0</span> is a smooth cubic equation, a curved parabola captures the natural changes in the slope much better than a straight line used in the Bisection method.</p>
+                        <p><strong>III. Stability and Practicality:</strong> This example illustrates that even when a system possesses multiple closely spaced real roots (at <span class="math-inline"><i>x</i> = 1, 2, 3</span>), Muller's method can reliably isolate and lock onto a specific target root without encountering mathematical oscillations or division-by-zero errors, all without evaluating analytical derivatives.</p>
                     </div>
                 </div>
 
@@ -628,8 +684,11 @@
                         </table>
                     </div>
 
-                    <div class="bg-slate-50 p-4 border rounded-xl text-xs text-slate-600 leading-relaxed text-justify">
-                        <strong>Discussions and Interpretations:</strong> Bisection and False Position fail because <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>2</sup> + <i>x</i> + 1 &gt; 0</span> for all real numbers [6]. Newton's and Secant stay strictly on the real line if starting real [5]. Muller's method overcomes this constraint completely. When the discriminant <span class="math-inline"><i>b</i><sup>2</sup> - 4<i>ac</i> &lt; 0</span>, the root under the radical turns complex, allowing the algorithm to spontaneously enter the complex plane. One-step exact convergence occurred because our target expression is already quadratic, making the fitted parabola a perfect match [5].
+                    <div class="bg-slate-50 p-4 border rounded-xl text-xs text-slate-600 leading-relaxed text-justify space-y-3">
+                        <strong>Discussions and Interpretations for Example 3:</strong>
+                        <p><strong>I. Why Traditional Methods Fail:</strong> Standard bracketing approaches (Bisection, False Position) rely strictly on the Intermediate Value Theorem, which requires finding a real interval [a, b] where the function changes signs (<span class="math-inline"><i>f</i>(<i>a</i>) &middot; <i>f</i>(<i>b</i>) &lt; 0</span>). However, since <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>2</sup> + <i>x</i> + 1 = 0</span> for all real numbers, the curve never crosses the x-axis, making real brackets mathematically impossible to establish. Similarly, open methods (Newton-Raphson, Secant) remain completely locked within the real number line if initialized with real numbers, because all derivative slopes and linear adjustments yield exclusively real values.</p>
+                        <p><strong>II. Spontaneous Complex Breakthrough:</strong> As proven in the step-by-step math section, the core algebraic formulation of Muller's method utilizes the square root of a discriminant (<span class="math-inline">&radic;(<i>b</i><sup>2</sup> - 4<i>ac</i>)</span>). When <span class="math-inline"><i>b</i><sup>2</sup> - 4<i>ac</i> &lt; 0</span>, the algorithm naturally handles negative numbers under the radical, introducing the imaginary component <span class="math-inline"><i>i</i></span>. This allows it to break away from the real line and cross into the complex domain smoothly, even when started with purely real initial guesses (<span class="math-inline"><i>x</i><sub>0</sub> = -1.0, <i>x</i><sub>1</sub> = 0.0, <i>x</i><sub>2</sub> = 1.0</span>).</p>
+                        <p><strong>III. Exact One-Step Solution for Quadratic Systems:</strong> As observed in Table 6, the algorithm reaches the exact root with 0.000% error in exactly one iteration. This instantaneous convergence happens because Muller's method approximates functions by fitting a unique quadratic polynomial P(x) through three points. Since our target equation is already a quadratic function, the interpolating parabola matches the original function perfectly. Finding the roots of the parabola therefore yields the exact complex roots of the function instantly.</p>
                     </div>
                 </div>
             </section>
@@ -641,10 +700,10 @@
                     <p class="text-slate-500 text-xs mt-1">Research by Loh Eng Tom, Wong Kah Mun, and Lim Wei Hen</p>
                 </div>
 
-                <div class="bg-slate-50 p-6 rounded-xl border border-indigo-100 mb-6">
+                <div class="bg-slate-50 p-6 rounded-xl border border-indigo-100 mb-6 text-justify">
                     <span class="px-2 py-0.5 text-[10px] font-bold bg-indigo-100 text-indigo-800 rounded uppercase tracking-wider">Drone Delivery Obstacle Avoidance</span>
                     <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">Calculating UAV Minimum Safety Clearance</h3>
-                    <div class="text-sm text-slate-600 leading-relaxed text-justify">
+                    <div class="text-sm text-slate-600 leading-relaxed mb-4">
                         In modern logistics, autonomous delivery drones (UAVs) must navigate safely through dense urban corridors. To prevent crash incidents, the flight control computer must compute the safe clearance distance from high-rise buildings in real time.
                         Suppose a drone encounters a dynamic boundary obstacle. The critical clearance distance <span class="math-inline"><i>x</i></span> (in meters) between the drone and the structure is mathematically modeled by the cubic relation:
                         <div class="math-display"><i>P</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 250<i>x</i><sup>2</sup> + 15,000<i>x</i> - 200,000 = 0</div>
@@ -653,7 +712,7 @@
                 </div>
 
                 <h4 class="font-bold text-slate-900 text-sm mb-3">Step-by-Step Numerical Calculations</h4>
-                <div class="text-xs text-slate-600 mb-4">
+                <div class="text-xs text-slate-600 mb-4 text-justify">
                     Based on dynamic radar telemetry, the root is known to reside between 10 and 20 meters. We select the following starting values:
                     <div class="math-display"><i>x</i><sub>0</sub> = 10.0, &nbsp;&nbsp; <i>x</i><sub>1</sub> = 15.0, &nbsp;&nbsp; <i>x</i><sub>2</sub> = 20.0</div>
                     Evaluating function outputs:
@@ -718,18 +777,18 @@
                 </div>
 
                 <h3 class="text-sm font-bold text-slate-900 mb-3">Discussions and Interpretations</h3>
-                <div class="space-y-4 text-xs text-slate-600 text-justify">
+                <div class="space-y-4 text-xs text-slate-600 text-justify leading-relaxed">
                     <p>
                         <strong>I. Critical Safety Margin:</strong>
-                        The computed root rigorously proves that the absolute minimum safe clearance distance between the delivery drone and the high-rise building is <strong>18.76 meters</strong> (rounded to two decimal places). If the UAV's trajectory planning algorithm allows it to fly any closer than this threshold, it risks entering the catastrophic collision boundary or experiencing aerodynamic turbulence from the structure [7].
+                        The computed root rigorously proves that the absolute minimum safe clearance distance between the delivery drone and the high-rise building is 18.76 meters (rounded to two decimal places). If the UAV's trajectory planning algorithm allows it to fly any closer than this threshold, it risks entering the catastrophic collision boundary or experiencing aerodynamic turbulence from the structure.
                     </p>
                     <p>
                         <strong>II. Algorithmic Efficiency and Zero-Latency Processing:</strong>
-                        In real-time drone navigation, onboard flight computers must make decision changes within milliseconds to avoid sudden obstacles. Unlike open methods like Newton's method, which require continuous evaluation of analytical derivatives (<span class="math-inline"><i>P</i> '(<i>x</i>)</span>), Muller's method operates completely derivative-free. By utilizing three dynamic sensor points to construct sequential parabolas, it naturally mirrors the curvature of the safety corridor, dropping the true relative error significantly from <span class="math-inline">0.0325%</span> in Iteration 1 to a perfect <span class="math-inline">0.0000%</span> by Iteration 3 [6].
+                        In real-time drone navigation, onboard flight computers must make decision changes within milliseconds to avoid sudden obstacles. Unlike open methods like Newton's method, which require continuous evaluation of analytical derivatives (P'(x)), Muller's method operates completely derivative-free. By utilizing three dynamic sensor points to construct sequential parabolas, it naturally mirrors the curvature of the safety corridor, dropping the true relative error significantly from 0.0325% in Iteration 1 to a perfect 0.0000% by Iteration 3.
                     </p>
                     <p>
                         <strong>III. Smooth Flight Trajectory Correction:</strong>
-                        Because Muller's method achieves an incredibly low absolute error of just <span class="math-inline">0.0061</span> in its very first iteration, the flight controller can instantly lock onto the safe path far in advance. This extreme numerical stability prevents the drone from making sharp, jerky emergency braking maneuvers, thereby conserving significant battery life and maintaining high operational stability for urban logistics [7].
+                        Because Muller's method achieves an incredibly low absolute error of just 0.0061 in its very first iteration, the flight controller can instantly lock onto the safe path far in advance. This extreme numerical stability prevents the drone from making sharp, jerky emergency braking maneuvers, thereby conserving significant battery life and maintaining high operational stability for urban logistics.
                     </p>
                 </div>
             </section>
@@ -756,15 +815,15 @@
 
                         <div class="grid grid-cols-3 gap-3 mb-6">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess x0</label>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess <i>x</i><sub>0</sub></label>
                                 <input type="number" id="x0" value="3.0" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess x1</label>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess <i>x</i><sub>1</sub></label>
                                 <input type="number" id="x1" value="3.5" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess x2</label>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess <i>x</i><sub>2</sub></label>
                                 <input type="number" id="x2" value="4.5" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
                             </div>
                         </div>
@@ -815,25 +874,25 @@
                     <p class="text-slate-500 text-xs mt-1">Academic Credentials and Support</p>
                 </div>
 
-                <h3 class="text-lg font-bold text-indigo-600 mb-3">References</h3>
+                <h3 class="text-lg font-bold text-indigo-600 mb-3 font-sans">References</h3>
                 <div class="bg-slate-50 p-5 border rounded-xl mb-8">
                     <ul class="list-decimal pl-5 text-[11px] text-slate-600 space-y-3">
-                        <li>Qureshi, S., Chicharro, F. I., Argyros, I. K., Soomro, A., Alahmadi, J., & Hincal, E. (2024). "A new optimal numerical root-solver for solving systems of nonlinear equations using local, semi-local, and stability analysis." <em>Axioms</em>, 13(6), 341. <a href="https://doi.org/10.3390/axioms13060341" target="_blank" class="text-indigo-600 underline">https://doi.org/10.3390/axioms13060341</a></li>
-                        <li>Tsai, E. (2014). <em>A method for reducing ill-conditioning of polynomial root finding using a change of basis</em> (Honors thesis). Portland State University Library. <a href="https://doi.org/10.15760/honors.113" target="_blank" class="text-indigo-600 underline">https://doi.org/10.15760/honors.113</a></li>
-                        <li>Demirtürk, B., Köse, B., & Konca, Ş. (2025). "Performance comparison of fixed-point iteration method and teaching-learning based optimisation: A study on nonlinear equation systems." <em>Journal of Universal Mathematics</em>, 8(1), 52–69. <a href="https://doi.org/10.33773/jum.1551816" target="_blank" class="text-indigo-600 underline">https://doi.org/10.33773/jum.1551816</a></li>
-                        <li>Shannon, A. G. (1977). "Tribonacci Numbers and Pascal’s Pyramid." <em>The Fibonacci Quarterly</em>, 15(3), 268. <a href="https://doi.org/10.1080/00150517.1977.12430456" target="_blank" class="text-indigo-600 underline">https://doi.org/10.1080/00150517.1977.12430456</a></li>
-                        <li>Sharma, J. R., Kumar, S., & Cesarano, C. (2019). "An efficient derivative free one-point method with memory for solving nonlinear equations." <em>Mathematics</em>, 7(7), 604. <a href="https://doi.org/10.3390/math7070604" target="_blank" class="text-indigo-600 underline">https://doi.org/10.3390/math7070604</a></li>
-                        <li>Park, B., & Hitotumatu, S. (1987). "A study on new muller's method." <em>Publications of the Research Institute for Mathematical Sciences</em>, 23(4), 667–672. <a href="https://doi.org/10.2977/prims/1195176252" target="_blank" class="text-indigo-600 underline">https://doi.org/10.2977/prims/1195176252</a></li>
+                        <li>Qureshi, S., Chicharro, F. I., Argyros, I. K., Soomro, A., Alahmadi, J., & Hincal, E. (2024). "A new optimal numerical root-solver for solving systems of nonlinear equations using local, semi-local, and stability analysis." <em>Axioms</em>, 13(6), 341. <a href="https://doi.org/10.3390/axioms13060341" target="_blank" class="text-indigo-600 underline font-mono">https://doi.org/10.3390/axioms13060341</a></li>
+                        <li>Tsai, E. (2014). <em>A method for reducing ill-conditioning of polynomial root finding using a change of basis</em> (Honors thesis). Portland State University Library. <a href="https://doi.org/10.15760/honors.113" target="_blank" class="text-indigo-600 underline font-mono">https://doi.org/10.15760/honors.113</a></li>
+                        <li>Demirtürk, B., Köse, B., & Konca, Ş. (2025). "Performance comparison of fixed-point iteration method and teaching-learning based optimisation: A study on nonlinear equation systems." <em>Journal of Universal Mathematics</em>, 8(1), 52–69. <a href="https://doi.org/10.33773/jum.1551816" target="_blank" class="text-indigo-600 underline font-mono">https://doi.org/10.33773/jum.1551816</a></li>
+                        <li>Shannon, A. G. (1977). "Tribonacci Numbers and Pascal’s Pyramid." <em>The Fibonacci Quarterly</em>, 15(3), 268. <a href="https://doi.org/10.1080/00150517.1977.12430456" target="_blank" class="text-indigo-600 underline font-mono">https://doi.org/10.1080/00150517.1977.12430456</a></li>
+                        <li>Sharma, J. R., Kumar, S., & Cesarano, C. (2019). "An efficient derivative free one-point method with memory for solving nonlinear equations." <em>Mathematics</em>, 7(7), 604. <a href="https://doi.org/10.3390/math7070604" target="_blank" class="text-indigo-600 underline font-mono">https://doi.org/10.3390/math7070604</a></li>
+                        <li>Park, B., & Hitotumatu, S. (1987). "A study on new muller's method." <em>Publications of the Research Institute for Mathematical Sciences</em>, 23(4), 667–672. <a href="https://doi.org/10.2977/prims/1195176252" target="_blank" class="text-indigo-600 underline font-mono">https://doi.org/10.2977/prims/1195176252</a></li>
                         <li>Chapra, S. C., & Canale, R. P. (2015). <em>Numerical methods for engineers</em> (7th ed.). McGraw-Hill Education.</li>
                         <li>Burden, R. L., & Faires, J. D. (2011). <em>Numerical analysis</em> (9th ed.). Brooks/Cole, Cengage Learning.</li>
                     </ul>
                 </div>
 
-                <h3 class="text-lg font-bold text-indigo-600 mb-3">Acknowledgement</h3>
-                <p class="text-xs text-slate-600 leading-relaxed text-justify bg-indigo-50/20 p-5 rounded-xl border border-indigo-100">
+                <h3 class="text-lg font-bold text-indigo-600 mb-3 font-sans">Acknowledgement</h3>
+                <p class="text-xs text-slate-600 leading-relaxed text-justify bg-indigo-50/20 p-5 rounded-xl border border-indigo-100 font-sans">
                     We would like to express our most sincere gratitude and appreciation to our course instructor, <strong>Dr. Teh Yuan Ying</strong>, for providing intellectual guidance, invaluable feedback, and constant encouragement throughout the development of this numerical analysis group project. His structured briefing and rigorous standards have significantly improved our understanding of root-finding algorithms and polynomial systems.
                     <br><br>
-                    Additionally, we extend our appreciation to <strong>Universiti Utara Malaysia (UUM)</strong> for providing the academic platform and digital library infrastructure that facilitated our literature research. We are also grateful to open-source communities and platform developers, particularly GitHub for hosting our web platform, and the developers of modern styling toolkits.
+                    Additionally, we extend our appreciation to <strong>Universiti Utara Malaysia (UUM)</strong> for providing the academic platform and digital library infrastructure that facilitated our literature research. We are also grateful to open-source communities and platform developers, particularly GitHub for hosting our web platform, and MathJax for enabling robust mathematical notation rendering online.
                     <br><br>
                     Lastly, we recognize the shared commitment, effective collaboration, and mutual support of all our team members: <strong>SingJie Srisoi</strong>, <strong>Wong Kah Mun</strong>, <strong>Lim Wei Hen</strong>, and <strong>Loh Eng Tom</strong>. This interdisciplinary endeavor was made possible through our shared responsibility and dedication to academic excellence.
                 </p>
@@ -841,6 +900,12 @@
 
         </div>
     </div>
+
+    <footer class="bg-brand-900 text-slate-400 py-10 border-t border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs">
+            <p>&copy; 2026 Muller's Method Academic Study Portfolio. Developed for Computational Methods Class.</p>
+        </div>
+    </footer>
 
     <!-- Tab Switching Routing Logic inside JavaScript -->
     <script>

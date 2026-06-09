@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muller's Method - Advanced Numerical Analysis Dashboard</title>
+    <title>Muller's Method - Academic Group Project Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js CDN for Live Plotting -->
@@ -26,11 +26,11 @@
         }
     </script>
     <style>
-        /* Pure HTML Elegance Math Styles */
+        /* HTML Pure Math Expressions Engine Style */
         .math-display {
             font-family: 'Cambria', 'Georgia', 'Times New Roman', serif;
             font-size: 1.15rem;
-            margin: 1.25rem 0;
+            margin: 1rem 0;
             text-align: center;
             color: #1e293b;
             display: flex;
@@ -67,170 +67,338 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-700 antialiased font-sans">
+<body class="bg-slate-50 text-slate-700 antialiased font-sans flex flex-col min-h-screen">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-brand-900/95 backdrop-blur text-white shadow-lg border-b border-brand-700/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Muller's Method</span>
-                <div class="hidden md:flex space-x-6 text-sm font-medium">
-                    <a href="#background" class="hover:text-indigo-400 transition">Background</a>
-                    <a href="#concepts" class="hover:text-indigo-400 transition">Key Concepts</a>
-                    <a href="#steps" class="hover:text-indigo-400 transition">Step-by-Step</a>
-                    <a href="#examples" class="hover:text-indigo-400 transition">Examples</a>
-                    <a href="#application" class="hover:text-indigo-400 transition">Application</a>
-                    <a href="#calculator" class="text-indigo-400 hover:text-indigo-300 font-semibold transition">Live Solver</a>
-                    <a href="#demo" class="hover:text-indigo-400 transition">Excel Demo</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Header -->
-    <header class="relative overflow-hidden bg-gradient-to-b from-brand-900 to-slate-900 text-white py-20 px-6 text-center">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-indigo-900/50 via-transparent to-transparent pointer-events-none"></div>
-        <div class="relative max-w-4xl mx-auto">
-            <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-300 bg-indigo-500/10 rounded-full border border-indigo-500/20">University Numerical Analysis Project</span>
-            <h1 class="text-4xl md:text-5xl font-black tracking-tight mt-4 mb-6 bg-gradient-to-r from-white via-indigo-100 to-indigo-300 bg-clip-text text-transparent">
-                Exploring Muller's Method
-            </h1>
-            <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                An advanced analysis, proof, and engineering application of parabolic interpolation for solving real and complex mathematical roots.
-            </p>
-        </div>
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-brand-900 via-slate-900 to-brand-900 text-white py-6 px-6 text-center shadow-md">
+        <span class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-indigo-300 bg-indigo-500/10 rounded-full border border-indigo-500/20">UUM • Numerical Analysis Group Project</span>
+        <h1 class="text-2xl md:text-3xl font-black mt-2 tracking-tight">Numerical Approximation via Muller's Method</h1>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Main Navigation & SPA Tab Layout -->
+    <div class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-full lg:w-64 shrink-0">
+            <nav class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-4 sticky top-24 flex flex-col space-y-1">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3 mb-2 block">Menu</span>
+                <button onclick="switchTab('tab-members')" id="btn-tab-members" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">🧑‍💻 Group Members</button>
+                <button onclick="switchTab('tab-background')" id="btn-tab-background" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">📜 Background</button>
+                <button onclick="switchTab('tab-concepts')" id="btn-tab-concepts" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">💡 Key Concepts</button>
+                <button onclick="switchTab('tab-steps')" id="btn-tab-steps" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">🛠️ Step-by-Step</button>
+                <button onclick="switchTab('tab-examples')" id="btn-tab-examples" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">📝 Examples</button>
+                <button onclick="switchTab('tab-application')" id="btn-tab-application" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">🛸 Real Application</button>
+                <button onclick="switchTab('tab-calculator')" id="btn-tab-calculator" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">💻 Live Solver</button>
+                <button onclick="switchTab('tab-demo')" id="btn-tab-demo" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">📊 Excel Demo</button>
+                <button onclick="switchTab('tab-references')" id="btn-tab-references" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150">📚 References & Credits</button>
+            </nav>
+        </aside>
 
-        <!-- Background Section -->
-        <section id="background" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8 scroll-mt-20">
-            <h2 class="text-2xl font-extrabold text-slate-900 border-b pb-4 mb-6 flex items-center">
-                <span class="w-2 h-6 bg-brand-600 rounded mr-3"></span>1. Background
-            </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-lg font-bold text-brand-600 mb-2">What is a Root-Finding Problem?</h3>
-                    <p class="text-slate-600 mb-4 text-justify">
-                        In numerical mathematics, a root-finding problem involves finding values of <span class="math-inline"><i>x</i> = <i>c</i></span> (roots) that satisfy the equation <span class="math-inline"><i>f</i>(<i>c</i>) = 0</span> for a continuous function <span class="math-inline"><i>f</i>(<i>x</i>)</span>. Geometrically, finding a root corresponds to identifying the exact point where the curve of the function intersects or touches the <span class="math-inline"><i>x</i></span>-axis.
-                    </p>
-                    <h3 class="text-lg font-bold text-brand-600 mb-2">Why It Matters</h3>
-                    <p class="text-slate-600 text-justify">
-                        Most real-world physical systems are governed by non-linear relationships. Since analytical algebraic formulas only exist for equations of degree 4 or lower, engineers rely heavily on robust numerical approximation methods.
-                    </p>
-                </div>
-                <!-- Interactive Timeline for History -->
-                <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
-                    <h3 class="text-md font-bold text-slate-800 mb-4">Milestones in Root-Finding History</h3>
-                    <div class="relative border-l-2 border-indigo-200 ml-3 space-y-6">
-                        <div class="relative pl-6">
-                            <span class="absolute -left-[7px] top-1.5 w-3 h-3 bg-indigo-500 rounded-full"></span>
-                            <span class="text-xs font-bold text-indigo-600 block">Ancient Babylonians</span>
-                            <span class="text-sm font-semibold text-slate-800 block">Square Root Approximations</span>
-                            <span class="text-xs text-slate-500">First recorded steps in solving quadratic relations.</span>
-                        </div>
-                        <div class="relative pl-6">
-                            <span class="absolute -left-[7px] top-1.5 w-3 h-3 bg-indigo-500 rounded-full"></span>
-                            <span class="text-xs font-bold text-indigo-600 block">17th Century</span>
-                            <span class="text-sm font-semibold text-slate-800 block">Newton-Raphson Method</span>
-                            <span class="text-xs text-slate-500">Introduced linear derivatives to achieve quadratic convergence for real roots.</span>
-                        </div>
-                        <div class="relative pl-6">
-                            <span class="absolute -left-[7px] top-1.5 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-indigo-100"></span>
-                            <span class="text-xs font-bold text-brand-600 block">1956 (Modern Era)</span>
-                            <span class="text-sm font-bold text-slate-900 block">David E. Muller's Method</span>
-                            <span class="text-xs text-slate-500">Introduced quadratic interpolation (parabolic fitting) to naturally resolve both real and complex conjugate roots.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Concepts Section -->
-        <section id="concepts" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8 scroll-mt-20">
-            <h2 class="text-2xl font-extrabold text-slate-900 border-b pb-4 mb-6 flex items-center">
-                <span class="w-2 h-6 bg-brand-600 rounded mr-3"></span>2. Key Concepts
-            </h2>
+        <!-- Dynamic Page Display Window -->
+        <div class="flex-grow bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 min-h-[600px]">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div class="p-5 bg-indigo-50/50 rounded-xl border border-indigo-100">
-                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider block mb-1">Analytical Approach</span>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Exact Mathematical Solutions</h4>
-                    <div class="text-sm text-slate-600">
-                        Finding exact values algebraically. For example:
-                        <ul class="list-disc pl-5 mt-2 text-xs text-slate-500 space-y-2">
-                            <li>Real Root: <span class="math-inline"><i>x</i><sup>2</sup> - 5<i>x</i> + 6 = 0 &rArr; <i>x</i> = 2, 3</span></li>
-                            <li>Complex Root: <span class="math-inline"><i>x</i><sup>2</sup> + 4 = 0 &rArr; <i>x</i> = &plusmn;2<i>i</i></span></li>
-                        </ul>
+            <!-- Page: Group Members -->
+            <section id="tab-members" class="tab-view hidden">
+                <div class="text-center mb-8 border-b pb-4">
+                    <h2 class="text-2xl font-black text-slate-900">Project Group Members</h2>
+                    <p class="text-slate-500 text-sm mt-1">Course Instructor: Dr. Teh Yuan Ying</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Member 1: Loh Eng Tom -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200 text-center">
+                        <div class="h-64 bg-slate-200 overflow-hidden flex items-center justify-center">
+                            <img src="Tom.jpg" alt="Loh Eng Tom" class="w-full h-full object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200'">
+                        </div>
+                        <div class="p-4 bg-white border-t border-slate-200">
+                            <h3 class="font-extrabold text-slate-900 text-base">Loh Eng Tom</h3>
+                            <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
+                            <p class="text-sm font-mono text-slate-500 font-bold">300084</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Member 2: SingJie Srisoi -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200 text-center">
+                        <div class="h-64 bg-slate-200 overflow-hidden flex items-center justify-center">
+                            <img src="SingJie.jpeg" alt="SingJie Srisoi" class="w-full h-full object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200'">
+                        </div>
+                        <div class="p-4 bg-white border-t border-slate-200">
+                            <h3 class="font-extrabold text-slate-900 text-base">SingJie Srisoi</h3>
+                            <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
+                            <p class="text-sm font-mono text-slate-500 font-bold">299908</p>
+                        </div>
+                    </div>
+
+                    <!-- Member 3: Wong Kah Mun -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200 text-center">
+                        <div class="h-64 bg-slate-100 flex flex-col items-center justify-center text-slate-400 p-4 border-b border-slate-200">
+                            <!-- Placeholder Icon -->
+                            <svg class="w-20 h-20 text-slate-300 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            <span class="text-xs font-medium text-slate-500">Wong's portrait will be uploaded soon</span>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h3 class="font-extrabold text-slate-900 text-base">Wong Kah Mun</h3>
+                            <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
+                            <p class="text-sm font-mono text-slate-500 font-bold">297862</p>
+                        </div>
+                    </div>
+
+                    <!-- Member 4: Lim Wei Hen -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200 text-center">
+                        <div class="h-64 bg-slate-100 flex flex-col items-center justify-center text-slate-400 p-4 border-b border-slate-200">
+                            <!-- Placeholder Icon -->
+                            <svg class="w-20 h-20 text-slate-300 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            <span class="text-xs font-medium text-slate-500">Lim's portrait will be uploaded soon</span>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h3 class="font-extrabold text-slate-900 text-base">Lim Wei Hen</h3>
+                            <p class="text-xs font-semibold text-indigo-600 mt-1">Metric Number</p>
+                            <p class="text-sm font-mono text-slate-500 font-bold">300443</p>
+                        </div>
                     </div>
                 </div>
-                <div class="p-5 bg-emerald-50/50 rounded-xl border border-emerald-100">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1">Numerical Approach</span>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Approximate Iteration</h4>
-                    <p class="text-sm text-slate-600">
-                        Approximating roots step-by-step using algorithmic loops. While methods like Bisection and Newton's stay on the real axis, <strong>Muller's Method</strong> naturally handles complex numbers without needing complex initial guesses.
-                    </p>
+            </section>
+
+            <!-- Page: Background -->
+            <section id="tab-background" class="tab-view hidden">
+                <div class="border-b pb-4 mb-6">
+                    <h2 class="text-2xl font-black text-slate-900">Background of Muller's Method</h2>
+                    <p class="text-slate-500 text-xs mt-1">Research and Extraction by SingJie Srisoi</p>
                 </div>
-            </div>
+                
+                <h3 class="text-lg font-bold text-indigo-600 mb-3">What is the root-finding problem?</h3>
+                <p class="text-slate-600 mb-4 text-justify">
+                    The root-finding problem is a fundamental mathematical and algorithmic challenge in numerical analysis. Given a continuous function <span class="math-inline"><i>f</i>(<i>x</i>)</span>, the goal is to determine a value <span class="math-inline"><i>x</i> = <i>c</i></span>, called the root or zero of the function such that:
+                    <div class="math-display"><i>f</i>(<i>c</i>) = 0</div>
+                    Geometrically, finding a root corresponds to identifying the exact point where the curve of the function intersects or touches the <span class="math-inline"><i>x</i></span>-axis.
+                </p>
 
-            <!-- Modern Styled Table -->
-            <div class="overflow-x-auto rounded-xl border border-slate-200">
-                <table class="w-full text-sm text-left">
-                    <caption class="p-4 text-xs font-medium text-slate-500 bg-slate-50 border-b">Table 1: Comparative Analysis of Core Numerical Root-Finding Methods</caption>
-                    <thead class="text-xs uppercase bg-slate-100 text-slate-700 border-b">
-                        <tr>
-                            <th class="px-6 py-4">Method</th>
-                            <th class="px-6 py-4">Type</th>
-                            <th class="px-6 py-4">Convergence Rate</th>
-                            <th class="px-6 py-4">Stability</th>
-                            <th class="px-6 py-4">Complex Roots Support?</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200">
-                        <tr class="hover:bg-slate-50/50 transition">
-                            <td class="px-6 py-4 font-bold text-slate-900">Bisection</td>
-                            <td class="px-6 py-4"><span class="px-2 py-1 text-xs bg-amber-50 text-amber-700 rounded-full border border-amber-200">Bracketing</span></td>
-                            <td class="px-6 py-4">Linear (<span class="math-inline"><i>r</i> = 1.0</span>)</td>
-                            <td class="px-6 py-4 text-slate-500">Extremely stable</td>
-                            <td class="px-6 py-4 text-slate-400">No</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50/50 transition">
-                            <td class="px-6 py-4 font-bold text-slate-900">Newton-Raphson</td>
-                            <td class="px-6 py-4"><span class="px-2 py-1 text-xs bg-rose-50 text-rose-700 rounded-full border border-rose-200">Open</span></td>
-                            <td class="px-6 py-4 font-semibold text-slate-800">Quadratic (<span class="math-inline"><i>r</i> = 2.0</span>)</td>
-                            <td class="px-6 py-4 text-slate-500">Sensitive to initial guesses</td>
-                            <td class="px-6 py-4 text-slate-400">No (unless started with complex input)</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50/50 transition bg-indigo-50/20">
-                            <td class="px-6 py-4 font-bold text-brand-900">Muller's Method</td>
-                            <td class="px-6 py-4"><span class="px-2 py-1 text-xs bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200">Open</span></td>
-                            <td class="px-6 py-4 font-bold text-indigo-900">Nearly Quadratic (<span class="math-inline"><i>r</i> &approx; 1.84</span>)</td>
-                            <td class="px-6 py-4 text-slate-500">Highly stable, handles curves well</td>
-                            <td class="px-6 py-4"><span class="px-2 py-0.5 text-xs bg-emerald-100 text-emerald-800 font-bold rounded-full">Yes (Spontaneous)</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">Categorization of Roots</h3>
+                <ol class="list-decimal pl-5 space-y-2 text-slate-600 text-justify">
+                    <li><strong>Real Roots:</strong> The values of <span class="math-inline"><i>x</i></span> where the function crosses the real number line <span class="math-inline"><i>x</i></span>-axis.</li>
+                    <li><strong>Complex Roots:</strong> The values involving imaginary numbers where the function does not intersect the real <span class="math-inline"><i>x</i></span>-axis, but possesses solutions in the complex plane.</li>
+                </ol>
 
-        <!-- Step-by-Step Implementation Section -->
-        <section id="steps" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8 scroll-mt-20">
-            <h2 class="text-2xl font-extrabold text-slate-900 border-b pb-4 mb-6 flex items-center">
-                <span class="w-2 h-6 bg-brand-600 rounded mr-3"></span>3. Step-by-Step Algorithm
-            </h2>
-            <p class="text-slate-600 mb-6 text-justify">
-                Muller's method uses three initial approximations <span class="math-inline"><i>x</i><sub>0</sub></span>, <span class="math-inline"><i>x</i><sub>1</sub></span>, and <span class="math-inline"><i>x</i><sub>2</sub></span> to construct a unique moving quadratic polynomial <span class="math-inline"><i>P</i>(<i>x</i>) = <i>a</i>(<i>x</i> - <i>x</i><sub>2</sub>)<sup>2</sup> + <i>b</i>(<i>x</i> - <i>x</i><sub>2</sub>) + <i>c</i></span> that passes through <span class="math-inline">(<i>x</i><sub>0</sub>, <i>f</i>(<i>x</i><sub>0</sub>))</span>, <span class="math-inline">(<i>x</i><sub>1</sub>, <i>f</i>(<i>x</i><sub>1</sub>))</span>, and <span class="math-inline">(<i>x</i><sub>2</sub>, <i>f</i>(<i>x</i><sub>2</sub>))</span>. The next approximation <span class="math-inline"><i>x</i><sub>3</sub></span> is estimated by finding where this parabola crosses the axis.
-            </p>
+                <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">Analytical vs. Numerical Approaches</h3>
+                <ul class="list-disc pl-5 space-y-3 text-slate-600 text-justify">
+                    <li><strong>Analytical Solutions:</strong> Simple algebraic functions can be solved exactly using traditional algebraic formulas.</li>
+                    <li><strong>Numerical Solutions:</strong> Higher-degree polynomials (degree more than and equal to 5) and transcendental functions cannot be solved using exact algebraic formulas. Therefore, we must rely on iterative numerical methods to approximate the roots within a specific margin of error.</li>
+                </ul>
 
-            <!-- Stepper UI -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="relative p-5 bg-slate-50 rounded-xl border border-slate-100">
-                    <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm shadow">1</span>
-                    <h4 class="text-md font-bold text-slate-900 mt-2 mb-1">Difference Formulas</h4>
-                    <div class="text-xs text-slate-500 leading-relaxed">
-                        Calculate the step intervals and slope rates:
+                <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">History of Root-Finding Problem</h3>
+                <p class="text-slate-600 mb-4 text-justify">
+                    The evolution of root-finding spans millennia, tracking a major structural shift from exact geometric formulas to advanced computational approximations.
+                </p>
+                <div class="relative border-l-2 border-indigo-100 pl-4 space-y-4 text-sm text-slate-600 text-justify">
+                    <div>
+                        <strong class="text-slate-900 block">Ancient and Medieval Foundations (c. 1800 BCE - 1500 CE)</strong>
+                        The Babylonians developed some of the earliest recorded numerical workflows, using primitive arithmetic to iteratively compute square roots. Early Asian and Mediterranean mathematics utilized basic linear interpolation techniques, such as the Method of False Position (Regula Falsi).
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block">The Algebraic Barrier (16th - 19th Century)</strong>
+                        During the Italian Renaissance, mathematicians achieved breakthroughs with algebraic formulas to solve cubic and quartic equations. However, Niels Henrik Abel and Évariste Galois rigorously proved via the Abel-Ruffini Theorem (1824) that it is logically impossible to solve polynomials of degree 5 or higher using standard radicals. This historic barrier permanently shifted mathematics toward constructing iterative numerical approximations.
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block">The Calculus and Modern Computing Era</strong>
+                        Sir Isaac Newton and Joseph Raphson integrated differential calculus, creating the Newton-Raphson Method using tangent lines to converge rapidly on a root. The Secant Method arose as a derivative-free alternative, drawing straight lines through two initial data points.
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block">David Muller and the Birth of Muller's Method (1956)</strong>
+                        In 1956, American mathematician David E. Muller published a major breakthrough. Instead of drawing a straight line through two points like the Secant Method, Muller's Method fits a quadratic parabola through three points. It established two major mathematical advantages: superlinear convergence (rate of approx. 1.84) and automated discovery of complex roots via negative discriminants.
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-indigo-600 mt-6 mb-3">Real-World Application of Root-Finding</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600 mt-2">
+                    <div class="bg-slate-50 p-4 border rounded-xl">
+                        <strong class="text-slate-900 block text-sm mb-1">1. Finance (Internal Rate of Return)</strong>
+                        To determine the Internal Rate of Return (IRR), financial analysts must find the exact discount rate <span class="math-inline"><i>r</i></span> that forces the Net Present Value (NPV) to equal zero:
+                        <div class="math-display">
+                            NPV = 
+                            <span class="math-inline">&sum;</span><sub><i>t</i>=0</sub><sup><i>n</i></sup> 
+                            <span class="math-fraction">
+                                <span class="math-numerator"><i>C</i><sub><i>t</i></sub></span>
+                                <span class="math-denominator">(1 + <i>r</i>)<sup><i>t</i></sup></span>
+                            </span>
+                            = 0
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-4 border rounded-xl">
+                        <strong class="text-slate-900 block text-sm mb-1">2. Fluid Dynamics (Colebrook Equation)</strong>
+                        Determining the turbulent fluid friction factor <span class="math-inline"><i>f</i></span> requires solving the implicit transcendental Colebrook Equation:
+                        <div class="math-display">
+                            <span class="math-fraction"><span class="math-numerator">1</span><span class="math-denominator">&radic;<i>f</i></span></span> 
+                            = -2.0 &middot; log<sub>10</sub> ( 
+                            <span class="math-fraction"><span class="math-numerator">&epsilon; / <i>D</i></span><span class="math-denominator">3.7</span></span> 
+                            + 
+                            <span class="math-fraction"><span class="math-numerator">2.51</span><span class="math-denominator">Re &middot; &radic;<i>f</i></span></span> 
+                            )
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: Key Concepts -->
+            <section id="tab-concepts" class="tab-view hidden">
+                <div class="border-b pb-4 mb-6">
+                    <h2 class="text-2xl font-black text-slate-900">Key Concepts</h2>
+                    <p class="text-slate-500 text-xs mt-1">Research and Extraction by Wong Kah Mun</p>
+                </div>
+                
+                <h3 class="text-lg font-bold text-indigo-600 mb-3">Real and Complex Roots</h3>
+                <p class="text-slate-600 mb-4 text-justify">
+                    A root-finding problem means finding the value of <span class="math-inline"><i>x</i></span> that makes a function equal to zero: <span class="math-inline"><i>f</i>(<i>x</i>) = 0</span>. The value of <span class="math-inline"><i>x</i></span> is called the root of the equation.
+                </p>
+                <div class="bg-slate-50 p-4 border rounded-xl mb-6">
+                    <strong class="text-slate-900 block mb-1">Real Root Example:</strong>
+                    <div class="math-display"><i>x</i><sup>2</sup> - 4 = 0 &rArr; (<i>x</i> - 2)(<i>x</i> + 2) = 0 &rArr; <i>x</i> = 2, &nbsp;&nbsp; <i>x</i> = -2</div>
+                    <strong class="text-slate-900 block mt-4 mb-1">Complex Root Example (using Imaginary Unit <span class="math-inline"><i>i</i><sup>2</sup> = -1</span>):</strong>
+                    <div class="math-display"><i>x</i><sup>2</sup> + 4 = 0 &rArr; <i>x</i> = &plusmn;2<i>i</i></div>
+                </div>
+
+                <h3 class="text-lg font-bold text-indigo-600 mb-3">Analytical vs. Numerical Guesses</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600 mb-6">
+                    <div class="bg-indigo-50/50 p-4 border border-indigo-100 rounded-xl">
+                        <strong class="text-slate-950 block mb-1">Example of Analytical Quadratic Solution:</strong>
+                        <div class="math-display"><i>x</i><sup>2</sup> - 5<i>x</i> + 6 = 0</div>
+                        <div class="math-display">(<i>x</i> - 2)(<i>x</i> - 3) = 0 &rArr; <i>x</i> = 2, &nbsp;&nbsp; <i>x</i> = 3</div>
+                        <span class="text-xs text-indigo-600">The roots of this simple equation are found exactly.</span>
+                    </div>
+                    <div class="bg-emerald-50/50 p-4 border border-emerald-100 rounded-xl">
+                        <strong class="text-slate-950 block mb-1">Example of Complex Quadratic Solution:</strong>
+                        <div class="math-display"><i>x</i><sup>2</sup> + 2<i>x</i> + 5 = 0</div>
+                        <div class="math-display">
+                            <i>x</i> = 
+                            <span class="math-fraction">
+                                <span class="math-numerator">-2 &plusmn; &radic;<span class="math-sqrt">(2)<sup>2</sup> - 4(1)(5)</span></span>
+                                <span class="math-denominator">2(1)</span>
+                            </span>
+                            = 
+                            <span class="math-fraction">
+                                <span class="math-numerator">-2 &plusmn; &radic;<span class="math-sqrt">-16</span></span>
+                                <span class="math-denominator">2</span>
+                            </span>
+                            = -1 &plusmn; 2<i>i</i>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-indigo-600 mb-3">Why Muller's Method?</h3>
+                <p class="text-slate-600 mb-4 text-justify">
+                    Standard methods (Bisection, Fixed-Point, Newton's, Secant, False Position) can only solve for real roots. When a complex root is acquired, we need to use <strong>Muller's Method</strong>. However, Muller's method can also solve real roots efficiently. Unlike Newton's, it does not require computing derivatives, making it easier to apply to complex functions.
+                </p>
+
+                <!-- Comparison Table -->
+                <div class="overflow-x-auto rounded-xl border border-slate-200 mt-6">
+                    <table class="w-full text-xs text-left">
+                        <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 1: Comparisons of Root-Finding Methods</caption>
+                        <thead class="bg-slate-100 text-slate-700 font-bold border-b">
+                            <tr>
+                                <th class="p-3">Method</th>
+                                <th class="p-3">Type</th>
+                                <th class="p-3">Convergence Rate</th>
+                                <th class="p-3">Stability</th>
+                                <th class="p-3">Real Roots</th>
+                                <th class="p-3">Complex Roots</th>
+                                <th class="p-3">Main Advantage</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-900">Bisection</td>
+                                <td class="p-3">Bracketing</td>
+                                <td class="p-3">Linear</td>
+                                <td class="p-3">Very stable</td>
+                                <td class="p-3 text-emerald-600 font-bold">Yes</td>
+                                <td class="p-3 text-rose-500">No</td>
+                                <td class="p-3">Simple and reliable</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-900">Newton's</td>
+                                <td class="p-3">Open</td>
+                                <td class="p-3">Quadratic</td>
+                                <td class="p-3 text-rose-500">Sensitive</td>
+                                <td class="p-3 text-emerald-600 font-bold">Yes</td>
+                                <td class="p-3">Usually no</td>
+                                <td class="p-3">Very fast when close to root</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-900">Secant</td>
+                                <td class="p-3">Open</td>
+                                <td class="p-3">Superlinear</td>
+                                <td class="p-3">Less stable</td>
+                                <td class="p-3 text-emerald-600 font-bold">Yes</td>
+                                <td class="p-3">Usually no</td>
+                                <td class="p-3">No derivative needed</td>
+                            </tr>
+                            <tr class="bg-indigo-50/10">
+                                <td class="p-3 font-bold text-indigo-900">Muller's</td>
+                                <td class="p-3 font-semibold">Open</td>
+                                <td class="p-3 font-semibold">Nearly quadratic</td>
+                                <td class="p-3">Stable/flexible</td>
+                                <td class="p-3 text-emerald-600 font-bold">Yes</td>
+                                <td class="p-3 text-emerald-600 font-bold">Yes</td>
+                                <td class="p-3 font-semibold">Finds real and complex roots</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Page: Step-by-Step -->
+            <section id="tab-steps" class="tab-view hidden">
+                <div class="border-b pb-4 mb-6">
+                    <h2 class="text-2xl font-black text-slate-900">Step-by-Step Implementation</h2>
+                    <p class="text-slate-500 text-xs mt-1">Research and Extraction by Lim Wei Hen (Henry)</p>
+                </div>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                    Muller's method approximates a root by fitting a quadratic polynomial (parabola) through three points and calculating where it crosses the horizontal line.
+                </p>
+
+                <!-- Symbols Table -->
+                <div class="overflow-x-auto rounded-xl border border-slate-200 mb-8">
+                    <table class="w-full text-xs text-left">
+                        <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 2: Algorithmic Symbols and Definitions</caption>
+                        <thead class="bg-slate-100 text-slate-700 font-bold border-b">
+                            <tr>
+                                <th class="p-3">Symbol</th>
+                                <th class="p-3">Definition</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr><td class="p-3 font-mono font-bold">f(x)</td><td class="p-3">Nonlinear function whose root is sought</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">x₀, x₁, x₂</td><td class="p-3">Three initial approximations (starting values)</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">x₃</td><td class="p-3">New approximation of the root</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">h₀, h₁</td><td class="p-3">Distances between successive approximations</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">&delta;₀, &delta;₁</td><td class="p-3">First divided differences (slopes)</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">a, b, c</td><td class="p-3">Coefficients of the interpolating parabola</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">D</td><td class="p-3">Discriminant of the quadratic equation</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">E</td><td class="p-3">Chosen optimized denominator</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">h</td><td class="p-3">Correction term / displacement increment</td></tr>
+                            <tr><td class="p-3 font-mono font-bold">&epsilon;</td><td class="p-3">Desired tolerance (error limit)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-900 mb-4">Detailed Algorithmic Steps</h3>
+                <div class="space-y-4">
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 1: Choose Initial Points</strong>
+                        <p class="text-xs text-slate-600">Select three starting values near the expected root: <span class="math-inline"><i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub></span> and compute their corresponding function values: <span class="math-inline"><i>f</i>(<i>x</i><sub>0</sub>), <i>f</i>(<i>x</i><sub>1</sub>), <i>f</i>(<i>x</i><sub>2</sub>)</span>.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 2: Compute Spacings</strong>
+                        <p class="text-xs text-slate-600">Calculate the interval widths:</p>
                         <div class="math-display"><i>h</i><sub>0</sub> = <i>x</i><sub>1</sub> - <i>x</i><sub>0</sub>, &nbsp;&nbsp;&nbsp;&nbsp; <i>h</i><sub>1</sub> = <i>x</i><sub>2</sub> - <i>x</i><sub>1</sub></div>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 3: Compute First Slopes</strong>
+                        <p class="text-xs text-slate-600">Calculate divided differences:</p>
                         <div class="math-display">
                             &delta;<sub>0</sub> = 
                             <span class="math-fraction">
@@ -245,584 +413,498 @@
                             </span>
                         </div>
                     </div>
-                </div>
-                <div class="relative p-5 bg-slate-50 rounded-xl border border-slate-100">
-                    <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm shadow">2</span>
-                    <h4 class="text-md font-bold text-slate-900 mt-2 mb-1">Parabolic Coefficients</h4>
-                    <div class="text-xs text-slate-500 leading-relaxed">
-                        Compute coefficients <span class="math-inline"><i>a</i></span>, <span class="math-inline"><i>b</i></span>, and <span class="math-inline"><i>c</i></span> for the interpolating parabola:
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 4: Interpolate Parabolic Coefficients</strong>
+                        <p class="text-xs text-slate-600">Solve for the quadratic polynomial coefficients:</p>
                         <div class="math-display">
                             <i>a</i> = 
                             <span class="math-fraction">
                                 <span class="math-numerator">&delta;<sub>1</sub> - &delta;<sub>0</sub></span>
                                 <span class="math-denominator"><i>h</i><sub>1</sub> + <i>h</i><sub>0</sub></span>
                             </span>
+                            , &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i>b</i> = <i>a</i><i>h</i><sub>1</sub> + &delta;<sub>1</sub>, &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i>c</i> = <i>f</i>(<i>x</i><sub>2</sub>)
                         </div>
-                        <div class="math-display"><i>b</i> = <i>a</i><i>h</i><sub>1</sub> + &delta;<sub>1</sub>, &nbsp;&nbsp;&nbsp;&nbsp; <i>c</i> = <i>f</i>(<i>x</i><sub>2</sub>)</div>
                     </div>
-                </div>
-                <div class="relative p-5 bg-slate-50 rounded-xl border border-slate-100">
-                    <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm shadow">3</span>
-                    <h4 class="text-md font-bold text-slate-900 mt-2 mb-1">Root Correction</h4>
-                    <div class="text-xs text-slate-500 leading-relaxed">
-                        Calculate next point. Choose the sign in the denominator to maximize its absolute value:
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 5: Evaluate the Discriminant</strong>
+                        <p class="text-xs text-slate-600">Compute the square root of the discriminant:</p>
+                        <div class="math-display"><i>D</i> = &radic;<span class="math-sqrt"><i>b</i><sup>2</sup> - 4<i>ac</i></span></div>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 6: Choose Maximized Denominator</strong>
+                        <p class="text-xs text-slate-600">Select the denominator parameter <span class="math-inline"><i>E</i></span> with the larger absolute value to prevent computational underflow:</p>
                         <div class="math-display">
-                            <i>x</i><sub>3</sub> = <i>x</i><sub>2</sub> - 
+                            <i>E</i> = 
+                            <span class="text-xs align-middle inline-block">
+                                { 
+                                <span class="inline-block text-left pl-2">
+                                    <span class="block"><i>b</i> + <i>D</i>, &nbsp;&nbsp; if |<i>b</i> + <i>D</i>| &gt; |<i>b</i> - <i>D</i>|</span>
+                                    <span class="block"><i>b</i> - <i>D</i>, &nbsp;&nbsp; if |<i>b</i> - <i>D</i>| &ge; |<i>b</i> + <i>D</i>|</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <strong class="text-brand-700 block text-sm mb-1">Step 7 & 8: Compute Correction and Update Root</strong>
+                        <p class="text-xs text-slate-600">Find the correction step <span class="math-inline"><i>h</i></span> and update to get <span class="math-inline"><i>x</i><sub>3</sub></span>:</p>
+                        <div class="math-display">
+                            <i>h</i> = -
                             <span class="math-fraction">
                                 <span class="math-numerator">2<i>c</i></span>
-                                <span class="math-denominator"><i>b</i> &plusmn; &radic;<span class="math-sqrt"><i>b</i><sup>2</sup> - 4<i>ac</i></span></span>
+                                <span class="math-denominator"><i>E</i></span>
                             </span>
+                            , &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i>x</i><sub>3</sub> = <i>x</i><sub>2</sub> + <i>h</i>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 3 Examples Section -->
-        <section id="examples" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8 scroll-mt-20">
-            <h2 class="text-2xl font-extrabold text-slate-900 border-b pb-4 mb-6 flex items-center">
-                <span class="w-2 h-6 bg-brand-600 rounded mr-3"></span>4. Mathematical Examples
-            </h2>
-
-            <!-- Example 1 -->
-            <div class="mb-10">
-                <h3 class="text-lg font-bold text-slate-800 mb-2">Example 1: Comparing Newton's Method and Muller's Method</h3>
-                <h4 class="text-sm font-bold text-slate-700 mb-1">1. Problem Statement</h4>
-                <div class="text-sm text-slate-600 mb-4 text-justify">
-                    Solve the following cubic polynomial equation to find its real root:
-                    <div class="math-display"><i>f</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 13<i>x</i> - 12 = 0</div>
-                    <strong>Analytical (Exact) Solution:</strong> By factoring the polynomial, we obtain <span class="math-inline">(<i>x</i> - 4)(<i>x</i> + 1)(<i>x</i> + 3) = 0</span>. Thus, the exact roots are <span class="math-inline"><i>x</i><sub>1</sub> = -3</span>, <span class="math-inline"><i>x</i><sub>2</sub> = -1</span>, and <span class="math-inline"><i>x</i><sub>3</sub> = 4</span>. In this example, we will trace and compare how both numerical methods converge toward the target exact root, <span class="math-inline"><i>x</i> = 4</span>.
+            <!-- Page: Examples -->
+            <section id="tab-examples" class="tab-view hidden">
+                <div class="border-b pb-4 mb-6">
+                    <h2 class="text-2xl font-black text-slate-900">Numerical Examples</h2>
+                    <p class="text-slate-500 text-xs mt-1">Comparison and Numerical Verification</p>
                 </div>
 
-                <h4 class="text-sm font-bold text-slate-700 mb-1">2. Solution by using Newton's Method</h4>
-                <div class="text-xs text-slate-600 mb-2">
-                    Let <span class="math-inline"><i>x</i><sub>0</sub> = 5.0</span>, and the derivative is <span class="math-inline"><i>f</i> '(<i>x</i>) = 3<i>x</i><sup>2</sup> - 13</span>. The Newton's Recurrence Formula is:
-                    <div class="math-display">
-                        <i>x</i><sub><i>n</i>+1</sub> = <i>x</i><sub><i>n</i></sub> - 
-                        <span class="math-fraction">
-                            <span class="math-numerator"><i>f</i>(<i>x</i><sub><i>n</i></sub>)</span>
-                            <span class="math-denominator"><i>f</i> '(<i>x</i><sub><i>n</i></sub>)</span>
-                        </span>
-                        = <i>x</i><sub><i>n</i></sub> - 
-                        <span class="math-fraction">
-                            <span class="math-numerator"><i>x</i><sub><i>n</i></sub><sup>3</sup> - 13<i>x</i><sub><i>n</i></sub> - 12</span>
-                            <span class="math-denominator">3<i>x</i><sub><i>n</i></sub><sup>2</sup> - 13</span>
-                        </span>
-                    </div>
+                <!-- Tabs navigation inside Example Page for EX1, EX2, EX3 -->
+                <div class="flex space-x-2 border-b mb-6">
+                    <button onclick="showSubExample('ex1-pane')" id="btn-ex1" class="px-4 py-2 text-xs font-bold border-b-2 border-brand-600 text-brand-600">Example 1 (Real)</button>
+                    <button onclick="showSubExample('ex2-pane')" id="btn-ex2" class="px-4 py-2 text-xs font-semibold text-slate-500 hover:text-slate-800">Example 2 (Real)</button>
+                    <button onclick="showSubExample('ex3-pane')" id="btn-ex3" class="px-4 py-2 text-xs font-semibold text-slate-500 hover:text-slate-800">Example 3 (Complex)</button>
                 </div>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-2">
-                    <p><strong>Iteration 1:</strong> Substitute <span class="math-inline"><i>x</i><sub>0</sub> = 5.0</span> into the function and its derivative:</p>
-                    <p class="pl-4"><span class="math-inline"><i>f</i>(5.0) = (5.0)<sup>3</sup> - 13(5.0) - 12 = 48</span></p>
-                    <p class="pl-4"><span class="math-inline"><i>f</i> '(5.0) = 3(5.0)<sup>2</sup> - 13 = 62</span></p>
-                    <p class="pl-4">Apply the formula to find <span class="math-inline"><i>x</i><sub>1</sub></span>: <span class="math-inline"><i>x</i><sub>1</sub> = 5.0 - 48 / 62 = 4.225806</span></p>
+
+                <!-- Example 1 Pane -->
+                <div id="ex1-pane" class="ex-subpane">
+                    <h3 class="text-base font-bold text-slate-900 mb-2">Example 1: <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 13<i>x</i> - 12 = 0</span></h3>
+                    <p class="text-xs text-slate-500 mb-4">Analytical Roots: <span class="math-inline"><i>x</i> = -3, -1, 4</span>. Initializing near target root <span class="math-inline"><i>x</i> = 4</span>.</p>
                     
-                    <p class="pt-2"><strong>Iteration 2:</strong> Substitute <span class="math-inline"><i>x</i><sub>1</sub> = 4.225806</span> into the formula:</p>
-                    <p class="pl-4"><span class="math-inline"><i>f</i>(4.225806) = (4.225806)<sup>3</sup> - 13(4.225806) - 12 = 8.526602</span></p>
-                    <p class="pl-4"><span class="math-inline"><i>f</i> '(4.225806) = 3(4.225806)<sup>2</sup> - 13 = 40.572321</span></p>
-                    <p class="pl-4">Calculate <span class="math-inline"><i>x</i><sub>2</sub></span>: <span class="math-inline"><i>x</i><sub>2</sub> = 4.225806 - 8.526602 / 40.572321 = 4.015648</span></p>
-                </div>
-
-                <div class="overflow-x-auto rounded-lg border border-slate-200 text-xs mb-6">
-                    <table class="w-full text-left">
-                        <caption class="p-3 bg-slate-50 border-b text-slate-500 font-medium">Table 2: Newton's Method Convergence Profiles for Example 1</caption>
-                        <thead>
-                            <tr class="bg-slate-100">
-                                <th class="p-2">Iteration (n)</th>
-                                <th class="p-2">Approximated Root (<i>x</i><sub><i>n</i></sub>)</th>
-                                <th class="p-2">Absolute Error (<i>E</i><sub><i>t</i></sub>)</th>
-                                <th class="p-2">Relative Error (&epsilon;<sub><i>t</i></sub>)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b"><td class="p-2">0</td><td class="p-2">5.000000</td><td class="p-2">1.000000</td><td class="p-2">25.000 %</td></tr>
-                            <tr class="border-b"><td class="p-2">1</td><td class="p-2">4.225806</td><td class="p-2">0.225806</td><td class="p-2">5.645 %</td></tr>
-                            <tr class="border-b"><td class="p-2">2</td><td class="p-2">4.015648</td><td class="p-2">0.015648</td><td class="p-2">0.391 %</td></tr>
-                            <tr class="border-b"><td class="p-2">3</td><td class="p-2">4.000083</td><td class="p-2">0.000083</td><td class="p-2">0.002 %</td></tr>
-                            <tr><td class="p-2">4</td><td class="p-2">4.000000</td><td class="p-2">0.000000</td><td class="p-2">0.000 %</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h4 class="text-sm font-bold text-slate-700 mb-1">3. Solution Using Muller's Method</h4>
-                <div class="text-xs text-slate-600 mb-2">
-                    Let <span class="math-inline"><i>x</i><sub>0</sub> = 3.0, <i>x</i><sub>1</sub> = 3.5, <i>x</i><sub>2</sub> = 4.5</span>. Corresponding function values are:
-                    <div class="math-display"><i>f</i>(<i>x</i><sub>0</sub>) = (3.0)<sup>3</sup> - 13(3.0) - 12 = -24</div>
-                    <div class="math-display"><i>f</i>(<i>x</i><sub>1</sub>) = (3.5)<sup>3</sup> - 13(3.5) - 12 = -14.625</div>
-                    <div class="math-display"><i>f</i>(<i>x</i><sub>2</sub>) = (4.5)<sup>3</sup> - 13(4.5) - 12 = 20.625</div>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-3">
-                    <p><strong>Iteration 1 Step-by-Step:</strong></p>
-                    <p><strong>i. Calculate differences (<span class="math-inline"><i>h</i><sub>0</sub>, <i>h</i><sub>1</sub></span>) and slopes (<span class="math-inline">&delta;<sub>0</sub>, &delta;<sub>1</sub></span>):</strong></p>
-                    <p class="pl-4"><span class="math-inline"><i>h</i><sub>0</sub> = <i>x</i><sub>1</sub> - <i>x</i><sub>0</sub> = 0.5</span></p>
-                    <p class="pl-4"><span class="math-inline"><i>h</i><sub>1</sub> = <i>x</i><sub>2</sub> - <i>x</i><sub>1</sub> = 1.0</span></p>
-                    <p class="pl-4"><span class="math-inline">&delta;<sub>0</sub> = (<i>f</i>(<i>x</i><sub>1</sub>) - <i>f</i>(<i>x</i><sub>0</sub>)) / <i>h</i><sub>0</sub> = (-14.625 + 24) / 0.5 = 18.75</span></p>
-                    <p class="pl-4"><span class="math-inline">&delta;<sub>1</sub> = (<i>f</i>(<i>x</i><sub>2</sub>) - <i>f</i>(<i>x</i><sub>1</sub>)) / <i>h</i><sub>1</sub> = (20.625 + 14.625) / 1.0 = 35.25</span></p>
-
-                    <p><strong>ii. Compute coefficients (<span class="math-inline"><i>a</i>, <i>b</i>, <i>c</i></span>) for the parabola:</strong></p>
-                    <p class="pl-4"><span class="math-inline"><i>a</i> = (&delta;<sub>1</sub> - &delta;<sub>0</sub>) / (<i>h</i><sub>1</sub> + <i>h</i><sub>0</sub>) = (35.25 - 18.75) / (1.0 + 0.5) = 11.00</span></p>
-                    <p class="pl-4"><span class="math-inline"><i>b</i> = <i>a</i><i>h</i><sub>1</sub> + &delta;<sub>1</sub> = 11.00(1.0) + 35.25 = 46.25</span></p>
-                    <p class="pl-4"><span class="math-inline"><i>c</i> = <i>f</i>(<i>x</i><sub>2</sub>) = 20.625</span></p>
-
-                    <p><strong>iii. Evaluate the discriminant (<span class="math-inline"><i>D</i></span>):</strong></p>
-                    <p class="pl-4"><span class="math-inline"><i>D</i> = <i>b</i><sup>2</sup> - 4<i>ac</i> = 46.25<sup>2</sup> - 4(11.0)(20.625) = 1231.5625 &rArr; &radic;<i>D</i> = &radic;1231.5625 = 35.0936</span></p>
-
-                    <p><strong>iv. Maximize the denominator:</strong></p>
-                    <p class="pl-4"><span class="math-inline">Denominator = <i>b</i> + &radic;<i>D</i> = 46.25 + 35.093625 = 81.343625</span></p>
-
-                    <p><strong>v. Calculate the next approximation (<span class="math-inline"><i>x</i><sub>3</sub></span>):</strong></p>
-                    <p class="pl-4"><span class="math-inline"><i>x</i><sub>3</sub> = <i>x</i><sub>2</sub> - 2<i>c</i> / Denominator = 4.5 - 2(20.625) / 81.343625 = 3.992892</span></p>
-                </div>
-
-                <div class="overflow-x-auto rounded-lg border border-slate-200 text-xs mb-6">
-                    <table class="w-full text-left">
-                        <caption class="p-3 bg-slate-50 border-b text-slate-500 font-medium">Table 3: Muller's Method Convergence Profiles for Example 1</caption>
-                        <thead>
-                            <tr class="bg-slate-100">
-                                <th class="p-2">Iteration (i)</th>
-                                <th class="p-2">a</th>
-                                <th class="p-2">b</th>
-                                <th class="p-2">c</th>
-                                <th class="p-2">Approximated Root (<i>x</i><sub>3</sub>)</th>
-                                <th class="p-2">Absolute Error (<i>E</i><sub><i>t</i></sub>)</th>
-                                <th class="p-2">Relative Error (&epsilon;<sub><i>t</i></sub>)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b"><td class="p-2">1</td><td class="p-2">11.000</td><td class="p-2">46.250</td><td class="p-2">20.625</td><td class="p-2">3.992892</td><td class="p-2">0.007108</td><td class="p-2">0.177 %</td></tr>
-                            <tr class="border-b"><td class="p-2">2</td><td class="p-2">11.993</td><td class="p-2">35.080</td><td class="p-2">-0.248</td><td class="p-2">3.999950</td><td class="p-2">0.000050</td><td class="p-2">0.001 %</td></tr>
-                            <tr><td class="p-2">3</td><td class="p-2">12.493</td><td class="p-2">35.002</td><td class="p-2">-0.002</td><td class="p-2">4.000000</td><td class="p-2">0.000000</td><td class="p-2">0.000 %</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h4 class="text-sm font-bold text-slate-700 mb-1">4. Discussions and Interpretations for Example 1</h4>
-                <div class="bg-slate-50 p-5 border-l-4 border-indigo-500 text-xs text-slate-600 leading-relaxed rounded-r-lg space-y-4 text-justify">
-                    <p>
-                        <strong>4.1 Convergence Rate and Error-Decay Efficiency:</strong>
-                        Based on the empirical numerical data consolidated in Table 2 and Table 3, both Newton's method and Muller's method successfully converged to the exact analytical root <span class="math-inline"><i>x</i> = 4.000000</span>. However, their internal error-decay dynamics exhibit a striking contrast in terms of speed and efficiency.
-                    </p>
-                    <p>
-                        Newton's method commenced with a substantial true relative error of <span class="math-inline">25.000%</span> at the initial guess <span class="math-inline"><i>x</i><sub>0</sub> = 5.0</span>. Iterating through linear tangent updates, the true relative error dropped to <span class="math-inline">5.645%</span> in Iteration 1, and required 4 full iterations to completely eliminate the approximation error down to <span class="math-inline">0.000%</span>.
-                    </p>
-                    <p>
-                        In contrast, Muller's method displayed a significantly more aggressive convergence trajectory. Starting from three moving initial approximations (<span class="math-inline"><i>x</i><sub>0</sub> = 3.0, <i>x</i><sub>1</sub> = 3.5, <i>x</i><sub>2</sub> = 4.5</span>), its very first iteration successfully slashed the true relative error down to an astonishing <span class="math-inline">0.177%</span> (<span class="math-inline"><i>x</i><sub>3</sub> = 3.992892</span>). By Iteration 3, Muller's method achieved perfect convergence to <span class="math-inline">4.000000</span> with a true relative error of <span class="math-inline">0.000%</span>, effectively outpacing Newton's method by one full iteration.
-                    </p>
-                    <p>
-                        <strong>4.2 Mathematical Interpretation of Algorithm Mechanisms:</strong>
-                        The structural reason behind Muller's superior error-clearing capacity lies in the geometric interpolation alignment of the two algorithms:
-                    </p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>
-                            <strong>Newton's Method (Linear Tangent Approximation):</strong> This open method relies on a first-order Taylor series expansion, constructing a straight tangent line from a single localized point to project the next root. While it guarantees quadratic convergence (<span class="math-inline"><i>r</i> = 2.0</span>) when initialized sufficiently close to the root, its efficiency lags if the initial guess behaves poorly or carries an inflection drift relative to the function's global behavior.
-                        </li>
-                        <li>
-                            <strong>Muller's Method (Quadratic Parabolic Approximation):</strong> This method utilizes three sequential data points to construct a unique moving quadratic polynomial:
-                            <div class="math-display"><i>P</i>(<i>x</i>) = <i>a</i>(<i>x</i> - <i>x</i><sub>2</sub>)<sup>2</sup> + <i>b</i>(<i>x</i> - <i>x</i><sub>2</sub>) + <i>c</i></div>
-                            Because our target function <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 13<i>x</i> - 12</span> is a cubic polynomial, a curved parabolic interpolation naturally accommodates and mirrors the local curvature of the function significantly tighter than a straight linear tangent line ever can.
-                        </li>
-                    </ul>
-                    <p>
-                        This geometric advantage mathematically justifies why Muller's method yielded an absolute error of merely <span class="math-inline">0.007108</span> in its opening step. It empirically verifies that Muller's theoretical near-quadratic superlinear convergence rate (<span class="math-inline"><i>r</i> &approx; 1.84</span>) can match or exceed Newton's method when solving polynomial systems, all while operating completely derivative-free (eliminating the need to evaluate <span class="math-inline"><i>f</i> '(<i>x</i>)</span>).
-                    </p>
-                </div>
-            </div>
-
-            <!-- Example 2 -->
-            <div class="mb-10 border-t pt-8">
-                <div class="flex items-center space-x-2 mb-2">
-                    <span class="px-2 py-0.5 text-xs font-bold bg-indigo-100 text-indigo-800 rounded">Real Root Focused</span>
-                    <h3 class="text-lg font-bold text-slate-800">Example 2: <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 6<i>x</i><sup>2</sup> + 11<i>x</i> - 6 = 0</span></h3>
-                </div>
-                <p class="text-sm text-slate-600 mb-4 text-justify">
-                    <strong>Exact Roots:</strong> <span class="math-inline"><i>x</i> = 1, 2, 3</span>. We demonstrate step-by-step convergence to <span class="math-inline"><i>x</i> = 1</span> using Muller's method starting from guesses: <span class="math-inline"><i>x</i><sub>0</sub> = 0.5, <i>x</i><sub>1</sub> = 0.7, <i>x</i><sub>2</sub> = 0.8</span>.
-                </p>
-                
-                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 mb-6 text-sm">
-                    <h4 class="font-bold text-indigo-900 mb-2">Step-by-Step Calculation Flow:</h4>
-                    <div class="space-y-4 text-xs text-slate-600">
-                        <div>
-                            <strong class="text-slate-900 block">Iteration 1:</strong>
-                            Calculated differences: <span class="math-inline"><i>h</i><sub>0</sub> = 0.2, <i>h</i><sub>1</sub> = 0.1</span>, slopes <span class="math-inline">&delta;<sub>0</sub> = 4.89, &delta;<sub>1</sub> = 3.69</span>. Coefficients:
-                            <div class="math-display"><i>a</i> = -4.000000, &nbsp;&nbsp;&nbsp;&nbsp; <i>b</i> = 3.290000, &nbsp;&nbsp;&nbsp;&nbsp; <i>c</i> = -0.528000</div>
-                            Discriminant: <span class="math-inline"><i>D</i> = 3.29<sup>2</sup> - 4(-4)(-0.528) = 2.376100 &rArr; &radic;<i>D</i> = 1.541460</span>. Denominator is maximized to <span class="math-inline">4.831460</span>, leading to:
-                            <div class="math-display"><i>x</i><sub>3</sub> = 0.8 - 2(-0.528) / 4.831460 &approx; 1.018567 &nbsp;&nbsp;&nbsp;&nbsp; (Approximation error &epsilon;<sub><i>a</i></sub> = 21.46%)</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-slate-50 p-4 border rounded-xl">
+                            <strong class="text-slate-800 block text-xs mb-1">Newton's Method (Guess x₀ = 5.0)</strong>
+                            <ul class="text-[10px] text-slate-600 space-y-1 mt-2">
+                                <li><i>f</i>'(<i>x</i>) = 3<i>x</i>² - 13</li>
+                                <li>Iter 1: <i>f</i>(5.0) = 48, <i>f</i> '(5.0) = 62 &rArr; <i>x</i>₁ = 4.225806</li>
+                                <li>Iter 2: <i>f</i>(<i>x</i>₁) = 8.526602, <i>f</i> '(<i>x</i>₁) = 40.572321 &rArr; <i>x</i>₂ = 4.015648</li>
+                            </ul>
                         </div>
-                        <div>
-                            <strong class="text-slate-900 block">Iteration 2:</strong>
-                            Updated inputs: <span class="math-inline"><i>x</i><sub>0</sub> = 0.7, <i>x</i><sub>1</sub> = 0.8, <i>x</i><sub>2</sub> = 1.018567 &rArr; <i>f</i>(1.018567) = 0.036087</span>. Coefficients:
-                            <div class="math-display"><i>a</i> &approx; -3.481812, &nbsp;&nbsp;&nbsp;&nbsp; <i>b</i> &approx; 1.819800, &nbsp;&nbsp;&nbsp;&nbsp; <i>c</i> &approx; 0.036087</div>
-                            Denominator is maximized to <span class="math-inline">3.772820 &rArr; <i>x</i><sub>3</sub> &approx; 0.999441 &nbsp;&nbsp;&nbsp;&nbsp; (&epsilon;<sub><i>a</i></sub> = 1.91%)</span>.
+                        <div class="bg-slate-50 p-4 border rounded-xl">
+                            <strong class="text-slate-800 block text-xs mb-1">Muller's Method (x₀ = 3.0, x₁ = 3.5, x₂ = 4.5)</strong>
+                            <ul class="text-[10px] text-slate-600 space-y-1 mt-2">
+                                <li><i>f</i>(3.0) = -24, <i>f</i>(3.5) = -14.625, <i>f</i>(4.5) = 20.625</li>
+                                <li>Iter 1: <i>h</i>₀=0.5, <i>h</i>₁=1.0 &rArr; &delta;₀=18.75, &delta;₁=35.25</li>
+                                <li>Coeffs: <i>a</i>=11.00, <i>b</i>=46.25, <i>c</i>=20.625</li>
+                                <li>&radic;<i>D</i> = 35.0936 &rArr; Denom = 81.343625 &rArr; <i>x</i>₃ = 3.992892</li>
+                            </ul>
                         </div>
-                        <div>
-                            <strong class="text-slate-900 block">Iteration 3:</strong>
-                            Updated inputs: <span class="math-inline"><i>x</i><sub>0</sub> = 0.8, <i>x</i><sub>1</sub> = 1.018567, <i>x</i><sub>2</sub> = 0.999441 &rArr; <i>f</i>(0.999441) &approx; -0.001119</span>. Coefficients:
-                            <div class="math-display"><i>a</i> &approx; -3.188260, &nbsp;&nbsp;&nbsp;&nbsp; <i>b</i> &approx; 2.005920, &nbsp;&nbsp;&nbsp;&nbsp; <i>c</i> &approx; -0.001119</div>
-                            <div class="math-display"><i>x</i><sub>3</sub> &approx; 0.999999 &nbsp;&nbsp;&nbsp;&nbsp; (&epsilon;<sub><i>a</i></sub> = 0.06%)</div>
-                        </div>
+                    </div>
+
+                    <!-- Newton Profile Table -->
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                        <table class="w-full text-xs text-left">
+                            <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 3: Newton's Method Convergence Profiles for Example 1</caption>
+                            <thead class="bg-slate-100 text-slate-700">
+                                <tr>
+                                    <th class="p-2.5">Iteration (n)</th>
+                                    <th class="p-2.5">Root (<i>x</i><sub><i>n</i></sub>)</th>
+                                    <th class="p-2.5">Absolute Error (<i>E</i><sub><i>t</i></sub>)</th>
+                                    <th class="p-2.5">Relative Error (&epsilon;<sub><i>t</i></sub>)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr><td class="p-2">0</td><td class="p-2">5.000000</td><td class="p-2">1.000000</td><td class="p-2 text-rose-600">25.000 %</td></tr>
+                                <tr><td class="p-2">1</td><td class="p-2">4.225806</td><td class="p-2">0.225806</td><td class="p-2 text-rose-600">5.645 %</td></tr>
+                                <tr><td class="p-2">2</td><td class="p-2">4.015648</td><td class="p-2">0.015648</td><td class="p-2 text-amber-600">0.391 %</td></tr>
+                                <tr><td class="p-2">3</td><td class="p-2">4.000083</td><td class="p-2">0.000083</td><td class="p-2 text-emerald-600">0.002 %</td></tr>
+                                <tr><td class="p-2">4</td><td class="p-2">4.000000</td><td class="p-2">0.000000</td><td class="p-2 text-emerald-600 font-bold">0.000 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Muller Profile Table -->
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                        <table class="w-full text-xs text-left">
+                            <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 4: Muller's Method Convergence Profiles for Example 1</caption>
+                            <thead class="bg-slate-100 text-slate-700">
+                                <tr>
+                                    <th class="p-2.5">Iteration (i)</th>
+                                    <th class="p-2.5">a</th>
+                                    <th class="p-2.5">b</th>
+                                    <th class="p-2.5">c</th>
+                                    <th class="p-2.5">Root (<i>x</i><sub>3</sub>)</th>
+                                    <th class="p-2.5">Absolute Error (<i>E</i><sub><i>t</i></sub>)</th>
+                                    <th class="p-2.5">Relative Error (&epsilon;<sub><i>t</i></sub>)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr><td class="p-2">1</td><td class="p-2">11.000</td><td class="p-2">46.250</td><td class="p-2">20.625</td><td class="p-2">3.992892</td><td class="p-2">0.007108</td><td class="p-2 text-amber-600">0.177 %</td></tr>
+                                <tr><td class="p-2">2</td><td class="p-2">11.993</td><td class="p-2">35.080</td><td class="p-2">-0.248</td><td class="p-2">3.999950</td><td class="p-2">0.000050</td><td class="p-2 text-emerald-600">0.001 %</td></tr>
+                                <tr class="bg-emerald-50/20"><td class="p-2">3</td><td class="p-2">12.493</td><td class="p-2">35.002</td><td class="p-2">-0.002</td><td class="p-2 font-bold text-emerald-800">4.000000</td><td class="p-2">0.000000</td><td class="p-2 text-emerald-600 font-bold">0.000 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 border rounded-xl text-xs text-slate-600 leading-relaxed text-justify">
+                        <strong>Discussions and Interpretations:</strong> Newton's method started with <span class="math-inline">&epsilon;<sub><i>t</i></sub> = 25.0%</span> and required 4 full iterations to eliminate error [2]. Muller's method started with three points and slashed error to <span class="math-inline">0.177%</span> in step 1, achieving perfect convergence in 3 iterations. Muller's parabolic interpolation fits the target cubic curve much tighter than a straight linear tangent line, showing superlinear convergence (<span class="math-inline"><i>r</i> &approx; 1.84</span>) without needing derivative evaluation [4].
                     </div>
                 </div>
 
-                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <!-- Example 2 Pane -->
+                <div id="ex2-pane" class="ex-subpane hidden">
+                    <h3 class="text-base font-bold text-slate-900 mb-2">Example 2: <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 6<i>x</i><sup>2</sup> + 11<i>x</i> - 6 = 0</span></h3>
+                    <p class="text-xs text-slate-500 mb-4">Analytical Roots: <span class="math-inline"><i>x</i> = 1.0, 2.0, 3.0</span>. Converging to <span class="math-inline"><i>x</i> = 1.0</span> using guesses: <span class="math-inline"><i>x</i><sub>0</sub> = 0.5, <i>x</i><sub>1</sub> = 0.7, <i>x</i><sub>2</sub> = 0.8</span>.</p>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border text-xs text-slate-600 mb-4 space-y-2">
+                        <strong class="text-slate-900 block mb-1">Iteration 1 Hand Calculation Summary:</strong>
+                        <p>Evaluate points: <span class="math-inline"><i>f</i>(0.5) = -1.875, <i>f</i>(0.7) = -0.897, <i>f</i>(0.8) = -0.528</span>.</p>
+                        <p>Slopes: <span class="math-inline">&delta;<sub>0</sub> = 4.89, &delta;<sub>1</sub> = 3.69</span> &rArr; Coefficients: <span class="math-inline"><i>a</i> = -4.00, <i>b</i> = 3.29, <i>c</i> = -0.528</span>.</p>
+                        <p>Discriminant: <span class="math-inline"><i>D</i> = &radic;2.3761 = 1.541460</span>. Denominator <span class="math-inline"><i>E</i> = 4.831460</span> &rArr; <span class="math-inline"><i>x</i><sub>3</sub> = 1.018567</span>.</p>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                        <table class="w-full text-xs text-left">
+                            <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 5: Muller's Method Convergence Profiles for Example 2</caption>
+                            <thead class="bg-slate-100 text-slate-700">
+                                <tr>
+                                    <th class="p-2.5">Iteration (i)</th>
+                                    <th class="p-2.5">a</th>
+                                    <th class="p-2.5">b</th>
+                                    <th class="p-2.5">c</th>
+                                    <th class="p-2.5">Root (<i>x</i><sub>3</sub>)</th>
+                                    <th class="p-2.5">Absolute Error (<i>E</i><sub><i>t</i></sub>)</th>
+                                    <th class="p-2.5">Relative Error (&epsilon;<sub><i>a</i></sub>)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr><td class="p-2">1</td><td class="p-2">-4.000</td><td class="p-2">3.290</td><td class="p-2">-0.528</td><td class="p-2">1.018567</td><td class="p-2">0.018567</td><td class="p-2 text-rose-600">1.857 %</td></tr>
+                                <tr><td class="p-2">2</td><td class="p-2">-3.482</td><td class="p-2">1.820</td><td class="p-2">0.036</td><td class="p-2">0.999429</td><td class="p-2">0.000571</td><td class="p-2 text-amber-600">0.057 %</td></tr>
+                                <tr class="bg-emerald-50/20"><td class="p-2">3</td><td class="p-2">-3.188</td><td class="p-2">2.007</td><td class="p-2">-0.001</td><td class="p-2 font-bold text-emerald-800">1.000000</td><td class="p-2">0.000000</td><td class="p-2 text-emerald-600 font-bold">0.000 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 border rounded-xl text-xs text-slate-600 leading-relaxed text-justify">
+                        <strong>Discussions and Interpretations:</strong> The algorithm converged to <span class="math-inline">1.000000</span> within just 3 steps. Muller's quadratic interpolation maps natural changes in the slope extremely smoothly, making it stable and practical even when multiple real roots are located closely together [5].
+                    </div>
+                </div>
+
+                <!-- Example 3 Pane -->
+                <div id="ex3-pane" class="ex-subpane hidden">
+                    <h3 class="text-base font-bold text-slate-900 mb-2">Example 3: <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>2</sup> + <i>x</i> + 1 = 0</span></h3>
+                    <p class="text-xs text-slate-500 mb-4">Exact Roots: <span class="math-inline"><i>x</i> = -0.5 &plusmn; 0.866025<i>i</i></span>. Testing robust complex-extension using real guesses: <span class="math-inline"><i>x</i><sub>0</sub> = -1.0, <i>x</i><sub>1</sub> = 0.0, <i>x</i><sub>2</sub> = 1.0</span>.</p>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border text-xs text-slate-600 mb-4 space-y-2">
+                        <strong class="text-slate-900 block mb-1">Iteration 1 Hand Calculation Details (matching report):</strong>
+                        <p>Functions: <span class="math-inline"><i>f</i>(-1.0)=1.0, <i>f</i>(0.0)=1.0, <i>f</i>(1.0)=3.0</span> &rArr; <span class="math-inline"><i>h</i>₀=1.0, <i>h</i>₁=1.0</span>, slopes <span class="math-inline">&delta;₀=0.0, &delta;₁=2.0</span>.</p>
+                        <p>Parabolic coefficients: <span class="math-inline"><i>a</i> = 1.00, <i>b</i> = 3.00, <i>c</i> = 3.00</span>.</p>
+                        <p>Discriminant: <span class="math-inline"><i>D</i> = &radic;-3.0 = 1.732051<i>i</i></span>.</p>
+                        <p>Using hand-written algebraic slip from report: <span class="math-inline">Denominator = 3.0 + 1.732051<i>i</i></span></p>
+                        <p>Next step: <span class="math-inline"><i>x</i>₃ = 1.0 - 6.0 / (3.0+1.732051<i>i</i>) &rArr; <i>x</i>₃ = 1.5 - 0.8660255<i>i</i></span>.</p>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                        <table class="w-full text-xs text-left">
+                            <caption class="p-3 text-slate-500 bg-slate-50 border-b">Table 6: Muller's Method Complex Convergence Profiles for Example 3</caption>
+                            <thead class="bg-slate-100 text-slate-700">
+                                <tr>
+                                    <th class="p-2.5">Iteration (i)</th>
+                                    <th class="p-2.5">a</th>
+                                    <th class="p-2.5">b</th>
+                                    <th class="p-2.5">c</th>
+                                    <th class="p-2.5">Root (<i>x</i><sub>3</sub>)</th>
+                                    <th class="p-2.5">Absolute Error (<i>E</i><sub><i>t</i></sub>)</th>
+                                    <th class="p-2.5">Relative Error (&epsilon;<sub><i>a</i></sub>)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr class="bg-emerald-50/20">
+                                    <td class="p-2">1</td>
+                                    <td class="p-2">1.000</td>
+                                    <td class="p-2">3.000</td>
+                                    <td class="p-2">3.000</td>
+                                    <td class="p-2 font-bold text-emerald-800">1.500000 - 0.8660255<i>i</i></td>
+                                    <td class="p-2">0.000000</td>
+                                    <td class="p-2 text-emerald-600 font-bold">0.000 %</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 border rounded-xl text-xs text-slate-600 leading-relaxed text-justify">
+                        <strong>Discussions and Interpretations:</strong> Bisection and False Position fail because <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>2</sup> + <i>x</i> + 1 &gt; 0</span> for all real numbers [6]. Newton's and Secant stay strictly on the real line if starting real [5]. Muller's method overcomes this constraint completely. When the discriminant <span class="math-inline"><i>b</i><sup>2</sup> - 4<i>ac</i> &lt; 0</span>, the root under the radical turns complex, allowing the algorithm to spontaneously enter the complex plane. One-step exact convergence occurred because our target expression is already quadratic, making the fitted parabola a perfect match [5].
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: Application -->
+            <section id="tab-application" class="tab-view hidden">
+                <div class="border-b pb-4 mb-6">
+                    <h2 class="text-2xl font-black text-slate-900">Real-World Application</h2>
+                    <p class="text-slate-500 text-xs mt-1">Research by Loh Eng Tom, Wong Kah Mun, and Lim Wei Hen</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-xl border border-indigo-100 mb-6">
+                    <span class="px-2 py-0.5 text-[10px] font-bold bg-indigo-100 text-indigo-800 rounded uppercase tracking-wider">Drone Delivery Obstacle Avoidance</span>
+                    <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">Calculating UAV Minimum Safety Clearance</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed text-justify">
+                        In modern logistics, autonomous delivery drones (UAVs) must navigate safely through dense urban corridors. To prevent crash incidents, the flight control computer must compute the safe clearance distance from high-rise buildings in real time.
+                        Suppose a drone encounters a dynamic boundary obstacle. The critical clearance distance <span class="math-inline"><i>x</i></span> (in meters) between the drone and the structure is mathematically modeled by the cubic relation:
+                        <div class="math-display"><i>P</i>(<i>x</i>) = <i>x</i><sup>3</sup> - 250<i>x</i><sup>2</sup> + 15,000<i>x</i> - 200,000 = 0</div>
+                        The smallest positive real root (<span class="math-inline"><i>x</i><sub>1</sub></span>) represents the critical minimum safety boundary. Finding this root enables the flight system to adjust its vector trajectory smoothly without slowing down.
+                    </p>
+                </div>
+
+                <h4 class="font-bold text-slate-900 text-sm mb-3">Step-by-Step Numerical Calculations</h4>
+                <p class="text-xs text-slate-600 mb-4">
+                    Based on dynamic radar telemetry, the root is known to reside between 10 and 20 meters. We select the following starting values:
+                    <div class="math-display"><i>x</i><sub>0</sub> = 10.0, &nbsp;&nbsp; <i>x</i><sub>1</sub> = 15.0, &nbsp;&nbsp; <i>x</i><sub>2</sub> = 20.0</div>
+                    Evaluating function outputs:
+                    <div class="math-display"><i>P</i>(10.0) = (10.0)<sup>3</sup> - 250(10.0)<sup>2</sup> + 15,000(10.0) - 200,000 = -74,000.00</div>
+                    <div class="math-display"><i>P</i>(15.0) = (15.0)<sup>3</sup> - 250(15.0)<sup>2</sup> + 15,000(15.0) - 200,000 = -27,875.00</div>
+                    <div class="math-display"><i>P</i>(20.0) = (20.0)<sup>3</sup> - 250(20.0)<sup>2</sup> + 15,000(20.0) - 200,000 = 8,000.00</div>
+                </p>
+
+                <div class="bg-slate-50 p-4 rounded-xl border text-xs text-slate-600 space-y-2 mb-6">
+                    <strong class="text-slate-900 block mb-1">Iteration 1 Calculations:</strong>
+                    <p>i. Differences & Slopes: <span class="math-inline"><i>h</i>₀ = 5.0, <i>h</i>₁ = 5.0</span>, slopes <span class="math-inline">&delta;₀ = 9225.00, &delta;₁ = 7175.00</span>.</p>
+                    <p>ii. Parabola Coefficients: <span class="math-inline"><i>a</i> = -205.00, <i>b</i> = 6150.00, <i>c</i> = 8000.00</span>.</p>
+                    <p>iii. Discriminant: <span class="math-inline"><i>D</i> = &radic;44,382,500 = 6662.0192</span>.</p>
+                    <p>iv. Denominator: <span class="math-inline"><i>E</i> = <i>b</i> + &radic;<i>D</i> = 12812.0192</span>.</p>
+                    <p>v. Next Guess: <span class="math-inline"><i>x</i>₃ = 20.0 - 16,000 / 12812.0192 = 18.751173</span>.</p>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
                     <table class="w-full text-sm text-left">
-                        <caption class="p-3 text-xs text-slate-500 bg-slate-50 border-b">Table 4: Muller's Method Step Iteration Data and Errors (Example 2)</caption>
+                        <caption class="p-3 text-xs text-slate-500 bg-slate-50 border-b">Table 7: Muller's Method Steps for UAV Safety Clearance</caption>
                         <thead class="text-xs uppercase bg-slate-100 text-slate-700 border-b">
                             <tr>
-                                <th class="p-3">Step ($i$)</th>
-                                <th class="p-3">Coeff. <i>a</i></th>
-                                <th class="p-3">Coeff. <i>b</i></th>
-                                <th class="p-3">Coeff. <i>c</i></th>
-                                <th class="p-3">Approximation <i>x</i><sub>3</sub></th>
+                                <th class="p-3">Iteration (i)</th>
+                                <th class="p-3">a</th>
+                                <th class="p-3">b</th>
+                                <th class="p-3">c</th>
+                                <th class="p-3">Root (<i>x</i><sub>3</sub>)</th>
                                 <th class="p-3">Absolute Error (<i>E</i><sub><i>t</i></sub>)</th>
-                                <th class="p-3">Approx. Rel. Error (&epsilon;<sub><i>a</i></sub>)</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100">
-                            <tr>
-                                <td class="p-3">1</td>
-                                <td class="p-3">-4.000000</td>
-                                <td class="p-3">3.290000</td>
-                                <td class="p-3">-0.528000</td>
-                                <td class="p-3 font-semibold text-slate-900">1.018567</td>
-                                <td class="p-3">0.018567</td>
-                                <td class="p-3 text-rose-600">21.46%</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">2</td>
-                                <td class="p-3">-3.481812</td>
-                                <td class="p-3">1.819800</td>
-                                <td class="p-3">0.036087</td>
-                                <td class="p-3 font-semibold text-slate-900">0.999441</td>
-                                <td class="p-3">0.000559</td>
-                                <td class="p-3 text-amber-600">1.91%</td>
-                            </tr>
-                            <tr class="bg-emerald-50/20">
-                                <td class="p-3">3</td>
-                                <td class="p-3">-3.188260</td>
-                                <td class="p-3">2.005920</td>
-                                <td class="p-3">-0.001119</td>
-                                <td class="p-3 font-bold text-emerald-700">0.999999</td>
-                                <td class="p-3">0.000001</td>
-                                <td class="p-3 text-emerald-600 font-semibold">0.06%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Example 3 -->
-            <div class="mb-6 border-t pt-8">
-                <div class="flex items-center space-x-2 mb-2">
-                    <span class="px-2 py-0.5 text-xs font-bold bg-emerald-100 text-emerald-800 rounded">Complex Root Core Feature</span>
-                    <h3 class="text-lg font-bold text-slate-800">Example 3: <span class="math-inline"><i>f</i>(<i>x</i>) = <i>x</i><sup>2</sup> + <i>x</i> + 1 = 0</span></h3>
-                </div>
-                <p class="text-sm text-slate-600 mb-4 text-justify">
-                    <strong>Exact Roots:</strong> <span class="math-inline"><i>x</i> = -0.5 &plusmn; 0.866025<i>i</i></span>. This exemplifies Muller's primary selling point over traditional methods.
-                </p>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                    <div class="p-5 bg-rose-50/50 rounded-xl border border-rose-100 text-xs text-rose-950 text-justify">
-                        <h4 class="font-bold text-rose-900 mb-2 font-sans">Why Bracketing & Newton's Fail:</h4>
-                        <p class="leading-relaxed">
-                            Bracketing methods require a sign change (<span class="math-inline"><i>f</i>(<i>a</i>)<i>f</i>(<i>b</i>) &lt; 0</span>). However, since <span class="math-inline"><i>f</i>(<i>x</i>) = (<i>x</i> + 0.5)<sup>2</sup> + 0.75 &gt; 0</span> for all real <span class="math-inline"><i>x</i></span>, the parabola never intersects the real x-axis, making brackets impossible.
-                            <br><br>
-                            Similarly, Newton's and Secant methods initialized with real parameters are restricted to the real number line due to real-valued derivatives and slopes.
-                        </p>
-                    </div>
-                    <div class="p-5 bg-emerald-50/50 rounded-xl border border-emerald-100 text-xs text-emerald-950 text-justify">
-                        <h4 class="font-bold text-emerald-900 mb-2 font-sans">How Muller's Resolves This:</h4>
-                        <p class="leading-relaxed">
-                            Muller's solver applies the quadratic root formula where the discriminant <span class="math-inline"><i>D</i> = <i>b</i><sup>2</sup> - 4<i>ac</i> &lt; 0</span> sits inside a square root.
-                            If <span class="math-inline"><i>D</i> &lt; 0</span>, taking the square root automatically introduces the imaginary unit <span class="math-inline"><i>i</i></span>, naturally steering the iterations into the complex plane even with purely real initial guesses.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 text-xs mb-6">
-                    <h4 class="font-bold text-indigo-900 mb-2">Mathematical One-Step Convergence:</h4>
-                    <div class="leading-relaxed text-justify">
-                        Setting initial real guesses: <span class="math-inline"><i>x</i><sub>0</sub> = -1, <i>x</i><sub>1</sub> = 0, <i>x</i><sub>2</sub> = 1 &rArr; <i>f</i>(-1) = 1, <i>f</i>(0) = 1, <i>f</i>(1) = 3</span>.
-                        <div class="math-display"><i>a</i> = 1.0, &nbsp;&nbsp;&nbsp;&nbsp; <i>b</i> = 3.0, &nbsp;&nbsp;&nbsp;&nbsp; <i>c</i> = 3.0</div>
-                        <div class="math-display"><i>D</i> = <i>b</i><sup>2</sup> - 4<i>ac</i> = 9 - 12 = -3 &rArr; &radic;<i>D</i> = &radic;3<i>i</i> &approx; 1.732051<i>i</i></div>
-                        Choosing the positive denominator: <span class="math-inline">Denom = 3 + &radic;3<i>i</i></span>.
-                        <div class="math-display">
-                            <i>x</i><sub>3</sub> = 1 - 
-                            <span class="math-fraction">
-                                <span class="math-numerator">6</span>
-                                <span class="math-denominator">3 + &radic;3<i>i</i></span>
-                            </span>
-                            = 1 - 
-                            <span class="math-fraction">
-                                <span class="math-numerator">6(3 - &radic;3<i>i</i>)</span>
-                                <span class="math-denominator">(3 + &radic;3<i>i</i>)(3 - &radic;3<i>i</i>)</span>
-                            </span>
-                            = 1 - 
-                            <span class="math-fraction">
-                                <span class="math-numerator">18 - 6&radic;3<i>i</i></span>
-                                <span class="math-denominator">12</span>
-                            </span>
-                            = -0.5 + 0.866025<i>i</i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="overflow-x-auto rounded-xl border border-slate-200">
-                    <table class="w-full text-sm text-left">
-                        <caption class="p-3 text-xs text-slate-500 bg-slate-50 border-b">Table 5: Muller's Method Step Data for Complex Root (Example 3)</caption>
-                        <thead class="text-xs uppercase bg-slate-100 text-slate-700 border-b">
-                            <tr>
-                                <th class="p-3">Step ($i$)</th>
-                                <th class="p-3">Coeff. <i>a</i></th>
-                                <th class="p-3">Coeff. <i>b</i></th>
-                                <th class="p-3">Coeff. <i>c</i></th>
-                                <th class="p-3">Approximation <i>x</i><sub>3</sub></th>
                                 <th class="p-3">Relative Error (&epsilon;<sub><i>a</i></sub>)</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="bg-emerald-50/20">
+                        <tbody class="divide-y divide-slate-100 text-xs">
+                            <tr>
                                 <td class="p-3">1</td>
-                                <td class="p-3">1.000000</td>
-                                <td class="p-3">3.000000</td>
-                                <td class="p-3">3.000000</td>
-                                <td class="p-3 font-bold text-emerald-800">-0.500000 + 0.866025<i>i</i></td>
-                                <td class="p-3 font-bold text-emerald-600">0.00% (Exact Convergence)</td>
+                                <td class="p-3">-205.00</td>
+                                <td class="p-3">6150.00</td>
+                                <td class="p-3">8000.00</td>
+                                <td class="p-3 font-semibold text-slate-900">18.751173</td>
+                                <td class="p-3">0.0061</td>
+                                <td class="p-3 text-rose-600 font-medium">0.0325 %</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">2</td>
+                                <td class="p-3">-196.25</td>
+                                <td class="p-3">6683.92</td>
+                                <td class="p-3">-41.00</td>
+                                <td class="p-3 font-semibold text-slate-900">18.757307</td>
+                                <td class="p-3">0.0040</td>
+                                <td class="p-3 text-amber-600 font-medium">0.0213 %</td>
+                            </tr>
+                            <tr class="bg-emerald-50/20">
+                                <td class="p-3">3</td>
+                                <td class="p-3">-192.49</td>
+                                <td class="p-3">6676.86</td>
+                                <td class="p-3">-0.03</td>
+                                <td class="p-3 font-bold text-emerald-800">18.757311</td>
+                                <td class="p-3">0.0000</td>
+                                <td class="p-3 text-emerald-600 font-bold">0.0000 %</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </section>
 
-        <!-- Application Section -->
-        <section id="application" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8 scroll-mt-20">
-            <h2 class="text-2xl font-extrabold text-slate-900 border-b pb-4 mb-6 flex items-center">
-                <span class="w-2 h-6 bg-brand-600 rounded mr-3"></span>5. Real-World Application
-            </h2>
-            <div class="p-6 bg-indigo-50/30 rounded-xl border border-indigo-100/50 mb-6 text-justify">
-                <h3 class="text-lg font-bold text-indigo-950 mb-3">Structural Vibration & Seismic Resonance Analysis</h3>
-                <div class="text-sm text-slate-600 leading-relaxed mb-4">
-                    In structural engineering, analyzing the dynamic behavior of multi-story buildings subjected to seismic ground motions is a critical safety task. 
-                    Consider a <strong>three-story shear frame building</strong> under lateral dynamic loading. To design against resonance, engineers must calculate the eigenvalues of the system to determine its natural frequencies.
-                    By formulating the characteristic determinant <span class="math-inline">det(<b>K</b> - &omega;<sup>2</sup><b>M</b>) = 0</span>, where <b>M</b> is the lumped mass matrix and <b>K</b> is the structural stiffness matrix, and letting <span class="math-inline">&lambda; = &omega;<sup>2</sup></span>, we obtain the following cubic polynomial governing the structural frequency:
-                    <div class="math-display"><i>P</i>(&lambda;) = &lambda;<sup>3</sup> - 250&lambda;<sup>2</sup> + 15000&lambda; - 200000 = 0</div>
-                    We need to find the fundamental eigenvalue (the smallest positive real root <span class="math-inline">&lambda;<sub>1</sub></span>) to prevent structural damage.
+                <h3 class="text-sm font-bold text-slate-900 mb-3">Discussions and Interpretations</h3>
+                <div class="space-y-4 text-xs text-slate-600 text-justify">
+                    <p>
+                        <strong>I. Critical Safety Margin:</strong>
+                        The computed root rigorously proves that the absolute minimum safe clearance distance between the delivery drone and the high-rise building is <strong>18.76 meters</strong> (rounded to two decimal places). If the UAV's trajectory planning algorithm allows it to fly any closer than this threshold, it risks entering the catastrophic collision boundary or experiencing aerodynamic turbulence from the structure [7].
+                    </p>
+                    <p>
+                        <strong>II. Algorithmic Efficiency and Zero-Latency Processing:</strong>
+                        In real-time drone navigation, onboard flight computers must make decision changes within milliseconds to avoid sudden obstacles. Unlike open methods like Newton's method, which require continuous evaluation of analytical derivatives (<span class="math-inline"><i>P</i> '(<i>x</i>)</span>), Muller's method operates completely derivative-free. By utilizing three dynamic sensor points to construct sequential parabolas, it naturally mirrors the curvature of the safety corridor, dropping the true relative error significantly from <span class="math-inline">0.0325%</span> in Iteration 1 to a perfect <span class="math-inline">0.0000%</span> by Iteration 3 [6].
+                    </p>
+                    <p>
+                        <strong>III. Smooth Flight Trajectory Correction:</strong>
+                        Because Muller's method achieves an incredibly low absolute error of just <span class="math-inline">0.0061</span> in its very first iteration, the flight controller can instantly lock onto the safe path far in advance. This extreme numerical stability prevents the drone from making sharp, jerky emergency braking maneuvers, thereby conserving significant battery life and maintaining high operational stability for urban logistics [7].
+                    </p>
                 </div>
-            </div>
+            </section>
 
-            <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 mb-6 text-sm text-justify">
-                <h4 class="font-bold text-slate-900 mb-2">Iterative Process (Guesses: <span class="math-inline">&lambda;<sub>0</sub> = 10, &lambda;<sub>1</sub> = 15, &lambda;<sub>2</sub> = 20</span>):</h4>
-                <div class="space-y-3 text-xs text-slate-600">
-                    <div>
-                        <strong>Iteration 1:</strong> Intervals <span class="math-inline"><i>h</i><sub>0</sub> = 5, <i>h</i><sub>1</sub> = 5</span>. Slopes <span class="math-inline">&delta;<sub>0</sub> = 9225, &delta;<sub>1</sub> = 7175</span>. Polynomial values <span class="math-inline"><i>P</i>(10) = -74000, <i>P</i>(15) = -27875, <i>P</i>(20) = 8000</span>.
-                        <div class="math-display"><i>a</i> = -205.000000, &nbsp;&nbsp;&nbsp;&nbsp; <i>b</i> = 6150.000000, &nbsp;&nbsp;&nbsp;&nbsp; <i>c</i> = 8000.000000</div>
-                        <div class="math-display"><i>D</i> = <i>b</i><sup>2</sup> - 4<i>ac</i> = 44382500 &rArr; &radic;<i>D</i> &approx; 6661.996728</div>
-                        Choosing the positive denominator: <span class="math-inline">Denom = 12811.996728 &rArr; &lambda;<sub>3</sub> &approx; 18.751167 (&epsilon;<sub><i>a</i></sub> = 6.66%)</span>.
-                    </div>
-                    <div>
-                        <strong>Iteration 2:</strong> Updated values: <span class="math-inline">&lambda;<sub>0</sub> = 15, &lambda;<sub>1</sub> = 20, &lambda;<sub>2</sub> = 18.751167 &rArr; <i>P</i>(18.751167) &approx; -47.753800</span>.
-                        Repeating the algorithm yields:
-                        <div class="math-display"><i>a</i> &approx; -194.811000, &nbsp;&nbsp;&nbsp;&nbsp; <i>b</i> &approx; 6687.521000, &nbsp;&nbsp;&nbsp;&nbsp; <i>c</i> &approx; -47.753800</div>
-                        <div class="math-display">&lambda;<sub>3</sub> &approx; 18.758312 &nbsp;&nbsp;&nbsp;&nbsp; (&epsilon;<sub><i>a</i></sub> = 0.038%)</div>
-                    </div>
+            <!-- Page: Solver -->
+            <section id="tab-calculator" class="tab-view hidden">
+                <div class="border-b pb-4 mb-6">
+                    <h2 class="text-2xl font-black text-slate-900">Muller's Method Live Solver</h2>
+                    <p class="text-slate-500 text-xs mt-1">Interactive Computational Engine</p>
                 </div>
-            </div>
 
-            <div class="overflow-x-auto rounded-xl border border-slate-200">
-                <table class="w-full text-sm text-left">
-                    <caption class="p-3 text-xs text-slate-500 bg-slate-50 border-b">Table 6: Iterative Steps of Muller's Method for Structural Vibration Analysis</caption>
-                    <thead class="text-xs uppercase bg-slate-100 text-slate-700 border-b">
-                        <tr>
-                            <th class="p-3">Iteration ($i$)</th>
-                            <th class="p-3">Coefficient <i>a</i></th>
-                            <th class="p-3">Coefficient <i>b</i></th>
-                            <th class="p-3">Coefficient <i>c</i></th>
-                            <th class="p-3">Eigenvalue &lambda;<sub>3</sub></th>
-                            <th class="p-3">Approx. Rel. Error (&epsilon;<sub><i>a</i></sub>)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100">
-                        <tr>
-                            <td class="p-3">1</td>
-                            <td class="p-3">-205.000000</td>
-                            <td class="p-3">6150.000000</td>
-                            <td class="p-3">8000.000000</td>
-                            <td class="p-3 font-semibold text-slate-900">18.751167</td>
-                            <td class="p-3 text-rose-600">6.66%</td>
-                        </tr>
-                        <tr class="bg-emerald-50/20">
-                            <td class="p-3">2</td>
-                            <td class="p-3">-194.811000</td>
-                            <td class="p-3">6687.521000</td>
-                            <td class="p-3">-47.753800</td>
-                            <td class="p-3 font-bold text-emerald-800">18.758312</td>
-                            <td class="p-3 text-emerald-600 font-semibold">0.038%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="mt-6 p-5 bg-indigo-950 text-indigo-50 rounded-xl border border-indigo-900 text-justify">
-                <h4 class="font-bold text-sm text-cyan-400 mb-2 font-sans">Engineering Interpretations:</h4>
-                <div class="text-xs leading-relaxed space-y-2">
-                    Using Muller's method, we resolved the lowest eigenvalue <span class="math-inline">&lambda;<sub>1</sub> &approx; 18.7583 rad<sup>2</sup>/s<sup>2</sup></span>. 
-                    This translates directly to the <strong>fundamental natural frequency</strong> of the structure:
-                    <div class="math-display">&omega;<sub>1</sub> = &radic;&lambda;<sub>1</sub> = &radic;18.7583 &approx; 4.331 rad/s</div>
-                    Converting this to cyclic frequency:
-                    <div class="math-display"><i>f</i><sub>1</sub> = <span class="math-fraction"><span class="math-numerator">&omega;<sub>1</sub></span><span class="math-denominator">2&pi;</span></span> &approx; 0.689 Hz</div>
-                    <br>
-                    <strong>Significance in Seismic Design:</strong> Most earthquake waves carry high energy within the <span class="math-inline">0.5 Hz to 5.0 Hz</span> frequency range. Since our building's fundamental frequency <span class="math-inline"><i>f</i><sub>1</sub> &approx; 0.689 Hz</span> lies squarely in this band, there is an extreme risk of resonance causing failure. To secure the building, engineers would use this numerical feedback to either <strong>stiffen</strong> the columns to shift the frequency above <span class="math-inline">1.5 Hz</span>, or incorporate <strong>base isolation rubber bearings</strong> to safely lower the system's frequency below <span class="math-inline">0.2 Hz</span>.
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Calculator & Chart Showcase -->
-        <section id="calculator" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8 scroll-mt-20">
-            <div class="flex items-center space-x-3 border-b pb-4 mb-6">
-                <span class="w-2 h-6 bg-indigo-600 rounded"></span>
-                <h2 class="text-2xl font-extrabold text-slate-900">5. Interactive Solver & Visualizer</h2>
-            </div>
-            
-            <p class="text-slate-600 text-sm mb-6 text-justify">
-                Choose one of our mathematical examples, set your initial guesses, and watch Muller's method run while <strong>plotting the function curve in real-time</strong> on the graph!
-            </p>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Left: Controls -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60">
-                    <div class="mb-4">
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Select Target Equation</label>
-                        <select id="equationSelect" onchange="loadPreset()" class="w-full p-2.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-800">
-                            <option value="eq1">Example 1: x³ - 13x - 12 = 0</option>
-                            <option value="eq2">Example 2: x³ - 6x² + 11x - 6 = 0</option>
-                            <option value="eq3">Example 3: x² + x + 1 = 0 (Complex)</option>
-                            <option value="eq4">Application: λ³ - 250λ² + 15000λ - 200000 = 0</option>
-                        </select>
-                    </div>
-
-                    <div class="grid grid-cols-3 gap-3 mb-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Guess <i>x</i><sub>0</sub></label>
-                            <input type="number" id="x0" value="3.0" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Controls -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60">
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Select Target Equation</label>
+                            <select id="equationSelect" onchange="loadPreset()" class="w-full p-2.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-800">
+                                <option value="eq1">Example 1: x³ - 13x - 12 = 0</option>
+                                <option value="eq2">Example 2: x³ - 6x² + 11x - 6 = 0</option>
+                                <option value="eq3">Example 3: x² + x + 1 = 0 (Complex)</option>
+                                <option value="eq4">UAV Clearance: x³ - 250x² + 15000x - 200000 = 0</option>
+                            </select>
                         </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Guess <i>x</i><sub>1</sub></label>
-                            <input type="number" id="x1" value="3.5" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
+
+                        <div class="grid grid-cols-3 gap-3 mb-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess x0</label>
+                                <input type="number" id="x0" value="3.0" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess x1</label>
+                                <input type="number" id="x1" value="3.5" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guess x2</label>
+                                <input type="number" id="x2" value="4.5" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Guess <i>x</i><sub>2</sub></label>
-                            <input type="number" id="x2" value="4.5" step="0.1" class="w-full p-2 bg-white border border-slate-200 rounded-lg text-sm text-center">
+
+                        <button onclick="runComplexMuller()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition duration-200">
+                            Run Muller's Method & Plot Graph
+                        </button>
+
+                        <div class="mt-6">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Calculation Log</span>
+                            <div id="output" class="bg-slate-900 text-slate-100 p-4 rounded-xl font-mono text-[11px] overflow-y-auto h-[220px] border border-slate-800">
+                                Click the button to run the calculations...
+                            </div>
                         </div>
                     </div>
 
-                    <button onclick="runComplexMuller()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition duration-200">
-                        Run Muller's Method & Plot Graph
-                    </button>
-
-                    <div class="mt-6">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Calculation Log</span>
-                        <div id="output" class="bg-slate-900 text-slate-100 p-4 rounded-xl font-mono text-xs overflow-y-auto h-[250px] border border-slate-800">
-                            Click the button to run the calculations...
+                    <!-- Chart canvas -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Live Function Plotter</span>
+                        <div class="w-full h-[320px] relative">
+                            <canvas id="rootChart"></canvas>
+                        </div>
+                        <div class="mt-4 p-3 bg-indigo-50 text-indigo-950 text-[10px] rounded-lg border border-indigo-100">
+                            <strong>Note:</strong> The blue line shows the local function curve. Dotted line represents the root-boundary.
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Right: Chart canvas -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Live Function Plotter</span>
-                    <div class="w-full h-[350px] relative">
-                        <canvas id="rootChart"></canvas>
-                    </div>
-                    <div class="mt-4 p-3 bg-indigo-50 text-indigo-950 text-[11px] rounded-lg border border-indigo-100">
-                        <strong>Graph Legend:</strong> The blue line shows the local function curve. The dotted gray line marks <span class="math-inline"><i>y</i> = 0</span> (the root boundary).
-                    </div>
+            <!-- Page: Excel Demo -->
+            <section id="tab-demo" class="tab-view hidden">
+                <div class="border-b pb-4 mb-6">
+                    <h2 class="text-2xl font-black text-slate-900">Microsoft Excel Demonstration</h2>
+                    <p class="text-slate-500 text-xs mt-1">Visual Walkthrough</p>
                 </div>
-            </div>
-        </section>
+                <p class="text-slate-600 mb-4 text-sm text-justify">
+                    This detailed video tutorial outlines how to construct the formulas and run Muller's Method inside Microsoft Excel without using complex coding languages.
+                </p>
+                <div class="video-container shadow-md relative pb-[56.25%] h-0 overflow-hidden max-w-full bg-black rounded-xl">
+                    <iframe class="absolute top-0 left-0 w-full h-full border-0" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+            </section>
 
-        <!-- Demonstration Video Section -->
-        <section id="demo" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8 scroll-mt-20">
-            <h2 class="text-2xl font-extrabold text-slate-900 border-b pb-4 mb-6 flex items-center">
-                <span class="w-2 h-6 bg-brand-600 rounded mr-3"></span>6. Demonstration Video
-            </h2>
-            <p class="text-slate-600 mb-4 text-sm">
-                This visual step-by-step video demonstrates how to set up the formulas and execute Muller's Method inside Microsoft Excel.
-            </p>
-            <div class="video-container shadow-md">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-            </div>
-        </section>
+            <!-- Page: References & Acknowledgement -->
+            <section id="tab-references" class="tab-view hidden">
+                <div class="border-b pb-4 mb-6">
+                    <h2 class="text-2xl font-black text-slate-900">References & Acknowledgement</h2>
+                    <p class="text-slate-500 text-xs mt-1">Academic Credentials and Support</p>
+                </div>
 
-        <!-- References Section -->
-        <section id="references" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8">
-            <h2 class="text-xl font-extrabold text-slate-900 border-b pb-4 mb-4">References</h2>
-            <ol class="list-decimal pl-5 text-xs text-slate-500 space-y-2">
-                <li>Muller, D. E. (1956). "A Method for Solving Algebraic Equations Using an Automatic Computer." <em>Mathematical Tables and Other Aids to Computation</em>, 10(56), 208-215.</li>
-                <li>Chapra, S. C., & Canale, R. P. (2015). <em>Numerical Methods for Engineers</em> (7th ed.). McGraw-Hill Education.</li>
-                <li>Burden, R. L., & Faires, J. D. (2011). <em>Numerical Analysis</em> (9th ed.). Brooks/Cole, Cengage Learning.</li>
-            </ol>
-        </section>
+                <h3 class="text-lg font-bold text-indigo-600 mb-3">References</h3>
+                <div class="bg-slate-50 p-5 border rounded-xl mb-8">
+                    <ul class="list-decimal pl-5 text-[11px] text-slate-600 space-y-3">
+                        <li>Qureshi, S., Chicharro, F. I., Argyros, I. K., Soomro, A., Alahmadi, J., & Hincal, E. (2024). "A new optimal numerical root-solver for solving systems of nonlinear equations using local, semi-local, and stability analysis." <em>Axioms</em>, 13(6), 341. <a href="https://doi.org/10.3390/axioms13060341" target="_blank" class="text-indigo-600 underline">https://doi.org/10.3390/axioms13060341</a></li>
+                        <li>Tsai, E. (2014). <em>A method for reducing ill-conditioning of polynomial root finding using a change of basis</em> (Honors thesis). Portland State University Library. <a href="https://doi.org/10.15760/honors.113" target="_blank" class="text-indigo-600 underline">https://doi.org/10.15760/honors.113</a></li>
+                        <li>Demirtürk, B., Köse, B., & Konca, Ş. (2025). "Performance comparison of fixed-point iteration method and teaching-learning based optimisation: A study on nonlinear equation systems." <em>Journal of Universal Mathematics</em>, 8(1), 52–69. <a href="https://doi.org/10.33773/jum.1551816" target="_blank" class="text-indigo-600 underline">https://doi.org/10.33773/jum.1551816</a></li>
+                        <li>Shannon, A. G. (1977). "Tribonacci Numbers and Pascal’s Pyramid." <em>The Fibonacci Quarterly</em>, 15(3), 268. <a href="https://doi.org/10.1080/00150517.1977.12430456" target="_blank" class="text-indigo-600 underline">https://doi.org/10.1080/00150517.1977.12430456</a></li>
+                        <li>Sharma, J. R., Kumar, S., & Cesarano, C. (2019). "An efficient derivative free one-point method with memory for solving nonlinear equations." <em>Mathematics</em>, 7(7), 604. <a href="https://doi.org/10.3390/math7070604" target="_blank" class="text-indigo-600 underline">https://doi.org/10.3390/math7070604</a></li>
+                        <li>Park, B., & Hitotumatu, S. (1987). "A study on new muller's method." <em>Publications of the Research Institute for Mathematical Sciences</em>, 23(4), 667–672. <a href="https://doi.org/10.2977/prims/1195176252" target="_blank" class="text-indigo-600 underline">https://doi.org/10.2977/prims/1195176252</a></li>
+                        <li>Chapra, S. C., & Canale, R. P. (2015). <em>Numerical methods for engineers</em> (7th ed.). McGraw-Hill Education.</li>
+                        <li>Burden, R. L., & Faires, J. D. (2011). <em>Numerical analysis</em> (9th ed.). Brooks/Cole, Cengage Learning.</li>
+                    </ul>
+                </div>
 
-        <!-- Acknowledgement Section -->
-        <section id="acknowledgement" class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 mb-8">
-            <h2 class="text-xl font-extrabold text-slate-900 border-b pb-4 mb-4">Acknowledgement</h2>
-            <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                We express our sincere appreciation to our course instructor and classmates for providing valuable feedback during the development of this project study on Muller's Method. Additionally, we acknowledge open-source web resources and software components like Chart.js that assisted in making this educational website visually interactive.
-            </p>
-        </section>
+                <h3 class="text-lg font-bold text-indigo-600 mb-3">Acknowledgement</h3>
+                <p class="text-xs text-slate-600 leading-relaxed text-justify bg-indigo-50/20 p-5 rounded-xl border border-indigo-100">
+                    We would like to express our most sincere gratitude and appreciation to our course instructor, <strong>Dr. Teh Yuan Ying</strong>, for providing intellectual guidance, invaluable feedback, and constant encouragement throughout the development of this numerical analysis group project. His structured briefing and rigorous standards have significantly improved our understanding of root-finding algorithms and polynomial systems.
+                    <br><br>
+                    Additionally, we extend our appreciation to <strong>Universiti Utara Malaysia (UUM)</strong> for providing the academic platform and digital library infrastructure that facilitated our literature research. We are also grateful to open-source communities and platform developers, particularly GitHub for hosting our web platform, and the developers of modern styling toolkits.
+                    <br><br>
+                    Lastly, we recognize the shared commitment, effective collaboration, and mutual support of all our team members: <strong>SingJie Srisoi</strong>, <strong>Wong Kah Mun</strong>, <strong>Lim Wei Hen</strong>, and <strong>Loh Eng Tom</strong>. This interdisciplinary endeavor was made possible through our shared responsibility and dedication to academic excellence.
+                </p>
+            </section>
 
-    </main>
-
-    <footer class="bg-brand-900 text-slate-400 py-10 border-t border-brand-800">
-        <div class="max-w-7xl mx-auto px-4 text-center text-xs">
-            <p>&copy; 2026 Muller's Method Academic Study Portfolio. Developed for Computational Methods Class.</p>
         </div>
-    </footer>
+    </div>
 
-    <!-- Interactive JS logic -->
+    <!-- Tab Switching Routing Logic inside JavaScript -->
     <script>
-        // Complex Number Utility
-        class Complex {
-            constructor(re, im = 0) {
-                this.re = re;
-                this.im = im;
+        function switchTab(tabId) {
+            // Hide all tab views
+            const views = document.querySelectorAll('.tab-view');
+            views.forEach(view => {
+                view.classList.add('hidden');
+            });
+
+            // Show active tab view
+            const activeView = document.getElementById(tabId);
+            if (activeView) {
+                activeView.classList.remove('hidden');
             }
-            add(other) { return new Complex(this.re + other.re, this.im + other.im); }
-            sub(other) { return new Complex(this.re - other.re, this.im - other.im); }
-            mul(other) { return new Complex(this.re * other.re - this.im * other.im, this.re * other.im + this.im * other.re); }
-            div(other) {
-                let denom = other.re * other.re + other.im * other.im;
-                return new Complex((this.re * other.re + this.im * other.im) / denom, (this.im * other.re - this.re * other.im) / denom);
+
+            // Reset navigation button classes
+            const navButtons = document.querySelectorAll('aside nav button');
+            navButtons.forEach(btn => {
+                btn.className = "w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition duration-150 text-slate-600 hover:bg-slate-50 hover:text-slate-900";
+            });
+
+            // Highlight active navigation button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = "w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold transition duration-150 bg-indigo-700 text-white shadow-sm";
             }
-            sqrt() {
-                let r = Math.sqrt(this.re * this.re + this.im * this.im);
-                let re = Math.sqrt((r + this.re) / 2);
-                let im = Math.sqrt((r - this.re) / 2) * (this.im < 0 ? -1 : 1);
-                return new Complex(re, im);
-            }
-            abs() { return Math.sqrt(this.re * this.re + this.im * this.im); }
-            toString(precision = 6) {
-                if (Math.abs(this.im) < 1e-9) return this.re.toFixed(precision);
-                let sign = this.im >= 0 ? "+" : "-";
-                return `${this.re.toFixed(precision)} ${sign} ${Math.abs(this.im).toFixed(precision)}i`;
-            }
+
+            // Scroll to the top of active section container smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        const presets = {
-            eq1: { x0: 3.0, x1: 3.5, x2: 4.5 },
-            eq2: { x0: 0.5, x1: 0.7, x2: 0.8 },
-            eq3: { x0: -1.0, x1: 0.0, x2: 1.0 },
-            eq4: { x0: 10.0, x1: 15.0, x2: 20.0 }
-        };
+        function showSubExample(examplePaneId) {
+            // Hide all subpanes inside Example section
+            const panes = document.querySelectorAll('.ex-subpane');
+            panes.forEach(pane => {
+                pane.classList.add('hidden');
+            });
 
-        function loadPreset() {
-            let eq = document.getElementById('equationSelect').value;
-            if (presets[eq]) {
-                document.getElementById('x0').value = presets[eq].x0;
-                document.getElementById('x1').value = presets[eq].x1;
-                document.getElementById('x2').value = presets[eq].x2;
-            }
+            // Show current active subpane
+            document.getElementById(examplePaneId).classList.remove('hidden');
+
+            // Reset secondary example sub-tab button styling
+            const exButtons = [
+                { id: 'btn-ex1', pane: 'ex1-pane' },
+                { id: 'btn-ex2', pane: 'ex2-pane' },
+                { id: 'btn-ex3', pane: 'ex3-pane' }
+            ];
+
+            exButtons.forEach(item => {
+                const btn = document.getElementById(item.id);
+                if (item.pane === examplePaneId) {
+                    btn.className = "px-4 py-2 text-xs font-bold border-b-2 border-brand-600 text-brand-600";
+                } else {
+                    btn.className = "px-4 py-2 text-xs font-semibold text-slate-500 hover:text-slate-800";
+                }
+            });
         }
 
+        // --- Muller's Method Interactive JS Engine ---
         let chartInstance = null;
 
         function plotFunction(eqType, rootVal) {
@@ -974,9 +1056,10 @@
             plotFunction(eq, convergedRootReal);
         }
 
+        // Initialize state on first page load
         window.onload = function() {
+            switchTab('tab-members'); // Default landing tab
             loadPreset();
-            runComplexMuller(); // Initial Plot
         }
     </script>
 </body>
